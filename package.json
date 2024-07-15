@@ -1,0 +1,36 @@
+{
+	"name": "spinorama",
+	"version": "0.1.0",
+	"private": false,
+	"author": "Hossein Maklavani",
+	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
+	"main": "./dist/index.js",
+	"keywords": [
+		"react",
+		"react-component",
+		"mui",
+		"material-ui",
+		"material design"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/maklavani/spinorama"
+	},
+	"bugs": {
+		"url": "https://github.com/maklavani/spinorama/issues"
+	},
+	"license": "MIT",
+	"dependencies": {},
+	"peerDependencies": {},
+	"peerDependenciesMeta": {},
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public",
+		"directory": "build"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"module": "./index.js",
+	"types": "./index.d.ts"
+}
