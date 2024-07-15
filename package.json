@@ -10,7 +10,10 @@
 		"react-component",
 		"mui",
 		"material-ui",
-		"material design"
+		"material design",
+		"carousel",
+		"slideshow",
+		"slider"
 	],
 	"repository": {
 		"type": "git",
@@ -19,6 +22,7 @@
 	"bugs": {
 		"url": "https://github.com/maklavani/spinorama/issues"
 	},
+	"homepage": "https://spinorama.dev",
 	"license": "MIT",
 	"dependencies": {},
 	"peerDependencies": {},
