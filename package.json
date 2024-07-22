@@ -26,7 +26,7 @@
 	"homepage": "https://spinorama.dev",
 	"license": "MIT",
 	"scripts": {
-		"build": "npx rimraf dist && tsc"
+		"build": "npx rimraf dist && tsc --module commonjs --outDir dist"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.13.0",

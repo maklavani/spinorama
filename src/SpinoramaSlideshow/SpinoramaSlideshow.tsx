@@ -2,13 +2,13 @@ import { FC } from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import type { SpinoramaSlideshowProps } from './index.d'
+import type { SpinoramaSlideshowProps } from './SpinoramaSlideshow.d'
 
 const SpinoramaSlideshow: FC = (props: SpinoramaSlideshowProps) => {
 	// Props
 	const { className } = props
 
-	return <Grid>test</Grid>
+	return <Grid className={className}>SpinoramaSlideshow</Grid>
 }
 
-export default SpinoramaSlideshow
+export { SpinoramaSlideshow }
