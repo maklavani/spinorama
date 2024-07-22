@@ -1,6 +1,6 @@
 {
 	"name": "spinorama",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"private": false,
 	"author": "Hossein Maklavani",
 	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
@@ -23,9 +23,9 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./src/index.js",
+	"module": "./src/index.js",
+	"types": "./src/index.d.ts",
 	"scripts": {
 		"build": "npx rimraf dist && npm run build:cjs",
 		"build:cjs": "tsc --module commonjs --outDir dist"
