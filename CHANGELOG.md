@@ -1,6 +1,7 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+# 0.1.4
 - Change `README.md` for **under development**
 - Export `types` from all files
 
