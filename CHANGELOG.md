@@ -1,6 +1,7 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+# 0.1.2
 - Create `src` **directory**
 
 # 0.1.1
