@@ -4,8 +4,6 @@
 	"private": false,
 	"author": "Hossein Maklavani",
 	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
-	"main": "./dist/index.js",
-	"source": "./src/index.ts",
 	"keywords": [
 		"react",
 		"react-component",
@@ -25,16 +23,23 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "npx rimraf dist && tsc --module commonjs --outDir dist"
+		"build": "npx rimraf dist && npm run build:cjs",
+		"build:cjs": "tsc --module commonjs --outDir dist"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
 	},
 	"dependencies": {
-		"@emotion/react": "^11.13.0",
-		"@emotion/styled": "^11.13.0",
-		"@mui/icons-material": "^5.16.4",
-		"@mui/system": "^5.16.4",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
+		"@emotion/react": "^11.4.1",
+		"@emotion/styled": "^11.3.0",
+		"@mui/icons-material": "^5.0.0",
+		"@mui/system": "^5.0.0",
+		"react": "^17.0.0 || ^18.0.0",
+		"react-dom": "^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
 		"@types/react": "^18.3.3",

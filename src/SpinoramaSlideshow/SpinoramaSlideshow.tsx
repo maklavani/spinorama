@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import * as React from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import type { SpinoramaSlideshowProps } from './SpinoramaSlideshow.d'
+import { SpinoramaSlideshowProps } from './SpinoramaSlideshow.types'
 
-const SpinoramaSlideshow: FC = (props: SpinoramaSlideshowProps) => {
+const SpinoramaSlideshow: React.FC = (props: SpinoramaSlideshowProps) => {
 	// Props
 	const { className } = props
 
