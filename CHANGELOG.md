@@ -1,6 +1,8 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+- Change `README.md` for **under development**
+
 # 0.1.3
 - Create `SpinoramaSlideshow` component
 
