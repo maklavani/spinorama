@@ -1,9 +1,11 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+- Export `types` from all files
+- Change `README.md` for **note**
+
 # 0.1.4
 - Change `README.md` for **under development**
-- Export `types` from all files
 
 # 0.1.3
 - Create `SpinoramaSlideshow` component
