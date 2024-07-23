@@ -1,6 +1,7 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+# 0.1.8
 - Add `installing` code in **README.md** file
 
 # 0.1.7
