@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 import type { SpinoramaSlideshowProps } from './Slideshow.types'
 
 // Components
-import { SpinoramaItem } from '../Item'
+const SpinoramaItem = React.lazy(() => import('../Item').then((module) => ({ default: module.SpinoramaItem })))
 
 const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
 	// Props
@@ -26,7 +26,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 					const elm = React.cloneElement(child)
 
 					// Check is item
-					const isItem = child.props.className?.includes('spinorama-slidehow-item')
+					const isItem = child.type.toString().indexOf('spinorama-slidehow-item') > -1
 
 					return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
 				} else return null

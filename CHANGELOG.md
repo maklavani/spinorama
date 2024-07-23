@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Implement `lazy loading` for **items** in the slideshow component
+
 ## 0.1.18
 - Check children in `slideshow` and change them if they aren't `items`
 
