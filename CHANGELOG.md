@@ -1,6 +1,7 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+# 0.1.6
 - Fixed `bugs` in publish
 
 # 0.1.5
