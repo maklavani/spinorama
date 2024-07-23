@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.1.19
 - Implement `lazy loading` for **items** in the slideshow component
 
 ## 0.1.18
