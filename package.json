@@ -23,15 +23,36 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"license": "MIT",
-	"main": "./src/index.js",
-	"module": "./src/index.js",
-	"types": "./src/index.d.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"/dist"
+	],
+	"babel": {
+		"presets": [
+			"react",
+			"env",
+			"stage-2"
+		]
+	},
 	"scripts": {
-		"build": "npx rimraf dist && npm run build:cjs",
-		"build:cjs": "tsc --module commonjs --outDir dist"
+		"build": "tsc --module commonjs --outDir dist"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"dependencies": {
 		"@emotion/react": "^11.4.1",
@@ -43,6 +64,11 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.3.3",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-2": "^6.24.1",
+		"gh-pages": "^6.1.1",
 		"typescript": "^5.5.3"
 	},
 	"peerDependencies": {
