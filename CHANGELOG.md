@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Change the name of `SpinoramaSlideshow` to `Slideshow`
+- Create `Spinorama` component
 
 ## 0.1.11
 - Export `types` in the output
