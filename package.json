@@ -2,11 +2,11 @@
 	"name": "spinorama",
 	"version": "0.1.21",
 	"private": false,
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "npx rimraf ./dist && tsc --build tsconfig.json"
+		"build": "npx rimraf dist && tsc --build tsconfig.json"
 	},
 	"author": "Hossein Maklavani",
 	"license": "MIT",
@@ -30,7 +30,7 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"files": [
-		"./dist",
+		"dist",
 		"LICENSE",
 		"README.md"
 	],
