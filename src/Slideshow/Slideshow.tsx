@@ -10,7 +10,14 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 
 	return (
 		<Grid className={`spinorama-slidehow${className ? ` ${className}` : ''}`} container>
-			{children}
+			{children &&
+				React.Children.map(children, (child, index) => {
+					return (
+						<Grid key={index} item xs={12}>
+							{React.cloneElement(child)}
+						</Grid>
+					)
+				})}
 		</Grid>
 	)
 }
