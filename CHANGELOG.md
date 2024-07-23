@@ -1,8 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.1.13
 - Change `package.json`
-- Change the name of `Slideshow` to `SpinoramaSlideshow`
 
 ## 0.1.12
 - Change the name of `SpinoramaSlideshow` to `Slideshow`

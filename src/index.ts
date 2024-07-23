@@ -1,2 +1,2 @@
 export * from './Spinorama'
-export * from './SpinoramaSlideshow'
+export * from './Slideshow'

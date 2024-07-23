@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import type { SpinoramaSlideshowProps } from './SpinoramaSlideshow.types'
+import type { SpinoramaSlideshowProps } from './Slideshow.types'
 
 const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
 	// Props
