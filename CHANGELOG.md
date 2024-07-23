@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `SpinoramaItem` component
+
 ## 0.1.16
 - Add `tab-size` to slideshow
 
