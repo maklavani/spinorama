@@ -1,6 +1,6 @@
 {
 	"name": "spinorama",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"private": false,
 	"author": "Hossein Maklavani",
 	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
