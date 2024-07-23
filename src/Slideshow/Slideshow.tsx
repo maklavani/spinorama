@@ -21,8 +21,15 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 				tabSize: React.Children.count(children) ?? 0
 			}}>
 			{React.Children.map(children, (child, index) => {
-				if (React.isValidElement(child)) return <SpinoramaItem key={index}>{React.cloneElement(child)}</SpinoramaItem>
-				else return null
+				if (React.isValidElement(child)) {
+					// Get element
+					const elm = React.cloneElement(child)
+
+					// Check is item
+					const isItem = child.props.className?.includes('spinorama-slidehow-item')
+
+					return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
+				} else return null
 			})}
 		</Box>
 	)

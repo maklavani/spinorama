@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Check children in `slideshow` and change them if they aren't `items`
+
 ## 0.1.17
 - Create `SpinoramaItem` component
 
