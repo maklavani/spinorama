@@ -9,12 +9,16 @@ const SpinoramaItem = React.lazy(() => import('../Item').then((module) => ({ def
 
 const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
 	// Props
-	const { className, children } = props
+	const { justify, className, children } = props
+
+	// Varaibles
+	const justifyContent = justify === 'end' ? 'flex-end' : justify === 'center' ? 'center' : 'flex-start'
 
 	return (
 		<Box
 			className={`spinorama-slidehow${className ? ` ${className}` : ''}`}
 			display="flex"
+			justifyContent={justifyContent}
 			width={1}
 			overflow="hidden"
 			sx={{
