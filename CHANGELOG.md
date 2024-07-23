@@ -1,6 +1,7 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+# 0.1.7
 - Remove `babel` from **package.json** file
 
 # 0.1.6
