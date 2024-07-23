@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Change `package.json`
+
 ## 0.1.12
 - Change the name of `SpinoramaSlideshow` to `Slideshow`
 - Create `Spinorama` component

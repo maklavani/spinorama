@@ -2,7 +2,14 @@
 	"name": "spinorama",
 	"version": "0.1.12",
 	"private": false,
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc --build tsconfig.json"
+	},
 	"author": "Hossein Maklavani",
+	"license": "MIT",
 	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
 	"keywords": [
 		"react",
@@ -22,19 +29,12 @@
 		"url": "https://github.com/maklavani/spinorama/issues"
 	},
 	"homepage": "https://spinorama.dev",
-	"license": "MIT",
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"./dist",
 		"CHANGELOG.md",
 		"LICENSE",
 		"README.md"
 	],
-	"scripts": {
-		"build": "tsc --build tsconfig.json"
-	},
 	"dependencies": {
 		"@emotion/react": "^11.4.1",
 		"@emotion/styled": "^11.3.0",
