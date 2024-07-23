@@ -1,4 +1,5 @@
 import { dir } from 'i18next'
+import { Analytics } from '@vercel/analytics/react'
 
 // Types
 import type { Metadata, Viewport } from 'next'
@@ -73,6 +74,8 @@ const RootLayout = (props: LayoutProps) => {
 				<AppCache dir={dir(lng)}>
 					<ThemeRegistry dir={dir(lng)}>{children}</ThemeRegistry>
 				</AppCache>
+
+				<Analytics mode={'production'} />
 			</body>
 		</html>
 	)

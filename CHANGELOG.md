@@ -1,8 +1,10 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `@vercel/analytics` to track website visitors and gather anonymous usage data. This will help us understand how our package is being used and make informed decisions about its development
+
 ## 0.3.1
-- Add Rubik font for `arabic` and `persian` language
+- Added `Rubik` font for both **arabic** and **persian** languages
 
 ## 0.3.0
 - Create `basic` structure for **documentation**. This includes the main documentation template, folder structure, and basic content
