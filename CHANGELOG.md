@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.0
 - Create `basic` structure for **documentation**. This includes the main documentation template, folder structure, and basic content
 
 ## 0.2.0
