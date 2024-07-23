@@ -12,12 +12,18 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 	if (!children) return null
 
 	return (
-		<Grid className={`spinorama-slidehow${className ? ` ${className}` : ''}`} container>
+		<Grid
+			className={`spinorama-slidehow${className ? ` ${className}` : ''}`}
+			width={1}
+			overflow="hidden"
+			sx={{
+				tabSize: React.Children.count(children) ?? 0
+			}}>
 			{React.Children.map(children, (child, index) => {
 				if (!React.isValidElement(child)) return null
 
 				return (
-					<Grid key={index} item xs={12}>
+					<Grid key={index} className="spinorama-slidehow-item" flex="0 0 100%">
 						{React.cloneElement(child)}
 					</Grid>
 				)

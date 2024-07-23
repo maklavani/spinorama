@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Add `tab-size` to slideshow
+
 ## 0.1.15
 - Add `Grid` for each item in the **slideshow**
 

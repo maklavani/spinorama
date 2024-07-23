@@ -12,5 +12,5 @@ export type SpinoramaSlideshowProps = {
 	 * Children elements to be rendered inside the component.
 	 * Use this prop when you want to pass components or elements as children to the component.
 	 */
-	children?: JSX.Element
+	children?: React.ReactNode
 }
