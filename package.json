@@ -40,7 +40,6 @@
 		"@mui/icons-material": "^5.0.0",
 		"@mui/material": "^5.0.0",
 		"@mui/system": "^5.0.0",
-		"accept-language": "^3.0.18",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
 	},
