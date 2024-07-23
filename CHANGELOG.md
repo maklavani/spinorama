@@ -1,11 +1,13 @@
 # Release notes
 All notable changes to this package will be documented in this file.
 
+- Add `installing` code in **README.md** file
+
 # 0.1.7
 - Remove `babel` from **package.json** file
 
 # 0.1.6
-- Fixed `bugs` in publish
+- Fix `bugs` in publish
 
 # 0.1.5
 - Export `types` from all files
