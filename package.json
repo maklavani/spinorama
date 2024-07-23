@@ -23,9 +23,15 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"./dist",
+		"CHANGELOG.md",
+		"LICENSE",
+		"README.md"
+	],
 	"scripts": {
 		"build": "tsc --build tsconfig.json"
 	},

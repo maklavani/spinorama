@@ -1,36 +1,38 @@
-# Release notes
+# Release Notes
 All notable changes to this package will be documented in this file.
 
-# 0.1.10
-- Fix `bugs` in publish
+- Export `types` in the output
 
-# 0.1.9
-- Fix `bugs` in publish
+## 0.1.10
+- Fixed bugs in publish
 
-# 0.1.8
-- Add `installing` code in **README.md** file
+## 0.1.9
+- Fixed bugs in publish
 
-# 0.1.7
-- Remove `babel` from **package.json** file
+## 0.1.8
+- Added installing code in **README.md** file
 
-# 0.1.6
-- Fix `bugs` in publish
+## 0.1.7
+- Removed `babel` from **package.json** file
 
-# 0.1.5
+## 0.1.6
+- Fixed bugs in publish
+
+## 0.1.5
 - Export `types` from all files
-- Change `README.md` for **note**
+- Changed `README.md` for **note**
 
-# 0.1.4
-- Change `README.md` for **under development**
+## 0.1.4
+- Changed `README.md` for **under development**
 
-# 0.1.3
-- Create `SpinoramaSlideshow` component
+## 0.1.3
+- Created `SpinoramaSlideshow` component
 
-# 0.1.2
-- Create `src` **directory**
+## 0.1.2
+- Created `src` **directory**
 
-# 0.1.1
-- Add `homepage` to package.json
+## 0.1.1
+- Added `homepage` to package.json
 
-# 0.1.0
+## 0.1.0
 - Initial commit

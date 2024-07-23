@@ -2,13 +2,13 @@ import * as React from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import { SpinoramaSlideshowProps } from './SpinoramaSlideshow.types'
+import type { SpinoramaSlideshowProps } from './SpinoramaSlideshow.types'
 
-const SpinoramaSlideshow: React.FC = (props: SpinoramaSlideshowProps) => {
+const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
 	// Props
-	const { className } = props
+	const { className, children } = props
 
-	return <Grid className={className}>SpinoramaSlideshow</Grid>
+	return <Grid className={className}>{children}</Grid>
 }
 
 export { SpinoramaSlideshow }
