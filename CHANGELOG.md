@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.1.21
 - Create `reverse` setting for **slideshow** component to reverse the order of items in the slideshow
 
 ## 0.1.20
