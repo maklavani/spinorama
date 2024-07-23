@@ -1,14 +1,19 @@
 import * as React from 'react'
-import { Grid } from '@mui/material'
+import { Box } from '@mui/material'
 
 // Types
-import type { SpinoramaProps } from './Spinorama.types'
+import type { SpinoramaProps, SpinoramaSettings } from './Spinorama.types'
 
 const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
-	const { className, children } = props
+	const { duration, className, children } = props
 
-	return <Grid className={className}>{children}</Grid>
+	// Variables
+	const settings: SpinoramaSettings = {
+		duration: duration || 10000
+	}
+
+	return <Box className={`spinorama${className ? ` ${className}` : ''}`}>{children}</Box>
 }
 
 export { Spinorama }

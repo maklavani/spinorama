@@ -31,7 +31,6 @@
 	"homepage": "https://spinorama.dev",
 	"files": [
 		"./dist",
-		"CHANGELOG.md",
 		"LICENSE",
 		"README.md"
 	],

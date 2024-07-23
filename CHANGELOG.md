@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `SpinoramaSettings`
+
 ## 0.1.13
 - Change `package.json`
 

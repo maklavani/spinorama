@@ -1,6 +1,15 @@
 import * as React from 'react'
 
-export type SpinoramaProps = {
+export type SpinoramaSettings = {
+	/**
+	 * The duration of the transition between slides.
+	 *
+	 * @default 10000
+	 */
+	duration?: number
+}
+
+export type SpinoramaProps = SpinoramaSettings & {
 	/**
 	 * The class name of the component.
 	 * Use this prop when you want to style the component with a className.

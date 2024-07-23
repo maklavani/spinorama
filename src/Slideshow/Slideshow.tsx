@@ -8,7 +8,11 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 	// Props
 	const { className, children } = props
 
-	return <Grid className={className}>{children}</Grid>
+	return (
+		<Grid className={`spinorama-slidehow${className ? ` ${className}` : ''}`} container>
+			{children}
+		</Grid>
+	)
 }
 
 export { SpinoramaSlideshow }
