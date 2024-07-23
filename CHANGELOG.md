@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.1
 - Add Rubik font for `arabic` and `persian` language
 
 ## 0.3.0
