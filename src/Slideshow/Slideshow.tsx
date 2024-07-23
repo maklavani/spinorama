@@ -8,16 +8,20 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 	// Props
 	const { className, children } = props
 
+	// Check if children is defined
+	if (!children) return null
+
 	return (
 		<Grid className={`spinorama-slidehow${className ? ` ${className}` : ''}`} container>
-			{children &&
-				React.Children.map(children, (child, index) => {
-					return (
-						<Grid key={index} item xs={12}>
-							{React.cloneElement(child)}
-						</Grid>
-					)
-				})}
+			{React.Children.map(children, (child, index) => {
+				if (!React.isValidElement(child)) return null
+
+				return (
+					<Grid key={index} item xs={12}>
+						{React.cloneElement(child)}
+					</Grid>
+				)
+			})}
 		</Grid>
 	)
 }
