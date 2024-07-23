@@ -6,7 +6,7 @@
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
-		"build": "tsc --build tsconfig.json"
+		"build": "npx rimraf ./dist && tsc --build tsconfig.json"
 	},
 	"author": "Hossein Maklavani",
 	"license": "MIT",
