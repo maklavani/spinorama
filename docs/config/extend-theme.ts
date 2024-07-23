@@ -4,7 +4,7 @@ import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 import type { Direction } from '@mui/material/styles'
 
 // Fonts
-import IranSansFont from '@/styles/fonts/iran-sans'
+import RubikFont from '@/styles/fonts/rubik'
 import RobotoFont from '@/styles/fonts/roboto'
 
 const ExtendThemeConfig = (dir: Direction) =>
@@ -28,7 +28,7 @@ const ExtendThemeConfig = (dir: Direction) =>
 		},
 		shape: { borderRadius: 16 },
 		typography: {
-			fontFamily: `${IranSansFont.style.fontFamily}, ${RobotoFont.style.fontFamily}`,
+			fontFamily: `${RubikFont.style.fontFamily}, ${RobotoFont.style.fontFamily}`,
 			fontSize: 14
 		},
 		components: {
