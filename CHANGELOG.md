@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.1.16
 - Add `tab-size` to slideshow
 
 ## 0.1.15
