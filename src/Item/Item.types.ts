@@ -4,7 +4,6 @@ export type SpinoramaItemProps = {
 	/**
 	 * The class name of the component.
 	 * Use this prop when you want to style the component with a className.
-	 *
 	 */
 	className?: string
 

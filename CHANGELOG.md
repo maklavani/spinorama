@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `reverse` setting for **slideshow** component to reverse the order of items in the slideshow
+
 ## 0.1.20
 - Create `justify` setting for **slideshow** component to align items within the slideshow
 

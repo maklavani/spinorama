@@ -9,7 +9,7 @@ const SpinoramaItem = React.lazy(() => import('../Item').then((module) => ({ def
 
 const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
 	// Props
-	const { justify, className, children } = props
+	const { justify, reverse, className, children } = props
 
 	// Varaibles
 	const justifyContent = justify === 'end' ? 'flex-end' : justify === 'center' ? 'center' : 'flex-start'
@@ -18,6 +18,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 		<Box
 			className={`spinorama-slidehow${className ? ` ${className}` : ''}`}
 			display="flex"
+			flexDirection={reverse ? 'row-reverse' : 'row'}
 			justifyContent={justifyContent}
 			width={1}
 			overflow="hidden"

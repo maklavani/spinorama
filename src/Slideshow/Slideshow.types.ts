@@ -13,9 +13,16 @@ export type SpinoramaSlideshowProps = {
 	justify?: 'start' | 'end' | 'center'
 
 	/**
+	 * Determines the direction of the slideshow.
+	 * When `true`, the slides will be displayed in reverse order.
+	 *
+	 * @default false
+	 */
+	reverse?: boolean
+
+	/**
 	 * The class name of the component.
 	 * Use this prop when you want to style the component with a className.
-	 *
 	 */
 	className?: string
 
