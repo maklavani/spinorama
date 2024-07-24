@@ -2,21 +2,18 @@ import * as React from 'react'
 import { Box } from '@mui/material'
 
 // Types
-import type { SpinoramaSlideshowProps } from './Slideshow.types'
+import type { SpinoramaCarosuelProps } from './Carosuel.types'
 
 // Components
 const SpinoramaItem = React.lazy(() => import('../Item').then(module => ({ default: module.SpinoramaItem })))
 
-const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaSlideshowProps) => {
+const SpinoramaCarosuel: React.FC<SpinoramaCarosuelProps> = (props: SpinoramaCarosuelProps) => {
 	// Props
-	const { justify, reverse, className, children } = props
-
-	// Varaibles
-	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
+	const { className, children } = props
 
 	return (
-		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1}>
-			<Box className="spinorama-slidehow-wrapper" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" width={1} overflow="hidden">
+		<Box className={`spinorama-carousel${className ? ` ${className}` : ''}`} display="flex" width={1}>
+			<Box className="spinorama-carousel-wrapper" display="flex" width={1} overflow="hidden">
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Get element
@@ -33,4 +30,4 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 	)
 }
 
-export { SpinoramaSlideshow }
+export { SpinoramaCarosuel }
