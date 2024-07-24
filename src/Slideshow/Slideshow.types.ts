@@ -6,11 +6,10 @@ export type SpinoramaSlideshowProps = {
 	 * Available options are:
 	 * - 'start': aligns the slides to the left (or top if `direction` is 'column');
 	 * - 'end': aligns the slides to the right (or bottom if `direction` is 'column');
-	 * - 'center': aligns the slides to the center.
 	 *
 	 * @default 'start'
 	 */
-	justify?: 'start' | 'end' | 'center'
+	justify?: 'start' | 'end'
 
 	/**
 	 * Determines the direction of the slideshow.

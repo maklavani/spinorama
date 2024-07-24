@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Moved `.prettierignore` and `.prettierrc` to the root of the project.
+- Create `SpinoramaCarousel` component
 
 ## 0.3.2
 - Added `@vercel/analytics` to track website visitors and gather anonymous usage data. This will help us understand how our package is being used and make informed decisions about its development
