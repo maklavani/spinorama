@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.4
 - Fix the `bug` in naming **carousel**
 
 ## 0.3.3
