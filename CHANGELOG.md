@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fix the `bug` in naming **carousel**
+
 ## 0.3.3
 - Moved `.prettierignore` and `.prettierrc` to the root of the project.
 - Create `SpinoramaCarousel` component
