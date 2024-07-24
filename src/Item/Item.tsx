@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '@mui/material'
+import { Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaItemProps } from './Item.types'
@@ -9,9 +9,9 @@ const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) 
 	const { className, children } = props
 
 	return (
-		<Box className={`spinorama-item${className ? ` ${className}` : ''}`} flex="0 0 100%">
+		<Grid className={`spinorama-item${className ? ` ${className}` : ''}`} xs={12} {...props}>
 			{children}
-		</Box>
+		</Grid>
 	)
 }
 

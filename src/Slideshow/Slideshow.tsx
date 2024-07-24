@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaSlideshowProps } from './Slideshow.types'
@@ -16,7 +16,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 
 	return (
 		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1}>
-			<Box className="spinorama-slidehow-wrapper" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" width={1} overflow="hidden">
+			<Grid className="spinorama-slidehow-wrapper" container flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} overflow="hidden">
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Get element
@@ -28,7 +28,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 						return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
 					} else return null
 				})}
-			</Box>
+			</Grid>
 		</Box>
 	)
 }

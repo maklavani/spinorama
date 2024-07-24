@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Change `SpinoramaItem` to MUI **Grid**
+
 ## 0.3.4
 - Fix the `bug` in naming **carousel**
 

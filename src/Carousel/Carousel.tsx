@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaCarouselProps } from './Carousel.types'
@@ -13,7 +13,7 @@ const SpinoramaCarousel: React.FC<SpinoramaCarouselProps> = (props: SpinoramaCar
 
 	return (
 		<Box className={`spinorama-carousel${className ? ` ${className}` : ''}`} display="flex" width={1}>
-			<Box className="spinorama-carousel-wrapper" display="flex" width={1} overflow="hidden">
+			<Grid className="spinorama-carousel-wrapper" container overflow="hidden">
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Get element
@@ -25,7 +25,7 @@ const SpinoramaCarousel: React.FC<SpinoramaCarouselProps> = (props: SpinoramaCar
 						return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
 					} else return null
 				})}
-			</Box>
+			</Grid>
 		</Box>
 	)
 }
