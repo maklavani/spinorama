@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Box } from '@mui/material'
 
 // Types
-import type { SpinoramaCarosuelProps } from './Carosuel.types'
+import type { SpinoramaCarouselProps } from './Carousel.types'
 
 // Components
 const SpinoramaItem = React.lazy(() => import('../Item').then(module => ({ default: module.SpinoramaItem })))
 
-const SpinoramaCarosuel: React.FC<SpinoramaCarosuelProps> = (props: SpinoramaCarosuelProps) => {
+const SpinoramaCarousel: React.FC<SpinoramaCarouselProps> = (props: SpinoramaCarouselProps) => {
 	// Props
 	const { className, children } = props
 
@@ -30,4 +30,4 @@ const SpinoramaCarosuel: React.FC<SpinoramaCarosuelProps> = (props: SpinoramaCar
 	)
 }
 
-export { SpinoramaCarosuel }
+export { SpinoramaCarousel }
