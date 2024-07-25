@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `fit-content` to **SpinoramaItem** component
+
 ## 0.3.6
 - Added `item` attribute to **SpinoramaItem** component
 
