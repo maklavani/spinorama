@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.6
 - Added `item` attribute to **SpinoramaItem** component
 
 ## 0.3.5
