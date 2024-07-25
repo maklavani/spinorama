@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `item` attribute to **SpinoramaItem** component
+
 ## 0.3.5
 - Change `SpinoramaItem` to MUI **Grid**
 

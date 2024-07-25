@@ -16,7 +16,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 
 	return (
 		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1}>
-			<Grid className="spinorama-slidehow-wrapper" container flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} overflow="hidden">
+			<Box className="spinorama-slidehow-wrapper" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} overflow="hidden">
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Get element
@@ -28,7 +28,7 @@ const SpinoramaSlideshow: React.FC<SpinoramaSlideshowProps> = (props: SpinoramaS
 						return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
 					} else return null
 				})}
-			</Grid>
+			</Box>
 		</Box>
 	)
 }
