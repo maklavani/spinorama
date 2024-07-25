@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.8
 - Changed `Grid` to `Box` for the wrapper in the **SpinoramaCarousel** component. This change was made to provide a more flexible and appropriate container for the carousel items
 
 ## 0.3.7
