@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.9
 - Both `SpinoramaSlideshow` and `SpinoramaCarousel` components have been merged into a single component called **SpinoramaWrapper**
 
 ## 0.3.8
