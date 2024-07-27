@@ -1,3 +1,3 @@
-export { Spinorama } from './Spinorama/Spinorama'
-export { SpinoramaWrapper } from './Wrapper/Wrapper'
-export { SpinoramaItem } from './Item/Item'
+export * from './Spinorama/index'
+export * from './Wrapper/index'
+export * from './Item/index'

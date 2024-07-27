@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Box } from '@mui/material'
 
 // Types
-import type { SpinoramaProps, SpinoramaSettings } from './Spinorama.types'
+import type { SpinoramaProps, SpinoramaSettings } from './index.types'
 
 const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
@@ -16,4 +16,4 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	return <Box className={`spinorama${className ? ` ${className}` : ''}`}>{children}</Box>
 }
 
-export { Spinorama }
+export default Spinorama

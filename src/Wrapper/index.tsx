@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Box, Grid } from '@mui/material'
+import { Box } from '@mui/material'
 
 // Types
-import type { SpinoramaWrapperProps } from './Wrapper.types'
+import type { SpinoramaWrapperProps } from './index.types'
 
 // Components
-const SpinoramaItem = React.lazy(() => import('../Item/Item').then(module => ({ default: module.SpinoramaItem })))
+const SpinoramaItem = React.lazy(() => import('../Item'))
 
 const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props
@@ -33,4 +33,4 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 	)
 }
 
-export { SpinoramaWrapper }
+export default SpinoramaWrapper

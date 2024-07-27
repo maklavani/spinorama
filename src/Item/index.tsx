@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import type { SpinoramaItemProps } from './Item.types'
+import type { SpinoramaItemProps } from './index.types'
 
 const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) => {
 	// Props
@@ -15,4 +15,4 @@ const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) 
 	)
 }
 
-export { SpinoramaItem }
+export default SpinoramaItem

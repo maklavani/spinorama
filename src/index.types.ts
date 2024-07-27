@@ -1,3 +1,3 @@
-export * from './Spinorama/Spinorama.types'
-export * from './Wrapper/Wrapper.types'
-export * from './Item/Item.types'
+export * from './Spinorama/index.types'
+export * from './Wrapper/index.types'
+export * from './Item/index.types'

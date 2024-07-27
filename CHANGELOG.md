@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- All component files have been renamed to `index` for simplicity and clarity
+
 ## 0.3.11
 - Removed an extra `index` file in the components directory
 
