@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.10
 - Structure output has been simplified to use simpler components. This change enhances usability and readability of the package
 
 ## 0.3.9
