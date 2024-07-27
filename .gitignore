@@ -8,3 +8,10 @@ package-lock.json
 # misc
 .DS_Store
 *.pem
+
+# spinorama
+/Item
+/Spinorama
+/Wrapper
+index.d.ts
+index.js
