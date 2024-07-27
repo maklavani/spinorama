@@ -15,3 +15,5 @@ package-lock.json
 /Wrapper
 index.d.ts
 index.js
+index.types.d.ts
+index.types.js
