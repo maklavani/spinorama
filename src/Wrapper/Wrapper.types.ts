@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export type SpinoramaSlideshowProps = {
+export type SpinoramaWrapperProps = {
 	/**
 	 * Determines how the slides are aligned.
 	 * Available options are:
