@@ -10,10 +10,9 @@ package-lock.json
 *.pem
 
 # spinorama
+/Buttons
 /Item
 /Spinorama
 /Wrapper
 index.d.ts
 index.js
-index.types.d.ts
-index.types.js

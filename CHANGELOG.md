@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `SpinoramaButtons` component
+
 ## 0.3.12
 - All component files have been renamed to `index` for simplicity and clarity
 

@@ -30,6 +30,7 @@
 	},
 	"homepage": "https://spinorama.dev",
 	"files": [
+		"/Buttons",
 		"/Item",
 		"/Spinorama",
 		"/Wrapper",
