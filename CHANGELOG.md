@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixed `bugs` in exporting components
+
 ## 0.3.13
 - Create `SpinoramaButtons` component
 
