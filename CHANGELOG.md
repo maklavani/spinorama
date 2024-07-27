@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.14
 - Fixed `bugs` in exporting components
 
 ## 0.3.13
