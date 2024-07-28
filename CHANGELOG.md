@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Remove `publish.yml` workflow
+
 # 0.3.34
 - Update publishConfig url
 
