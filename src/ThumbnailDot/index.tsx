@@ -10,7 +10,14 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 	const { className, active } = props
 
 	return (
-		<Grid className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`} item flex="0 0 fit-content" {...props}>
+		<Grid
+			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`}
+			item
+			flex="0 0 fit-content"
+			display="inline-flex"
+			justifyContent="center"
+			{...props}
+		>
 			<IconButton
 				color="primary"
 				sx={{

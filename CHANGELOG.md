@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `nextItem` callback in **Spinorama** component to show the next Item
+
 # 0.3.40
 - Added `color` to **ThumbnailDot** component
 
