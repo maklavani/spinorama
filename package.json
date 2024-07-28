@@ -5,9 +5,7 @@
 	"main": "index.js",
 	"module": "index.js",
 	"types": "index.d.ts",
-	"scripts": {
-		"build": "tsc --build tsconfig.json"
-	},
+	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
 	"author": "Hossein Maklavani <hos.mohamadi@gmail.com> (https://maklavani.dev/), Farzad Hamedi <hamedi.farzad@gmail.com> (https://feriii.com/)",
 	"contributors": [
 		{
@@ -21,14 +19,10 @@
 			"url": "https://feriii.com/"
 		}
 	],
-	"funding": [
-		{
-			"type": "open_collective",
-			"url": "https://opencollective.com/spinorama"
-		}
-	],
+	"scripts": {
+		"build": "tsc --build tsconfig.json"
+	},
 	"license": "MIT",
-	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
 	"keywords": [
 		"react",
 		"react-component",
@@ -44,9 +38,12 @@
 		"type": "git",
 		"url": "git+https://github.com/regiti/spinorama.git"
 	},
-	"publishConfig": {
-		"@maklavani:registry": "https://npm.pkg.github.com"
-	},
+	"funding": [
+		{
+			"type": "open_collective",
+			"url": "https://opencollective.com/spinorama"
+		}
+	],
 	"bugs": {
 		"url": "https://github.com/regiti/spinorama/issues"
 	},

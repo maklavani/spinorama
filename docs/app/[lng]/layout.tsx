@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 // Types
 import type { Metadata, Viewport } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
+import type { PageProps } from '@/types/app/pages'
 
 // Configurations
 import Config from '@/config'
@@ -17,15 +18,17 @@ import { useTranslation } from '@/helpers/i18n/server'
 import ThemeRegistry from '@/components/theme/theme-registry'
 import AppCache from '@/components/theme/cache'
 
-export async function generateStaticParams() {
-	return LocaleConfig.list.map(lng => ({ lng }))
-}
-
 // Metadata
-export const generateMetadata = async (): Promise<Metadata> => {
+export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
+	// Props
+	const { params } = props
+
+	// Variables
+	const lng = params?.lng ?? LocaleConfig.default
+
 	// Variables
 	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const { t } = await useTranslation()
+	const { t } = await useTranslation(lng)
 
 	const metadata: Metadata = {
 		applicationName: Config.shortName,
@@ -33,9 +36,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 			title: t('common:app.name'),
 			statusBarStyle: 'black-translucent',
 			startupImage: [
-				'/images/icon192.png',
+				'/images/theme/pwa-192x192.png',
 				{
-					url: '/images/icon512.png',
+					url: '/images/theme/pwa-512x512.png',
 					media: '(device-width: 768px) and (device-height: 1024px)'
 				}
 			]
@@ -75,7 +78,7 @@ const RootLayout = (props: LayoutProps) => {
 					<ThemeRegistry dir={dir(lng)}>{children}</ThemeRegistry>
 				</AppCache>
 
-				<Analytics mode={'production'} />
+				<Analytics mode="auto" />
 			</body>
 		</html>
 	)

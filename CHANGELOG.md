@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `mdx-components` and `not-found` to the **documentation** project
+
 # 0.3.42
 - Added `props` to components to enhance functionality and appearance
 

@@ -1,7 +1,9 @@
+export type Language = 'en' | 'fa'
+
 export type LocaleProps = {
-	default: string
-	list: string[]
-	fallbackLng: string
+	default: Language
+	list: Language[]
+	fallbackLng: Language
 	ns: string[]
 	cookieName: string
 }
