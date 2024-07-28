@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `package-lock.json` files to the **project**
+
 # 0.3.21
 - Run the `publish` workflow when pushing to the **main** branch
 

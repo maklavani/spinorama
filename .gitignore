@@ -2,9 +2,6 @@
 /node_modules
 /dist
 
-# lock
-package-lock.json
-
 # misc
 .DS_Store
 *.pem
