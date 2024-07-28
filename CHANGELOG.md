@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.31
 - Ranamed `publish.yml` to `github.yml`
 
 # 0.3.30
