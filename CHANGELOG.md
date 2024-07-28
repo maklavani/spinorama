@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.32
 - Renamed the package to `spinorama`
 
 # 0.3.31
