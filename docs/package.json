@@ -1,8 +1,19 @@
 {
 	"name": "spinorama-docs",
-	"version": "0.3.22",
 	"private": false,
-	"author": "Hossein Maklavani, Farzad Hamedi",
+	"author": "Hossein Maklavani <hos.mohamadi@gmail.com> (https://maklavani.dev/), Farzad Hamedi <hamedi.farzad@gmail.com> (https://feriii.com/)",
+	"contributors": [
+		{
+			"name": "Hossein Maklavani",
+			"email": "hos.mohamadi@gmail.com",
+			"url": "https://maklavani.dev/"
+		},
+		{
+			"name": "Farzad Hamedi",
+			"email": "hamedi.farzad@gmail.com",
+			"url": "https://feriii.com/"
+		}
+	],
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
