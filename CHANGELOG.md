@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.35
 - Remove `publish.yml` workflow
 
 # 0.3.34
