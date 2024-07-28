@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.15
 - Update `.gitignore` in documentation to exclude **PWA** service worker files
 
 ## 0.3.14
