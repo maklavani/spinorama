@@ -8,15 +8,17 @@
 	"scripts": {
 		"build": "tsc --build tsconfig.json"
 	},
-	"author": "Hossein Maklavani <hos.mohamadi@gmail.com> (https://maklavani.dev/), Farzad Hamedi <hamedi.farzad@gmail.com>",
+	"author": "Hossein Maklavani <hos.mohamadi@gmail.com> (https://maklavani.dev/), Farzad Hamedi <hamedi.farzad@gmail.com> (https://feriii.com/)",
 	"contributors": [
 		{
 			"name": "Hossein Maklavani",
-			"email": "hos.mohamadi@gmail.com"
+			"email": "hos.mohamadi@gmail.com",
+			"url": "https://maklavani.dev/"
 		},
 		{
 			"name": "Farzad Hamedi",
-			"email": "hamedi.farzad@gmail.com"
+			"email": "hamedi.farzad@gmail.com",
+			"url": "https://feriii.com/"
 		}
 	],
 	"funding": [

@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `url` for **contributors**
+
 ## 0.3.16
 - Added `contributors` to the **package.json** file
 
