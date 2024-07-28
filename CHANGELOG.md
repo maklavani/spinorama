@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.18
 - Fixed `bug` in ignoring `index.d.ts` files inside the **documentation** project
 
 ## 0.3.17
