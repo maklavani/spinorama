@@ -3,13 +3,13 @@
 import dynamic from 'next/dynamic'
 
 // Types
-import type { IndexPageProps } from '@/types/components/pages'
+import type { IndexProps } from '@/types/components/templates'
 
 // MDX
 const IndexEn = dynamic(() => import('@/md/en/index.mdx'))
 const IndexFa = dynamic(() => import('@/md/fa/index.mdx'))
 
-const IndexPage = (props: IndexPageProps) => {
+const IndexTemplate = (props: IndexProps) => {
 	// Props
 	const { lng } = props
 
@@ -17,4 +17,4 @@ const IndexPage = (props: IndexPageProps) => {
 	else return <IndexEn />
 }
 
-export default IndexPage
+export default IndexTemplate

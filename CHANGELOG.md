@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Update `.gitignore` in documentation to exclude **PWA** service worker files
+
 ## 0.3.14
 - Fixed `bugs` in exporting components
 

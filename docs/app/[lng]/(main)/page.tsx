@@ -7,7 +7,7 @@ import type { PageProps } from '@/types/app/pages'
 import LocaleConfig from '@/config/locale'
 
 // Components
-const IndexPage = dynamic(() => import('@/components/pages/index'))
+const IndexTemplate = dynamic(() => import('@/components/templates'))
 
 const HomePage = (props: PageProps) => {
 	// Props
@@ -16,7 +16,7 @@ const HomePage = (props: PageProps) => {
 	// Variables
 	const lng = params?.lng ?? LocaleConfig.default
 
-	return <IndexPage lng={lng} />
+	return <IndexTemplate lng={lng} />
 }
 
 export default HomePage
