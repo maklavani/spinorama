@@ -42,13 +42,13 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/maklavani/spinorama.git"
+		"url": "git+https://github.com/regiti/spinorama.git"
 	},
 	"publishConfig": {
-		"@maklavani:registry": "https://npm.pkg.github.com"
+		"@regiti:registry": "https://npm.pkg.github.com"
 	},
 	"bugs": {
-		"url": "https://github.com/maklavani/spinorama/issues"
+		"url": "https://github.com/regiti/spinorama/issues"
 	},
 	"homepage": "https://spinorama.dev",
 	"files": [
