@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.3.19
 - Added `publishConfig` to **package.json**, which specifies the npm registry where the package will be published
 
 ## 0.3.18
