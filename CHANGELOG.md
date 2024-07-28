@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.26
 - Update **.npmrc** to include `npm.pkg.github`
 
 # 0.3.25
