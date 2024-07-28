@@ -11,7 +11,7 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 
 	return (
 		<Grid className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`} item flex="0 0 fit-content">
-			<IconButton>
+			<IconButton color="primary" sx={{ opacity: active ? 1 : 0.75 }}>
 				<CircleOutlinedIcon />
 			</IconButton>
 		</Grid>

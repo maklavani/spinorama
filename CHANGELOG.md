@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `opacity` to **ThumbnailDot** component
+
 # 0.3.38
 - Create `ThumbnailDot` component, enabling thumbnail navigation in the slider
 
