@@ -1,5 +1,5 @@
 {
-	"name": "@maklavani/spinorama",
+	"name": "spinorama",
 	"version": "0.3.31",
 	"private": false,
 	"main": "index.js",

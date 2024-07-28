@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Renamed the package to `spinorama`
+
 # 0.3.31
 - Ranamed `publish.yml` to `github.yml`
 
