@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `contributors` to the **package.json** file
+
 ## 0.3.15
 - Update `.gitignore` in documentation to exclude **PWA** service worker files
 

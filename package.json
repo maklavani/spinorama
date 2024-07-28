@@ -8,7 +8,23 @@
 	"scripts": {
 		"build": "tsc --build tsconfig.json"
 	},
-	"author": "Hossein Maklavani",
+	"author": "Hossein Maklavani <hos.mohamadi@gmail.com> (https://maklavani.dev/), Farzad Hamedi <hamedi.farzad@gmail.com>",
+	"contributors": [
+		{
+			"name": "Hossein Maklavani",
+			"email": "hos.mohamadi@gmail.com"
+		},
+		{
+			"name": "Farzad Hamedi",
+			"email": "hamedi.farzad@gmail.com"
+		}
+	],
+	"funding": [
+		{
+			"type": "open_collective",
+			"url": "https://opencollective.com/spinorama"
+		}
+	],
 	"license": "MIT",
 	"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
 	"keywords": [
@@ -19,7 +35,8 @@
 		"material design",
 		"carousel",
 		"slideshow",
-		"slider"
+		"slider",
+		"typescript"
 	],
 	"repository": {
 		"type": "git",
@@ -50,6 +67,8 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.3.3",
+		"rimraf": "^6.0.1",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.5.3"
 	},
 	"peerDependencies": {
