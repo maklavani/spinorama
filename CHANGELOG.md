@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.42
 - Added `props` to components to enhance functionality and appearance
 
 # 0.3.41
