@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.22
 - Added `package-lock.json` files to the **project**
 
 # 0.3.21
