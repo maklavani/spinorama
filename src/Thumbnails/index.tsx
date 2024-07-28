@@ -1,17 +1,22 @@
 import * as React from 'react'
-import { Grid } from '@mui/material'
+import { Box } from '@mui/material'
 
 // Types
 import type { SpinoramaThumbnailsProps } from './index.types'
 
 const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { className, children } = props
+	const { justify, reverse, className, children } = props
+
+	// Varaibles
+	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
-		<Grid className={`spinorama-thumbnails${className ? ` ${className}` : ''}`} item flexGrow={1}>
-			{children}
-		</Grid>
+		<Box className={`spinorama-thumbnails${className ? ` ${className}` : ''}`} display="flex" flexGrow={1} width={1}>
+			<Box className="spinorama-thumbnails-wrapper" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" overflow="hidden">
+				{children}
+			</Box>
+		</Box>
 	)
 }
 

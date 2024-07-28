@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Add `justify` and `reverse` props to the **Thumbnails** component, which allows you to control how the thumbnails are aligned and displayed in reverse order
+
 # 0.3.36
 - Create `Thumbnails` and `Actions` components
 
