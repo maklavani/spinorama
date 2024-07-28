@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Ranamed `npmjs.yml` to `publish.yml`
+
 # 0.3.28
 - Update the `repository url` in the **package.json** file
 
