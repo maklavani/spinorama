@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.38
 - Create `ThumbnailDot` component, enabling thumbnail navigation in the slider
 
 # 0.3.37
