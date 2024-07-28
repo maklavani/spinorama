@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Update the `repository url` in the **package.json** file
+
 # 0.3.27
 - Removed the `.npmrc` file
 
