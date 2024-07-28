@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Run the `publish` workflow when pushing to the **main** branch.
+
 ## 0.3.20
 - Created publish `GitHub` and `npmjs` workflow files. These workflows will be responsible for publishing the package to both **GitHub** Packages and **npmjs** registry when a new release is created
 
