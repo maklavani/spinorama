@@ -1,4 +1,5 @@
-import * as React from 'react'
+// Types
+import type { BoxProps } from '@mui/material'
 
 export type SpinoramaSettings = {
 	/**
@@ -9,16 +10,4 @@ export type SpinoramaSettings = {
 	duration?: number
 }
 
-export type SpinoramaProps = SpinoramaSettings & {
-	/**
-	 * The class name of the component.
-	 * Use this prop when you want to style the component with a className.
-	 */
-	className?: string
-
-	/**
-	 * Children elements to be rendered inside the component.
-	 * Use this prop when you want to pass components or elements as children to the component.
-	 */
-	children?: React.ReactNode
-}
+export type SpinoramaProps = SpinoramaSettings & BoxProps & {}

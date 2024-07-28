@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `props` to components to enhance functionality and appearance
+
 # 0.3.41
 - Create `nextItem` callback in **Spinorama** component to show the next Item
 

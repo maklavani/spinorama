@@ -29,7 +29,11 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		}
 	}, [nextItem, settings.duration])
 
-	return <Box className={`spinorama${className ? ` ${className}` : ''}`}>{children}</Box>
+	return (
+		<Box className={`spinorama${className ? ` ${className}` : ''}`} {...props}>
+			{children}
+		</Box>
+	)
 }
 
 export default Spinorama

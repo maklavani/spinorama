@@ -12,7 +12,7 @@ const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: Spinoram
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
-		<Box className={`spinorama-thumbnails${className ? ` ${className}` : ''}`} display="flex" flexGrow={1} width={1}>
+		<Box className={`spinorama-thumbnails${className ? ` ${className}` : ''}`} display="flex" flexGrow={1} width={1} {...props}>
 			<Box
 				className="spinorama-thumbnails-wrapper"
 				flexDirection={reverse ? 'row-reverse' : 'row'}

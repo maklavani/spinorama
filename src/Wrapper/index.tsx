@@ -15,7 +15,7 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
-		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1}>
+		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1} {...props}>
 			<Box
 				className="spinorama-slidehow-wrapper"
 				flexDirection={reverse ? 'row-reverse' : 'row'}
