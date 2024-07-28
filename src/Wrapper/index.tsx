@@ -16,7 +16,15 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 
 	return (
 		<Box className={`spinorama-slidehow${className ? ` ${className}` : ''}`} display="flex" width={1}>
-			<Box className="spinorama-slidehow-wrapper" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" overflow="hidden">
+			<Box
+				className="spinorama-slidehow-wrapper"
+				flexDirection={reverse ? 'row-reverse' : 'row'}
+				justifyContent={justifyContent}
+				display="flex"
+				minWidth={1}
+				height="100%"
+				overflow="hidden"
+			>
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Get element

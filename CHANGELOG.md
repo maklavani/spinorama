@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `ThumbnailDot` component, enabling thumbnail navigation in the slider
+
 # 0.3.37
 - Add `justify` and `reverse` props to the **Thumbnails** component, which allows you to control how the thumbnails are aligned and displayed in reverse order
 
