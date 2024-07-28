@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `Thumbnails` and `Actions` components
+
 # 0.3.35
 - Remove `publish.yml` workflow
 
