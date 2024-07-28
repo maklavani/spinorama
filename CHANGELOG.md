@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.0
 - Added `mdx-components` and `not-found` to the **documentation** project
 
 # 0.3.42
