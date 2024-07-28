@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Changed configurations of `publish` workflow
+
 # 0.3.29
 - Ranamed `npmjs.yml` to `publish.yml`
 

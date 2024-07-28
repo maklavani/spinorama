@@ -1,4 +1,4 @@
-name: Publish package to npmjs
+name: Publish package to GitHub Packages
 
 on:
   release:
@@ -10,18 +10,18 @@ jobs:
 
     permissions:
       contents: read
-      id-token: write
+      packages: write
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@maklavani'
 
       - run: npm ci
       - run: npm run build
-      - run: npm publish --provenance --access public
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
