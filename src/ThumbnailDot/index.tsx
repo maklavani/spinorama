@@ -10,8 +10,14 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 	const { className, active } = props
 
 	return (
-		<Grid className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`} item flex="0 0 fit-content">
-			<IconButton color="primary" sx={{ opacity: active ? 1 : 0.75 }}>
+		<Grid className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`} item flex="0 0 fit-content" {...props}>
+			<IconButton
+				color="primary"
+				sx={{
+					opacity: active ? 1 : 0.8,
+					color: active ? 'primary.dark' : 'primary.main'
+				}}
+			>
 				<CircleOutlinedIcon />
 			</IconButton>
 		</Grid>

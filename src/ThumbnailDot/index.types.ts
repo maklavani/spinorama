@@ -1,6 +1,7 @@
-import * as React from 'react'
+// Types
+import type { GridProps } from '@mui/material/Grid'
 
-export type SpinoramaThumbnailDotProps = {
+export type SpinoramaThumbnailDotProps = GridProps & {
 	/**
 	 * The class name of the component.
 	 * Use this prop when you want to style the component with a className.
