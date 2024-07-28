@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Ranamed `publish.yml` to `github.yml`
+
 # 0.3.30
 - Changed configurations of `publish` workflow
 
