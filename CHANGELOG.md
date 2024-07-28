@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.24
 - Update publishConfig url
 
 # 0.3.23
