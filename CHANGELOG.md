@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created publish `GitHub` and `npmjs` workflow files. These workflows will be responsible for publishing the package to both **GitHub** Packages and **npmjs** registry when a new release is created
+
 ## 0.3.19
 - Added `publishConfig` to **package.json**, which specifies the npm registry where the package will be published
 

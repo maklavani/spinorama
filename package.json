@@ -47,9 +47,6 @@
 	"bugs": {
 		"url": "https://github.com/maklavani/spinorama/issues"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
 	"homepage": "https://spinorama.dev",
 	"files": [
 		"/Buttons",
