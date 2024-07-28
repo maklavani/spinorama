@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Update publishConfig url
+
 # 0.3.33
 - Transferred the package to `regiti`
 
