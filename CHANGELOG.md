@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.3.36
 - Create `Thumbnails` and `Actions` components
 
 # 0.3.35
