@@ -1,7 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
-- Removed `.npmrc` file
+# 0.3.27
+- Removed the `.npmrc` file
 
 # 0.3.26
 - Update **.npmrc** to include `npm.pkg.github`
