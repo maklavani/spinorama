@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { Grid, IconButton } from '@mui/material'
 import { CircleOutlined as CircleOutlinedIcon } from '@mui/icons-material'

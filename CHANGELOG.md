@@ -3,6 +3,7 @@ All notable changes to this package will be documented in this file.
 
 - Added the ability to `center` align items within the **Actions** component
 - Set the `small` size for the **ThumbnailDot** component
+- Create `Next` and `Prev` components to control the navigation of the slider
 
 # 0.4.1
 - Created a `remove` script to remove unnecessary files and directories upon package publishing
