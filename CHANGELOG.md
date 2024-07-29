@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.1
 - Created a `remove` script to remove unnecessary files and directories upon package publishing
 
 # 0.4.0
