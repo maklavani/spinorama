@@ -20,7 +20,8 @@
 		}
 	],
 	"scripts": {
-		"build": "tsc --build tsconfig.json"
+		"build": "npm run remove && tsc --build tsconfig.json",
+		"remove": "ts-node scripts/remove.mjs"
 	},
 	"license": "MIT",
 	"keywords": [
