@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `margin-top` to **Actions** component
+
 # 0.4.2
 - Added the ability to `center` align items within the **Actions** component
 - Set the `small` size for the **ThumbnailDot** component
