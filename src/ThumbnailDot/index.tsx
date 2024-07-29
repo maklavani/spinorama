@@ -19,6 +19,7 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 			{...props}
 		>
 			<IconButton
+				size="small"
 				color="primary"
 				sx={{
 					opacity: active ? 1 : 0.8,

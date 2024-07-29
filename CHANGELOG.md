@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Added the ability to `center` align items within the **Actions** component
+- Set the `small` size for the **ThumbnailDot** component
 
 # 0.4.1
 - Created a `remove` script to remove unnecessary files and directories upon package publishing
