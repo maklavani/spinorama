@@ -9,11 +9,11 @@ import type { SpinoramaThumbnailDotProps } from './index.types'
 
 const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: SpinoramaThumbnailDotProps) => {
 	// Props
-	const { className, active } = props
+	const { className, selected } = props
 
 	return (
 		<Grid
-			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${active ? ` ${active}` : ''}`}
+			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
 			item
 			flex="0 0 fit-content"
 			display="inline-flex"
@@ -24,8 +24,8 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 				size="small"
 				color="primary"
 				sx={{
-					opacity: active ? 1 : 0.8,
-					color: active ? 'primary.dark' : 'primary.main'
+					opacity: selected ? 1 : 0.8,
+					color: selected ? 'primary.dark' : 'primary.main'
 				}}
 			>
 				<CircleOutlinedIcon />
