@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.10
 - Fixed a bug in passing `selected` in the **Spinorama** component.
 
 # 0.4.9
