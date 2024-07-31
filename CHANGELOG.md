@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `animateDuration` and `ease` properties to the **Spinorama** component, enabling customization of the animation duration and easing function
+
 # 0.4.6
 - Create `slide` animation with **gsap**
 
