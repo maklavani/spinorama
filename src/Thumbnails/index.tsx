@@ -6,7 +6,7 @@ import type { SpinoramaThumbnailsProps } from './index.types'
 
 const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { justify, reverse, className, children } = props
+	const { justify, reverse, selected, className, children } = props
 
 	// Varaibles
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
@@ -21,7 +21,10 @@ const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: Spinoram
 				minWidth={1}
 				overflow="hidden"
 			>
-				{children}
+				{React.Children.map(children, (child, index) => {
+					if (React.isValidElement(child)) return React.cloneElement(child as React.ReactElement<any>, { selected: selected === index })
+					else return child
+				})}
 			</Box>
 		</Box>
 	)

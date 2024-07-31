@@ -9,7 +9,7 @@ const SpinoramaItem = React.lazy(() => import('../Item'))
 
 const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props
-	const { justify, reverse, className, children } = props
+	const { justify, reverse, selected, className, children } = props
 
 	// Varaibles
 	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
@@ -19,14 +19,18 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 			<Box className="spinorama-items" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" minWidth={1} height="100%">
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
-						// Get element
-						const elm = React.cloneElement(child)
-
 						// Check is item
 						const isItem = child.type.toString().indexOf('spinorama-item') > -1
 
-						return isItem ? elm : <SpinoramaItem key={index}>{elm}</SpinoramaItem>
-					} else return null
+						// Clone element
+						return isItem ? (
+							React.cloneElement(child as React.ReactElement<any>, { selected: selected === index })
+						) : (
+							<SpinoramaItem key={index} selected={selected === index}>
+								{child}
+							</SpinoramaItem>
+						)
+					} else return child
 				})}
 			</Box>
 		</Box>

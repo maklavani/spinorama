@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Passed `selected` as `useState` to child components from **Spinorama** component
+
 # 0.4.8
 - Set the class `selected` to the item in the `nextItem` function of the **Spinorama** component
 
