@@ -10,14 +10,14 @@ import type { SpinoramaPrevProps } from './index.types'
 
 const SpinoramaPrev: React.FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 	// Props
-	const { className } = props
+	const { className, onClick } = props
 
 	// Variables
 	const theme = useTheme()
 
 	return (
 		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-next${className ? ` ${className}` : ''}`}>
-			<IconButton color="primary" sx={{ color: 'primary.dark' }}>
+			<IconButton color="primary" onClick={onClick} sx={{ color: 'primary.dark' }}>
 				{theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />}
 			</IconButton>
 		</Grid>

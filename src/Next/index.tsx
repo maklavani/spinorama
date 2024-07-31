@@ -10,14 +10,14 @@ import type { SpinoramaNextProps } from './index.types'
 
 const SpinoramaNext: React.FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 	// Props
-	const { className } = props
+	const { className, onClick } = props
 
 	// Variables
 	const theme = useTheme()
 
 	return (
 		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-next${className ? ` ${className}` : ''}`}>
-			<IconButton color="primary" sx={{ color: 'primary.dark' }}>
+			<IconButton color="primary" onClick={onClick} sx={{ color: 'primary.dark' }}>
 				{theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />}
 			</IconButton>
 		</Grid>
