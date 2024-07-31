@@ -28,20 +28,16 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	}
 
 	// Callbacks
-	const nextItem = React.useCallback(() => {
-		// Find next index
-		const nextIndex = (selected + 1) % totalItems
-		setSelected(nextIndex)
-
-		return nextIndex
-	}, [selected, totalItems])
-
 	const { contextSafe } = useGSAP(
 		() => {
 			// Set interval
 			const interval = setInterval(() => {
+				// Find next index
+				const nextIndex = (selected + 1) % totalItems
+				setSelected(nextIndex)
+
 				// Animate items
-				animateItems(nextItem())
+				animateItems(nextIndex)
 			}, settings.duration)
 
 			// Find total items
@@ -78,10 +74,10 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	return (
 		<Box ref={container} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
 			{React.Children.map(children, child => {
-				if (React.isValidElement(child))
+				if (React.isValidElement(child)) {
 					// Clone element
-					return React.cloneElement(child as React.ReactElement<any>, { selected })
-				else return child
+					return React.cloneElement(child as React.ReactElement<any>, { selected: selected ?? 0 })
+				} else return child
 			})}
 		</Box>
 	)
