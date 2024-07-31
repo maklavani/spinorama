@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.11
 - Fixed a bug related to the `interval` in the **Spinorama** component
 
 # 0.4.10
