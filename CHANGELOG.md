@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.13
 - Renamed **ThumbnailDot** to **Thumbnail** component
 
 # 0.4.12
