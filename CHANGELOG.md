@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.9
 - Passed `selected` as `useState` to child components from **Spinorama** component
 
 # 0.4.8
