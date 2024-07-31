@@ -1,8 +1,10 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixed a bug related to the `interval` in the **Spinorama** component
+
 # 0.4.10
-- Fixed a bug in passing `selected` in the **Spinorama** component.
+- Fixed a bug in passing `selected` in the **Spinorama** component
 
 # 0.4.9
 - Passed `selected` as `useState` to child components from **Spinorama** component
@@ -154,7 +156,7 @@ All notable changes to this package will be documented in this file.
 - Fix the `bug` in naming **carousel**
 
 ## 0.3.3
-- Moved `.prettierignore` and `.prettierrc` to the root of the project.
+- Moved `.prettierignore` and `.prettierrc` to the root of the project
 - Create `SpinoramaCarousel` component
 
 ## 0.3.2

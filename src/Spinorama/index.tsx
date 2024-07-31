@@ -16,6 +16,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const { duration, animateDuration, ease, className, children } = props
 
 	// Variables
+	const itemsInterval = React.useRef<NodeJS.Timeout | null>(null)
 	const container = React.useRef<HTMLDivElement>(null)
 	const [selected, setSelected] = React.useState<number>(0)
 	const [totalItems, setTotalItems] = React.useState<number>(0)
@@ -28,33 +29,9 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	}
 
 	// Callbacks
-	const { contextSafe } = useGSAP(
-		() => {
-			// Set interval
-			const interval = setInterval(() => {
-				// Find next index
-				const nextIndex = (selected + 1) % totalItems
-				setSelected(nextIndex)
+	const { contextSafe } = useGSAP({ scope: container, dependencies: [selected, totalItems] })
 
-				// Animate items
-				animateItems(nextIndex)
-			}, settings.duration)
-
-			// Find total items
-			if (container.current && !totalItems) {
-				const items = container.current.querySelectorAll('.spinorama-item')
-
-				if (items.length) setTotalItems(items.length)
-			}
-
-			return () => {
-				// Clear interval
-				clearInterval(interval)
-			}
-		},
-		{ scope: container, dependencies: [container, selected, totalItems] }
-	)
-
+	// Animate items
 	const animateItems = contextSafe((showIndex: number) => {
 		if (container.current && totalItems) {
 			// Find items
@@ -71,12 +48,40 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		}
 	})
 
+	// Show item
+	const showItem = React.useCallback(() => {
+		const nextIndex = (selected + 1) % (totalItems || 1)
+		setSelected(nextIndex)
+		animateItems(nextIndex)
+	}, [selected, totalItems, setSelected])
+
+	// Find total items
+	React.useEffect(() => {
+		if (container.current && !totalItems) {
+			const items = container.current.querySelectorAll('.spinorama-item')
+
+			if (items.length) setTotalItems(items.length)
+		}
+	}, [totalItems])
+
+	// Set interval
+	React.useEffect(() => {
+		itemsInterval.current = setInterval(() => {
+			showItem()
+		}, settings.duration)
+
+		// Clear interval
+		return () => {
+			clearInterval(itemsInterval.current as NodeJS.Timeout)
+		}
+	}, [settings, showItem])
+
 	return (
 		<Box ref={container} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
 			{React.Children.map(children, child => {
 				if (React.isValidElement(child)) {
 					// Clone element
-					return React.cloneElement(child as React.ReactElement<any>, { selected: selected ?? 0 })
+					return React.cloneElement(child as React.ReactElement<any>, { selected: selected || 0 })
 				} else return child
 			})}
 		</Box>
