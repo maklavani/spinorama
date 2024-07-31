@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 
 // Types
 import type { SpinoramaThumbnailsProps } from './index.types'
+import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
@@ -22,8 +23,17 @@ const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: Spinoram
 				overflow="hidden"
 			>
 				{React.Children.map(children, (child, index) => {
-					if (React.isValidElement(child)) return React.cloneElement(child as React.ReactElement<any>, { selected: selected === index })
-					else return child
+					if (React.isValidElement(child)) {
+						// Type
+						const childType = child.type.toString()
+
+						// Clone element
+						if (childType.indexOf('spinorama-next') > -1)
+							return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
+								selected: selected === index
+							})
+						else return React.cloneElement(child)
+					} else return child
 				})}
 			</Box>
 		</Box>

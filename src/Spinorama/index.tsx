@@ -17,7 +17,7 @@ import type { SpinoramaButtonsProps } from '../Buttons/index.types'
 import type { SpinoramaNextProps } from '../Next/index.types'
 import type { SpinoramaPrevProps } from '../Prev/index.types'
 import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
-import type { SpinoramaThumbnailDotProps } from '../ThumbnailDot/index.types'
+import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
@@ -127,7 +127,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 							selected: selected || 0
 						})
 					else if (childType.indexOf('spinorama-thumbnail') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailDotProps>, {
+						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
 							selected: selected === index
 						})
 					else return React.cloneElement(child)

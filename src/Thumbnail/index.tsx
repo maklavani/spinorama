@@ -5,9 +5,9 @@ import { Grid, IconButton } from '@mui/material'
 import { CircleOutlined as CircleOutlinedIcon } from '@mui/icons-material'
 
 // Types
-import type { SpinoramaThumbnailDotProps } from './index.types'
+import type { SpinoramaThumbnailProps } from './index.types'
 
-const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: SpinoramaThumbnailDotProps) => {
+const SpinoramaThumbnail: React.FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
 	// Props
 	const { className, selected } = props
 
@@ -18,7 +18,7 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 			display="inline-flex"
 			justifyContent="center"
 			{...props}
-			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
+			className={`spinorama-thumbnail${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
 		>
 			<IconButton
 				size="small"
@@ -34,4 +34,4 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 	)
 }
 
-export default SpinoramaThumbnailDot
+export default SpinoramaThumbnail

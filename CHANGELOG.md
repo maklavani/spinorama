@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Renamed **ThumbnailDot** to **Thumbnail** component
+
 # 0.4.12
 - Create a click `event` function for **NextSpinorama** and **PrevSpinorama** button components
 
