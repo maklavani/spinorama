@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Install **GreenSock Animation Platform** (GSAP) and its React integration `(@gsap/react)` for controlling animations
+
 # 0.4.4
 - Changed `active` to `selected` in the **ThumbnailDot** component
 
