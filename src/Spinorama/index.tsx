@@ -17,7 +17,6 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 	// Variables
 	const container = React.useRef<HTMLDivElement>(null)
-	const [selected, setSelected] = React.useState<number>(0)
 	const [totalItems, setTotalItems] = React.useState<number>(0)
 
 	// Settings
@@ -45,14 +44,33 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 				clearInterval(interval)
 			}
 		},
-		{ scope: container, dependencies: [container, selected, totalItems] }
+		{ scope: container, dependencies: [container, totalItems] }
 	)
+
+	const findSelected = (containerElm: HTMLDivElement) => {
+		const items = containerElm.querySelectorAll('.spinorama-item')
+
+		if (items.length) return Array.from(items).findIndex(item => item.classList.contains('selected'))
+
+		return 0
+	}
+
+	const setClassName = (containerElm: HTMLDivElement, className: string, nextIndex: number) => {
+		const items = containerElm.querySelectorAll('.spinorama-item')
+
+		if (items.length)
+			items.forEach((item, index) => {
+				if (index === nextIndex) item.classList.add(className)
+				else item.classList.remove(className)
+			})
+	}
 
 	const nextItem = contextSafe(() => {
 		if (container.current && totalItems) {
-			// Set next Item
+			// Find selected item
+			const selected = findSelected(container.current)
 			const nextIndex = (selected + 1) % totalItems
-			setSelected(nextIndex)
+			setClassName(container.current, 'selected', nextIndex)
 
 			// Find items
 			const items = container.current.querySelectorAll('.spinorama-items')

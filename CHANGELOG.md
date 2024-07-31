@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Set the class `selected` to the item in the `nextItem` function of the **Spinorama** component
+
 # 0.4.7
 - Added `animateDuration` and `ease` properties to the **Spinorama** component, enabling customization of the animation duration and easing function
 
