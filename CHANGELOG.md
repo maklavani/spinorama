@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.8
 - Set the class `selected` to the item in the `nextItem` function of the **Spinorama** component
 
 # 0.4.7
