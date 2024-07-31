@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.6
 - Create `slide` animation with **gsap**
 
 # 0.4.5
