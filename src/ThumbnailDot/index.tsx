@@ -13,12 +13,12 @@ const SpinoramaThumbnailDot: React.FC<SpinoramaThumbnailDotProps> = (props: Spin
 
 	return (
 		<Grid
-			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
 			item
 			flex="0 0 fit-content"
 			display="inline-flex"
 			justifyContent="center"
 			{...props}
+			className={`spinorama-thumbnail-dot${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
 		>
 			<IconButton
 				size="small"

@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `slide` animation with **gsap**
+
 # 0.4.5
 - Install **GreenSock Animation Platform** (GSAP) and its React integration `(@gsap/react)` for controlling animations
 

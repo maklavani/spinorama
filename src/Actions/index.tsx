@@ -9,7 +9,7 @@ const SpinoramaActions: React.FC<SpinoramaActionsProps> = (props: SpinoramaActio
 	const { className, children } = props
 
 	return (
-		<Box className={`spinorama-actions${className ? ` ${className}` : ''}`} display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props}>
+		<Box display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
 			{children}
 		</Box>
 	)

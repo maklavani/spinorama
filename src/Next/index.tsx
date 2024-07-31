@@ -16,7 +16,7 @@ const SpinoramaNext: React.FC<SpinoramaNextProps> = (props: SpinoramaNextProps) 
 	const theme = useTheme()
 
 	return (
-		<Grid className={`spinorama-next${className ? ` ${className}` : ''}`} item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props}>
+		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-next${className ? ` ${className}` : ''}`}>
 			<IconButton color="primary" sx={{ color: 'primary.dark' }}>
 				{theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />}
 			</IconButton>

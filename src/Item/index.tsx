@@ -9,7 +9,7 @@ const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) 
 	const { className, children } = props
 
 	return (
-		<Grid className={`spinorama-item${className ? ` ${className}` : ''}`} item xs={12} flex="0 0 fit-content" {...props}>
+		<Grid item xs={12} flex="0 0 fit-content" {...props} className={`spinorama-item${className ? ` ${className}` : ''}`}>
 			{children}
 		</Grid>
 	)
