@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.14
 - Fixed **bugs** in the `interval` function
 
 # 0.4.13
