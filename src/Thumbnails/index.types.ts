@@ -22,4 +22,9 @@ export type SpinoramaThumbnailsProps = BoxProps & {
 	 * @default false
 	 */
 	reverse?: boolean
+
+	/**
+	 * A reference to the array of thumbnail button elements
+	 */
+	thumbnailsref?: React.MutableRefObject<(HTMLButtonElement | null)[]>
 }

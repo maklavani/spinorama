@@ -23,7 +23,7 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 				flexDirection={reverse ? 'row-reverse' : 'row'}
 				flexWrap="nowrap"
 				justifyContent={justifyContent}
-				spacing={2}
+				spacing={{ xs: 1, md: 2 }}
 				minWidth={1}
 				height="100%"
 			>

@@ -28,6 +28,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const containerRef = React.useRef<HTMLDivElement>(null)
 	const nextRef = React.useRef<HTMLButtonElement>(null)
 	const prevRef = React.useRef<HTMLButtonElement>(null)
+	const thumbnailsRef = React.useRef<(HTMLButtonElement | null)[]>([])
 	const [init, setInit] = React.useState<boolean>(false)
 
 	// Settings
@@ -51,8 +52,13 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 			// @ts-ignore
 			const onClickPrev = contextSafe(prevItem)
 
+			// Thumbnail
+			// @ts-ignore
+			const onClickShow = contextSafe(showItem)
+
 			nextRef.current?.addEventListener('click', onClickNext)
 			prevRef.current?.addEventListener('click', onClickPrev)
+			thumbnailsRef.current?.map((thumbnail, index) => thumbnail?.addEventListener('click', () => onClickShow(index)))
 
 			return () => {
 				// Clear Interval
@@ -61,6 +67,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 				// Clear Events
 				nextRef.current?.removeEventListener('click', onClickNext)
 				prevRef.current?.removeEventListener('click', onClickPrev)
+				thumbnailsRef.current?.map((thumbnail, index) => thumbnail?.removeEventListener('click', () => onClickShow(index)))
 			}
 		},
 		{ scope: containerRef }
@@ -124,6 +131,12 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		animateItems(prevIndex)
 	})
 
+	// Show item
+	const showItem = contextSafe((selected: number) => {
+		setClassName('selected', selected)
+		animateItems(selected)
+	})
+
 	React.useEffect(() => {
 		if (containerRef.current && !init) {
 			setInit(true)
@@ -144,7 +157,8 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 					else if (childType.indexOf('spinorama-actions') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaActionsProps>, {
 							nextref: nextRef,
-							prevref: prevRef
+							prevref: prevRef,
+							thumbnailsref: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-buttons') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaButtonsProps>, {
@@ -159,8 +173,14 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
 							buttonref: prevRef
 						})
-					else if (childType.indexOf('spinorama-thumbnails') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {})
-					else if (childType.indexOf('spinorama-thumbnail') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {})
+					else if (childType.indexOf('spinorama-thumbnails') > -1)
+						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {
+							thumbnailsref: thumbnailsRef
+						})
+					else if (childType.indexOf('spinorama-thumbnail') > -1)
+						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
+							thumbnailsref: thumbnailsRef
+						})
 					else return React.cloneElement(child)
 				} else return child
 			})}

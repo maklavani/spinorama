@@ -11,7 +11,7 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaActions: React.FC<SpinoramaActionsProps> = (props: SpinoramaActionsProps) => {
 	// Props
-	const { nextref, prevref, className, children } = props
+	const { nextref, prevref, thumbnailsref, className, children } = props
 
 	return (
 		<Box display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
@@ -34,8 +34,14 @@ const SpinoramaActions: React.FC<SpinoramaActionsProps> = (props: SpinoramaActio
 						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
 							buttonref: prevref
 						})
-					else if (childType.indexOf('spinorama-thumbnails') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {})
-					else if (childType.indexOf('spinorama-thumbnail') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {})
+					else if (childType.indexOf('spinorama-thumbnails') > -1)
+						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {
+							thumbnailsref: thumbnailsref
+						})
+					else if (childType.indexOf('spinorama-thumbnail') > -1)
+						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
+							thumbnailsref: thumbnailsref
+						})
 					else return React.cloneElement(child)
 				} else return child
 			})}

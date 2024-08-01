@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create a `useRef` array for the **SpinoramaThumbnail** components
+
 # 0.4.15
 - Initialize the class `selected` for **SpinoramaItem** and **SpinoramaThumbnail** components
 
@@ -8,10 +10,10 @@ All notable changes to this package will be documented in this file.
 - Fixed **bugs** in the `interval` function
 
 # 0.4.13
-- Renamed **ThumbnailDot** to **Thumbnail** component
+- Renamed **SpinoramaThumbnailDot** to **SpinoramaThumbnail** component
 
 # 0.4.12
-- Create a click `event` function for **NextSpinorama** and **PrevSpinorama** button components
+- Create a click `event` function for **SpinoramaNext** and **SpinoramaPrev** button components
 
 # 0.4.11
 - Fixed a bug related to the `interval` in the **Spinorama** component
@@ -38,11 +40,11 @@ All notable changes to this package will be documented in this file.
 - Changed `active` to `selected` in the **ThumbnailDot** component
 
 # 0.4.3
-- Added `margin-top` to **Actions** component
+- Added `margin-top` to **SpinoramaActions** component
 
 # 0.4.2
-- Added the ability to `center` align items within the **Actions** component
-- Set the `small` size for the **ThumbnailDot** component
+- Added the ability to `center` align items within the **SpinoramaActions** component
+- Set the `small` size for the **SpinoramaThumbnailDot** component
 - Create `Next` and `Prev` components to control the navigation of the slider
 
 # 0.4.1
@@ -58,19 +60,19 @@ All notable changes to this package will be documented in this file.
 - Create `nextItem` callback in **Spinorama** component to show the next Item
 
 # 0.3.40
-- Added `color` to **ThumbnailDot** component
+- Added `color` to **SpinoramaThumbnailDot** component
 
 # 0.3.39
-- Added `opacity` to **ThumbnailDot** component
+- Added `opacity` to **SpinoramaThumbnailDot** component
 
 # 0.3.38
-- Create `ThumbnailDot` component, enabling thumbnail navigation in the slider
+- Create `SpinoramaThumbnailDot` component, enabling thumbnail navigation in the slider
 
 # 0.3.37
-- Add `justify` and `reverse` props to the **Thumbnails** component, which allows you to control how the thumbnails are aligned and displayed in reverse order
+- Add `justify` and `reverse` props to the **SpinoramaThumbnails** component, which allows you to control how the thumbnails are aligned and displayed in reverse order
 
 # 0.3.36
-- Create `Thumbnails` and `Actions` components
+- Create `SpinoramaThumbnails` and `SpinoramaActions` components
 
 # 0.3.35
 - Remove `publish.yml` workflow

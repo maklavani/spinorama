@@ -9,11 +9,12 @@ import type { SpinoramaThumbnailProps } from './index.types'
 
 const SpinoramaThumbnail: React.FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
 	// Props
-	const { className } = props
+	const { thumbnailsref, className } = props
 
 	return (
 		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}>
 			<IconButton
+				ref={ref => thumbnailsref?.current.push(ref)}
 				size="small"
 				color="primary"
 				sx={{
