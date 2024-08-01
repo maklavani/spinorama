@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.18
 - Implement the `findItemPosition` function, which is used to find the exact position of a specific item within a list of items
 
 # 0.4.17
