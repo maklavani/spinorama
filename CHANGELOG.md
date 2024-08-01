@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.17
 - Reset `interval` after **button** components are clicked
 
 # 0.4.16
