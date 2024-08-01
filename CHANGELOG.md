@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.16
 - Create a `useRef` array for the **SpinoramaThumbnail** components
 
 # 0.4.15
