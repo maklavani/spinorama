@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.15
 - Initialize the class `selected` for **SpinoramaItem** and **SpinoramaThumbnail** components
 
 # 0.4.14
