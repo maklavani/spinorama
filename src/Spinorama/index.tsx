@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -24,6 +25,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const { duration, animateDuration, ease, className, children } = props
 
 	// Variables
+	const theme = useTheme()
 	const itemsInterval = React.useRef<NodeJS.Timeout | null>(null)
 	const containerRef = React.useRef<HTMLDivElement>(null)
 	const nextRef = React.useRef<HTMLButtonElement>(null)
@@ -104,10 +106,44 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 			})
 	})
 
+	// Find item position
+	const findItemPosition = contextSafe((index: number) => {
+		const items = containerRef.current?.querySelectorAll('.spinorama-item')
+		const parent = containerRef.current?.querySelector('.spinorama-items')
+		let output: number = 0
+
+		if (parent && items) {
+			const parentRect = parent.getBoundingClientRect()
+			let firstPosition = 0
+
+			items.forEach((item, itemIndex) => {
+				if (itemIndex == index) {
+					const itemRect = item.getBoundingClientRect()
+					let position = 0
+
+					// Fixed position in RTL
+					if (theme.direction === 'rtl') position = itemRect.left + itemRect.width - (parentRect.left + parentRect.width)
+					else position = itemRect.left - parentRect.left
+
+					// Reset in the middle of an animation
+					if (!index) firstPosition = position
+					position -= firstPosition
+
+					// Output
+					output += position / (parentRect.width || 1)
+				}
+			})
+		}
+
+		return output
+	})
+
 	// Animate
 	const animateItems = contextSafe((index: number) => {
+		const xPercent = findItemPosition(index)
+
 		gsap.to('.spinorama-items', {
-			xPercent: 100 * index,
+			xPercent: -100 * xPercent,
 			duration: settings.animateDuration,
 			ease: settings.ease
 		})
