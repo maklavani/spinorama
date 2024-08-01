@@ -8,7 +8,7 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 
 const SpinoramaButtons: React.FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProps) => {
 	// Props
-	const { className, nextOnClick, prevOnClick, children } = props
+	const { className, nextref, prevref, children } = props
 
 	return (
 		<Grid item flexGrow={1} width={1} {...props} className={`spinorama-buttons${className ? ` ${className}` : ''}`}>
@@ -20,11 +20,11 @@ const SpinoramaButtons: React.FC<SpinoramaButtonsProps> = (props: SpinoramaButto
 					// Clone element
 					if (childType.indexOf('spinorama-next') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaNextProps>, {
-							onClick: nextOnClick
+							buttonref: nextref
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
-							onClick: prevOnClick
+							buttonref: prevref
 						})
 					else return React.cloneElement(child)
 				} else return child

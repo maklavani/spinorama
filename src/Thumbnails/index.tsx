@@ -7,7 +7,7 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { justify, reverse, selected, className, children } = props
+	const { justify, reverse, className, children } = props
 
 	// Varaibles
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
@@ -28,10 +28,7 @@ const SpinoramaThumbnails: React.FC<SpinoramaThumbnailsProps> = (props: Spinoram
 						const childType = child.type.toString()
 
 						// Clone element
-						if (childType.indexOf('spinorama-next') > -1)
-							return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
-								selected: selected === index
-							})
+						if (childType.indexOf('spinorama-next') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {})
 						else return React.cloneElement(child)
 					} else return child
 				})}

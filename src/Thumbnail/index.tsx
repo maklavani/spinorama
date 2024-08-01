@@ -9,23 +9,20 @@ import type { SpinoramaThumbnailProps } from './index.types'
 
 const SpinoramaThumbnail: React.FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
 	// Props
-	const { className, selected } = props
+	const { className } = props
 
 	return (
-		<Grid
-			item
-			flex="0 0 fit-content"
-			display="inline-flex"
-			justifyContent="center"
-			{...props}
-			className={`spinorama-thumbnail${className ? ` ${className}` : ''}${selected ? ` ${selected}` : ''}`}
-		>
+		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}>
 			<IconButton
 				size="small"
 				color="primary"
 				sx={{
-					opacity: selected ? 1 : 0.8,
-					color: selected ? 'primary.dark' : 'primary.main'
+					opacity: 0.8,
+					color: 'primary.main',
+					'&.selected': {
+						opacity: 1,
+						color: 'primary.dark'
+					}
 				}}
 			>
 				<CircleOutlinedIcon />

@@ -3,12 +3,12 @@ import type { GridProps } from '@mui/material'
 
 export type SpinoramaButtonsProps = GridProps & {
 	/**
-	 * Callback function that will be invoked when the next button is clicked
+	 * A reference to the next button element
 	 */
-	nextOnClick?: () => void
+	nextref?: React.Ref<HTMLButtonElement>
 
 	/**
-	 * Callback function that will be invoked when the previous button is clicked
+	 * A reference to the prev button element
 	 */
-	prevOnClick?: () => void
+	prevref?: React.Ref<HTMLButtonElement>
 }

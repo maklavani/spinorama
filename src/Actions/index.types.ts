@@ -3,9 +3,12 @@ import type { BoxProps } from '@mui/material'
 
 export type SpinoramaActionsProps = BoxProps & {
 	/**
-	 * Determines the currently selected slide
-	 * A number representing the index of the selected slide
-	 * If not provided, the first slide will be selected
+	 * A reference to the next button element
 	 */
-	selected?: number
+	nextref?: React.Ref<HTMLButtonElement>
+
+	/**
+	 * A reference to the prev button element
+	 */
+	prevref?: React.Ref<HTMLButtonElement>
 }

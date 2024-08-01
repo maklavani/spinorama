@@ -19,11 +19,4 @@ export type SpinoramaWrapperProps = BoxProps & {
 	 * @default false
 	 */
 	reverse?: boolean
-
-	/**
-	 * Determines the currently selected slide
-	 * A number representing the index of the selected slide
-	 * If not provided, the first slide will be selected
-	 */
-	selected?: number
 }

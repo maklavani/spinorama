@@ -25,9 +25,9 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 	// Variables
 	const itemsInterval = React.useRef<NodeJS.Timeout | null>(null)
-	const container = React.useRef<HTMLDivElement>(null)
-	const [selected, setSelected] = React.useState<number>(0)
-	const [totalItems, setTotalItems] = React.useState<number>(0)
+	const containerRef = React.useRef<HTMLDivElement>(null)
+	const nextRef = React.useRef<HTMLButtonElement>(null)
+	const prevRef = React.useRef<HTMLButtonElement>(null)
 
 	// Settings
 	const settings: SpinoramaSettings = {
@@ -37,99 +37,122 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	}
 
 	// Callbacks
-	const { contextSafe } = useGSAP({ scope: container, dependencies: [selected, totalItems] })
+	const { contextSafe } = useGSAP(
+		(_, contextSafe) => {
+			// Set Interval
+			itemsInterval.current = setInterval(nextItem, settings.duration)
 
-	// Animate items
-	const animateItems = contextSafe((showIndex: number) => {
-		if (container.current && totalItems) {
-			// Find items
-			const items = container.current.querySelectorAll('.spinorama-items')
+			// Next
+			// @ts-ignore
+			const onClickNext = contextSafe(nextItem)
 
-			// Check items and animate it
-			if (items.length) {
-				gsap.to(items, {
-					xPercent: 100 * showIndex,
-					duration: settings.animateDuration,
-					ease: settings.ease
-				})
+			// Prev
+			// @ts-ignore
+			const onClickPrev = contextSafe(prevItem)
+
+			nextRef.current?.addEventListener('click', onClickNext)
+			prevRef.current?.addEventListener('click', onClickPrev)
+
+			return () => {
+				// Clear Interval
+				clearInterval(itemsInterval.current as NodeJS.Timeout)
+
+				// Clear Events
+				nextRef.current?.removeEventListener('click', onClickNext)
+				prevRef.current?.removeEventListener('click', onClickPrev)
 			}
+		},
+		{ scope: containerRef }
+	)
+
+	// Find selected
+	const findClassName = contextSafe((className: string) => {
+		const selectedItem = containerRef.current?.querySelector(`.spinorama-item.${className}`)
+
+		if (selectedItem) {
+			const selectedIndex = Array.from(selectedItem.parentNode?.children || []).indexOf(selectedItem)
+
+			return selectedIndex
 		}
+
+		return 0
+	})
+
+	// Set class name
+	const setClassName = contextSafe((className: string, index: number) => {
+		const items = containerRef.current?.querySelectorAll('.spinorama-item')
+		const thumbnails = containerRef.current?.querySelectorAll('.spinorama-thumbnail')
+
+		if (items)
+			items.forEach((item, itemIndex) => {
+				if (itemIndex === index) item.classList.add(className)
+				else item.classList.remove(className)
+			})
+
+		if (thumbnails)
+			thumbnails.forEach((thumbnail, itemIndex) => {
+				if (itemIndex === index) thumbnail.classList.add(className)
+				else thumbnail.classList.remove(className)
+			})
+	})
+
+	// Animate
+	const animateItems = contextSafe((index: number) => {
+		gsap.to('.spinorama-items', {
+			xPercent: 100 * index,
+			duration: settings.animateDuration,
+			ease: settings.ease
+		})
 	})
 
 	// Next item
-	const nextItem = React.useCallback(() => {
+	const nextItem = contextSafe(() => {
+		const totalItems = containerRef.current?.querySelectorAll('.spinorama-item').length
+		const selected = findClassName('selected')
 		const nextIndex = (selected + 1) % (totalItems || 1)
-		setSelected(nextIndex)
+		setClassName('selected', nextIndex)
 		animateItems(nextIndex)
-	}, [selected, totalItems, setSelected])
+	})
 
-	// prev item
-	const prevItem = React.useCallback(() => {
+	// Prev item
+	const prevItem = contextSafe(() => {
+		const totalItems = containerRef.current?.querySelectorAll('.spinorama-item').length
+		const selected = findClassName('selected')
 		const prevIndex = (selected - 1 + (totalItems || 1)) % (totalItems || 1)
-		setSelected(prevIndex)
+		setClassName('selected', prevIndex)
 		animateItems(prevIndex)
-	}, [selected, totalItems, setSelected])
-
-	// Find total items
-	React.useEffect(() => {
-		if (container.current && !totalItems) {
-			const items = container.current.querySelectorAll('.spinorama-item')
-
-			if (items.length) setTotalItems(items.length)
-		}
-	}, [totalItems])
-
-	// Set interval
-	React.useEffect(() => {
-		itemsInterval.current = setInterval(() => nextItem, settings.duration)
-
-		// Clear interval
-		return () => {
-			clearInterval(itemsInterval.current as NodeJS.Timeout)
-		}
-	}, [settings, nextItem])
+	})
 
 	return (
-		<Box ref={container} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
+		<Box ref={containerRef} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
 			{React.Children.map(children, (child, index) => {
 				if (React.isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
 
 					// Clone element
-					if (childType.indexOf('spinorama-wrapper') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaWrapperProps>, {
-							selected: selected || 0
-						})
-					else if (childType.indexOf('spinorama-item') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaItemProps>, {
-							selected: selected === index
-						})
+					if (childType.indexOf('spinorama-wrapper') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaWrapperProps>, {})
+					else if (childType.indexOf('spinorama-item') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaItemProps>, {})
 					else if (childType.indexOf('spinorama-actions') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaActionsProps>, {
-							selected: selected || 0
+							nextref: nextRef,
+							prevref: prevRef
 						})
 					else if (childType.indexOf('spinorama-buttons') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaButtonsProps>, {
-							nextOnClick: nextItem,
-							prevOnClick: prevItem
+							nextref: nextRef,
+							prevref: prevRef
 						})
 					else if (childType.indexOf('spinorama-next') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaNextProps>, {
-							onClick: nextItem
+							buttonref: nextRef
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
 						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
-							onClick: prevItem
+							buttonref: prevRef
 						})
-					else if (childType.indexOf('spinorama-thumbnails') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {
-							selected: selected || 0
-						})
-					else if (childType.indexOf('spinorama-thumbnail') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
-							selected: selected === index
-						})
+					else if (childType.indexOf('spinorama-thumbnails') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {})
+					else if (childType.indexOf('spinorama-thumbnail') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {})
 					else return React.cloneElement(child)
 				} else return child
 			})}

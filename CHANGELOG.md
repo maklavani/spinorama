@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixed **bugs** in the `interval` function
+
 # 0.4.13
 - Renamed **ThumbnailDot** to **Thumbnail** component
 
