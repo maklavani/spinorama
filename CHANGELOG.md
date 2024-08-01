@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Reset `interval` after **button** components are clicked
+
 # 0.4.16
 - Create a `useRef` array for the **SpinoramaThumbnail** components
 

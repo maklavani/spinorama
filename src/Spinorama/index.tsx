@@ -120,6 +120,12 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		const nextIndex = (selected + 1) % (totalItems || 1)
 		setClassName('selected', nextIndex)
 		animateItems(nextIndex)
+
+		// Clear Interval
+		clearInterval(itemsInterval.current as NodeJS.Timeout)
+
+		// Set Interval
+		itemsInterval.current = setInterval(nextItem, settings.duration)
 	})
 
 	// Prev item
@@ -129,12 +135,24 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		const prevIndex = (selected - 1 + (totalItems || 1)) % (totalItems || 1)
 		setClassName('selected', prevIndex)
 		animateItems(prevIndex)
+
+		// Clear Interval
+		clearInterval(itemsInterval.current as NodeJS.Timeout)
+
+		// Set Interval
+		itemsInterval.current = setInterval(nextItem, settings.duration)
 	})
 
 	// Show item
 	const showItem = contextSafe((selected: number) => {
 		setClassName('selected', selected)
 		animateItems(selected)
+
+		// Clear Interval
+		clearInterval(itemsInterval.current as NodeJS.Timeout)
+
+		// Set Interval
+		itemsInterval.current = setInterval(nextItem, settings.duration)
 	})
 
 	React.useEffect(() => {
