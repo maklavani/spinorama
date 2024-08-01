@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaWrapperProps } from './index.types'
@@ -17,7 +17,16 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 
 	return (
 		<Box display="flex" width={1} overflow="hidden" {...props} className={`spinorama-wrapper${className ? ` ${className}` : ''}`}>
-			<Box className="spinorama-items" flexDirection={reverse ? 'row-reverse' : 'row'} justifyContent={justifyContent} display="flex" minWidth={1} height="100%">
+			<Grid
+				className="spinorama-items"
+				container
+				flexDirection={reverse ? 'row-reverse' : 'row'}
+				flexWrap="nowrap"
+				justifyContent={justifyContent}
+				spacing={2}
+				minWidth={1}
+				height="100%"
+			>
 				{React.Children.map(children, (child, index) => {
 					if (React.isValidElement(child)) {
 						// Clone element
@@ -25,7 +34,7 @@ const SpinoramaWrapper: React.FC<SpinoramaWrapperProps> = (props: SpinoramaWrapp
 						else return <SpinoramaItem key={index}>{child}</SpinoramaItem>
 					} else return child
 				})}
-			</Box>
+			</Grid>
 		</Box>
 	)
 }

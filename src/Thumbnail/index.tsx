@@ -19,7 +19,7 @@ const SpinoramaThumbnail: React.FC<SpinoramaThumbnailProps> = (props: SpinoramaT
 				sx={{
 					opacity: 0.8,
 					color: 'primary.main',
-					'&.selected': {
+					'.selected &.MuiButtonBase-root': {
 						opacity: 1,
 						color: 'primary.dark'
 					}

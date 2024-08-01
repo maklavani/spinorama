@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Initialize the class `selected` for **SpinoramaItem** and **SpinoramaThumbnail** components
+
 # 0.4.14
 - Fixed **bugs** in the `interval` function
 

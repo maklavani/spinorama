@@ -28,6 +28,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const containerRef = React.useRef<HTMLDivElement>(null)
 	const nextRef = React.useRef<HTMLButtonElement>(null)
 	const prevRef = React.useRef<HTMLButtonElement>(null)
+	const [init, setInit] = React.useState<boolean>(false)
 
 	// Settings
 	const settings: SpinoramaSettings = {
@@ -122,6 +123,13 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		setClassName('selected', prevIndex)
 		animateItems(prevIndex)
 	})
+
+	React.useEffect(() => {
+		if (containerRef.current && !init) {
+			setInit(true)
+			setClassName('selected', 0)
+		}
+	}, [containerRef, init])
 
 	return (
 		<Box ref={containerRef} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
