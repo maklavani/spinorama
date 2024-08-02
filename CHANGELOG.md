@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.20
 - Modify the **SpinoramaNext** and **SpinoramaPrev** components, which can now accept custom buttons
 
 # 0.4.19
