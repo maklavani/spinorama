@@ -1,8 +1,10 @@
-import React, { forwardRef, Children, isValidElement, cloneElement } from 'react'
+'use client'
+
+import React, { FC, Children, isValidElement, cloneElement } from 'react'
 import { Box } from '@mui/material'
 
 // Types
-import type { ForwardedRef, ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import type { SpinoramaActionsProps } from './index.types'
 import type { SpinoramaButtonsProps } from '../Buttons/index.types'
 import type { SpinoramaNextProps } from '../Next/index.types'
@@ -10,9 +12,9 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
 import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
-const SpinoramaActions = forwardRef((props: SpinoramaActionsProps, ref: ForwardedRef<SpinoramaActionsProps>) => {
+const SpinoramaActions: FC<SpinoramaActionsProps> = (props: SpinoramaActionsProps) => {
 	// Props
-	const { nextref, prevref, thumbnailsref, className, children } = props
+	const { ref, nextref, prevref, thumbnailsref, className, children } = props
 
 	return (
 		<Box ref={ref} display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
@@ -48,6 +50,6 @@ const SpinoramaActions = forwardRef((props: SpinoramaActionsProps, ref: Forwarde
 			})}
 		</Box>
 	)
-})
+}
 
 export default SpinoramaActions

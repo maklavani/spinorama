@@ -1,14 +1,16 @@
-import React, { forwardRef, Children, isValidElement, cloneElement } from 'react'
+'use client'
+
+import React, { FC, Children, isValidElement, cloneElement } from 'react'
 import { Box } from '@mui/material'
 
 // Types
-import type { ForwardedRef, ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import type { SpinoramaThumbnailsProps } from './index.types'
 import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
-const SpinoramaThumbnails = forwardRef((props: SpinoramaThumbnailsProps, ref: ForwardedRef<SpinoramaThumbnailsProps>) => {
+const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { justify, reverse, thumbnailsref, className, children } = props
+	const { ref, justify, reverse, thumbnailsref, className, children } = props
 
 	// Varaibles
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
@@ -39,6 +41,6 @@ const SpinoramaThumbnails = forwardRef((props: SpinoramaThumbnailsProps, ref: Fo
 			</Box>
 		</Box>
 	)
-})
+}
 
 export default SpinoramaThumbnails

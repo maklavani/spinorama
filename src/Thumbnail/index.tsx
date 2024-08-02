@@ -1,19 +1,18 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
 import { Grid, IconButton } from '@mui/material'
 import { CircleOutlined as CircleOutlinedIcon } from '@mui/icons-material'
 
 // Types
-import type { ForwardedRef } from 'react'
 import type { SpinoramaThumbnailProps } from './index.types'
 
-const SpinoramaThumbnail = forwardRef((props: SpinoramaThumbnailProps, ref: ForwardedRef<SpinoramaThumbnailProps>) => {
+const SpinoramaThumbnail: FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
 	// Props
-	const { thumbnailsref, className } = props
+	const { ref, thumbnailsref, className } = props
 
 	return (
-		<Grid item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}>
+		<Grid ref={ref} item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}>
 			<IconButton
 				ref={ref => thumbnailsref?.current.push(ref)}
 				size="small"
@@ -31,6 +30,6 @@ const SpinoramaThumbnail = forwardRef((props: SpinoramaThumbnailProps, ref: Forw
 			</IconButton>
 		</Grid>
 	)
-})
+}
 
 export default SpinoramaThumbnail

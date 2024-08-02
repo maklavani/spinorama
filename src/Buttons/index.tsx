@@ -1,18 +1,20 @@
-import React, { forwardRef, Children, isValidElement, cloneElement } from 'react'
+'use client'
+
+import React, { FC, Children, isValidElement, cloneElement } from 'react'
 import { Grid } from '@mui/material'
 
 // Types
-import type { ForwardedRef, ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import type { SpinoramaButtonsProps } from './index.types'
 import type { SpinoramaNextProps } from '../Next/index.types'
 import type { SpinoramaPrevProps } from '../Prev/index.types'
 
-const SpinoramaButtons = forwardRef((props: SpinoramaButtonsProps) => {
+const SpinoramaButtons: FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProps) => {
 	// Props
-	const { className, nextref, prevref, children } = props
+	const { ref, className, nextref, prevref, children } = props
 
 	return (
-		<Grid item flexGrow={1} width={1} {...props} className={`spinorama-buttons${className ? ` ${className}` : ''}`}>
+		<Grid ref={ref} item flexGrow={1} width={1} {...props} className={`spinorama-buttons${className ? ` ${className}` : ''}`}>
 			{Children.map(children, (child, index) => {
 				if (isValidElement(child)) {
 					// Type
@@ -32,6 +34,6 @@ const SpinoramaButtons = forwardRef((props: SpinoramaButtonsProps) => {
 			})}
 		</Grid>
 	)
-})
+}
 
 export default SpinoramaButtons

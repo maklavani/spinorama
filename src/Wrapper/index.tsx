@@ -1,17 +1,19 @@
-import React, { lazy, forwardRef, Children, isValidElement, cloneElement } from 'react'
+'use client'
+
+import React, { lazy, FC, Children, isValidElement, cloneElement } from 'react'
 import { Box, Grid } from '@mui/material'
 
 // Types
-import type { ForwardedRef, ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import type { SpinoramaWrapperProps } from './index.types'
 import type { SpinoramaItemProps } from '../Item/index.types'
 
 // Components
 const SpinoramaItem = lazy(() => import('../Item'))
 
-const SpinoramaWrapper = forwardRef((props: SpinoramaWrapperProps, ref: ForwardedRef<SpinoramaWrapperProps>) => {
+const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props
-	const { justify, reverse, className, children } = props
+	const { ref, justify, reverse, className, children } = props
 
 	// Varaibles
 	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
@@ -38,6 +40,6 @@ const SpinoramaWrapper = forwardRef((props: SpinoramaWrapperProps, ref: Forwarde
 			</Grid>
 		</Box>
 	)
-})
+}
 
 export default SpinoramaWrapper

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef, useRef, useState, useEffect, Children, isValidElement, cloneElement } from 'react'
+import React, { FC, useRef, useState, useEffect, Children, isValidElement, cloneElement } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import gsap from 'gsap'
@@ -10,7 +10,7 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(useGSAP)
 
 // Types
-import type { ForwardedRef, ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import type { SpinoramaProps, SpinoramaSettings } from './index.types'
 import type { SpinoramaWrapperProps } from '../Wrapper/index.types'
 import type { SpinoramaItemProps } from '../Item/index.types'
@@ -21,7 +21,7 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
 import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
-const Spinorama = forwardRef((props: SpinoramaProps, ref: ForwardedRef<SpinoramaActionsProps>) => {
+const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
 	const { duration, animateDuration, ease, className, children } = props
 
@@ -201,7 +201,7 @@ const Spinorama = forwardRef((props: SpinoramaProps, ref: ForwardedRef<Spinorama
 
 	return (
 		<Box ref={containerRef} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
-			{Children.map(children, (child, index) => {
+			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
@@ -241,6 +241,6 @@ const Spinorama = forwardRef((props: SpinoramaProps, ref: ForwardedRef<Spinorama
 			})}
 		</Box>
 	)
-})
+}
 
 export default Spinorama
