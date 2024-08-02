@@ -25,7 +25,7 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 				minWidth={1}
 				overflow="hidden"
 			>
-				{Children.map(children, (child, index) => {
+				{Children.map(children, child => {
 					if (isValidElement(child)) {
 						// Type
 						const childType = child.type.toString()

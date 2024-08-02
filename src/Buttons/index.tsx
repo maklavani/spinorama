@@ -15,7 +15,7 @@ const SpinoramaButtons: FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProp
 
 	return (
 		<Grid ref={ref} item flexGrow={1} width={1} {...props} className={`spinorama-buttons${className ? ` ${className}` : ''}`}>
-			{Children.map(children, (child, index) => {
+			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()

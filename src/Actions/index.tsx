@@ -18,7 +18,7 @@ const SpinoramaActions: FC<SpinoramaActionsProps> = (props: SpinoramaActionsProp
 
 	return (
 		<Box ref={ref} display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
-			{Children.map(children, (child, index) => {
+			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()

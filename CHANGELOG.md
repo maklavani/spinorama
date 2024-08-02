@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Modify the **SpinoramaNext** and **SpinoramaPrev** components, which can now accept custom buttons
+
 # 0.4.19
 - Added `forwardRef` to the components
 - Added `use client` directive to enable debugging in **Next.js** apps
