@@ -1,7 +1,8 @@
-import * as React from 'react'
+import React, { forwardRef, Children, isValidElement, cloneElement } from 'react'
 import { Box } from '@mui/material'
 
 // Types
+import type { ForwardedRef, ReactElement } from 'react'
 import type { SpinoramaActionsProps } from './index.types'
 import type { SpinoramaButtonsProps } from '../Buttons/index.types'
 import type { SpinoramaNextProps } from '../Next/index.types'
@@ -9,44 +10,44 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
 import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
-const SpinoramaActions: React.FC<SpinoramaActionsProps> = (props: SpinoramaActionsProps) => {
+const SpinoramaActions = forwardRef((props: SpinoramaActionsProps, ref: ForwardedRef<SpinoramaActionsProps>) => {
 	// Props
 	const { nextref, prevref, thumbnailsref, className, children } = props
 
 	return (
-		<Box display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
-			{React.Children.map(children, (child, index) => {
-				if (React.isValidElement(child)) {
+		<Box ref={ref} display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
+			{Children.map(children, (child, index) => {
+				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
 
 					// Clone element
 					if (childType.indexOf('spinorama-buttons') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaButtonsProps>, {
+						return cloneElement(child as ReactElement<SpinoramaButtonsProps>, {
 							nextref: nextref,
 							prevref: prevref
 						})
 					else if (childType.indexOf('spinorama-next') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaNextProps>, {
+						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
 							buttonref: nextref
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
+						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
 							buttonref: prevref
 						})
 					else if (childType.indexOf('spinorama-thumbnails') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {
+						return cloneElement(child as ReactElement<SpinoramaThumbnailsProps>, {
 							thumbnailsref: thumbnailsref
 						})
 					else if (childType.indexOf('spinorama-thumbnail') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
+						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
 							thumbnailsref: thumbnailsref
 						})
-					else return React.cloneElement(child)
+					else return cloneElement(child)
 				} else return child
 			})}
 		</Box>
 	)
-}
+})
 
 export default SpinoramaActions

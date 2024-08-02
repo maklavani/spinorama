@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import React, { forwardRef, useRef, useState, useEffect, Children, isValidElement, cloneElement } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import gsap from 'gsap'
@@ -10,6 +10,7 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(useGSAP)
 
 // Types
+import type { ForwardedRef, ReactElement } from 'react'
 import type { SpinoramaProps, SpinoramaSettings } from './index.types'
 import type { SpinoramaWrapperProps } from '../Wrapper/index.types'
 import type { SpinoramaItemProps } from '../Item/index.types'
@@ -20,18 +21,18 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
 import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
-const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
+const Spinorama = forwardRef((props: SpinoramaProps, ref: ForwardedRef<SpinoramaActionsProps>) => {
 	// Props
 	const { duration, animateDuration, ease, className, children } = props
 
 	// Variables
 	const theme = useTheme()
-	const itemsInterval = React.useRef<NodeJS.Timeout | null>(null)
-	const containerRef = React.useRef<HTMLDivElement>(null)
-	const nextRef = React.useRef<HTMLButtonElement>(null)
-	const prevRef = React.useRef<HTMLButtonElement>(null)
-	const thumbnailsRef = React.useRef<(HTMLButtonElement | null)[]>([])
-	const [init, setInit] = React.useState<boolean>(false)
+	const itemsInterval = useRef<NodeJS.Timeout | null>(null)
+	const containerRef = useRef<HTMLDivElement>(null)
+	const nextRef = useRef<HTMLButtonElement>(null)
+	const prevRef = useRef<HTMLButtonElement>(null)
+	const thumbnailsRef = useRef<(HTMLButtonElement | null)[]>([])
+	const [init, setInit] = useState<boolean>(false)
 
 	// Settings
 	const settings: SpinoramaSettings = {
@@ -191,7 +192,7 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		itemsInterval.current = setInterval(nextItem, settings.duration)
 	})
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (containerRef.current && !init) {
 			setInit(true)
 			setClassName('selected', 0)
@@ -200,46 +201,46 @@ const Spinorama: React.FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 	return (
 		<Box ref={containerRef} {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
-			{React.Children.map(children, (child, index) => {
-				if (React.isValidElement(child)) {
+			{Children.map(children, (child, index) => {
+				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
 
 					// Clone element
-					if (childType.indexOf('spinorama-wrapper') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaWrapperProps>, {})
-					else if (childType.indexOf('spinorama-item') > -1) return React.cloneElement(child as React.ReactElement<SpinoramaItemProps>, {})
+					if (childType.indexOf('spinorama-wrapper') > -1) return cloneElement(child as ReactElement<SpinoramaWrapperProps>, {})
+					else if (childType.indexOf('spinorama-item') > -1) return cloneElement(child as ReactElement<SpinoramaItemProps>, {})
 					else if (childType.indexOf('spinorama-actions') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaActionsProps>, {
+						return cloneElement(child as ReactElement<SpinoramaActionsProps>, {
 							nextref: nextRef,
 							prevref: prevRef,
 							thumbnailsref: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-buttons') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaButtonsProps>, {
+						return cloneElement(child as ReactElement<SpinoramaButtonsProps>, {
 							nextref: nextRef,
 							prevref: prevRef
 						})
 					else if (childType.indexOf('spinorama-next') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaNextProps>, {
+						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
 							buttonref: nextRef
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaPrevProps>, {
+						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
 							buttonref: prevRef
 						})
 					else if (childType.indexOf('spinorama-thumbnails') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailsProps>, {
+						return cloneElement(child as ReactElement<SpinoramaThumbnailsProps>, {
 							thumbnailsref: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-thumbnail') > -1)
-						return React.cloneElement(child as React.ReactElement<SpinoramaThumbnailProps>, {
+						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
 							thumbnailsref: thumbnailsRef
 						})
-					else return React.cloneElement(child)
+					else return cloneElement(child)
 				} else return child
 			})}
 		</Box>
 	)
-}
+})
 
 export default Spinorama

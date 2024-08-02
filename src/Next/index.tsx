@@ -1,14 +1,15 @@
 'use client'
 
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Grid, IconButton } from '@mui/material'
 import { ArrowForwardIos as ArrowForwardIosIcon, ArrowBackIosNew as ArrowBackIosNewIcon } from '@mui/icons-material'
 
 // Types
+import type { ForwardedRef } from 'react'
 import type { SpinoramaNextProps } from './index.types'
 
-const SpinoramaNext: React.FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
+const SpinoramaNext = forwardRef((props: SpinoramaNextProps, ref: ForwardedRef<SpinoramaNextProps>) => {
 	// Props
 	const { buttonref, className } = props
 
@@ -22,6 +23,6 @@ const SpinoramaNext: React.FC<SpinoramaNextProps> = (props: SpinoramaNextProps) 
 			</IconButton>
 		</Grid>
 	)
-}
+})
 
 export default SpinoramaNext

@@ -1,10 +1,11 @@
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 import { Grid } from '@mui/material'
 
 // Types
+import type { ForwardedRef } from 'react'
 import type { SpinoramaItemProps } from './index.types'
 
-const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) => {
+const SpinoramaItem = forwardRef((props: SpinoramaItemProps, ref: ForwardedRef<SpinoramaItemProps>) => {
 	// Props
 	const { className, children } = props
 
@@ -13,6 +14,6 @@ const SpinoramaItem: React.FC<SpinoramaItemProps> = (props: SpinoramaItemProps) 
 			{children}
 		</Grid>
 	)
-}
+})
 
 export default SpinoramaItem
