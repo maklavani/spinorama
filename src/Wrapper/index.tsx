@@ -13,7 +13,7 @@ const SpinoramaItem = lazy(() => import('../Item'))
 
 const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props
-	const { ref, justify, reverse, className, children } = props
+	const { ref, justify, reverse, spacing, className, children } = props
 
 	// Varaibles
 	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
@@ -26,7 +26,7 @@ const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProp
 				flexDirection={reverse ? 'row-reverse' : 'row'}
 				flexWrap="nowrap"
 				justifyContent={justifyContent}
-				spacing={{ xs: 1, md: 2 }}
+				spacing={spacing ?? { xs: 1, md: 2 }}
 				minWidth={1}
 				height="100%"
 			>

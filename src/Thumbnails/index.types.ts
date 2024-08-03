@@ -2,6 +2,7 @@ import * as React from 'react'
 
 // Types
 import type { BoxProps } from '@mui/material'
+import type { ResponsiveStyleValue, GridSpacing } from '@mui/system'
 
 export type SpinoramaThumbnailsProps = BoxProps & {
 	/**
@@ -22,6 +23,13 @@ export type SpinoramaThumbnailsProps = BoxProps & {
 	 * @default false
 	 */
 	reverse?: boolean
+
+	/**
+	 * Defines the space between the type `item` components.
+	 * It can only be used on a type `container` component.
+	 * @default 0
+	 */
+	spacing?: ResponsiveStyleValue<GridSpacing>
 
 	/**
 	 * A reference to the array of thumbnail button elements

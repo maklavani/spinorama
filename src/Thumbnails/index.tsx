@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC, Children, isValidElement, cloneElement } from 'react'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { ReactElement } from 'react'
@@ -10,20 +10,22 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { ref, justify, reverse, thumbnailsref, className, children } = props
+	const { ref, justify, reverse, spacing, thumbnailsref, className, children } = props
 
 	// Varaibles
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
 		<Box ref={ref} display="flex" flexGrow={1} width={1} {...props} className={`spinorama-thumbnails${className ? ` ${className}` : ''}`}>
-			<Box
-				className="spinorama-thumbnails-wrapper"
+			<Grid
+				className="spinorama-thumbnails-items"
+				container
 				flexDirection={reverse ? 'row-reverse' : 'row'}
+				flexWrap="nowrap"
 				justifyContent={justifyContent}
-				display="flex"
+				spacing={spacing ?? 1}
 				minWidth={1}
-				overflow="hidden"
+				height="100%"
 			>
 				{Children.map(children, child => {
 					if (isValidElement(child)) {
@@ -38,7 +40,7 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 						} else return cloneElement(child)
 					} else return child
 				})}
-			</Box>
+			</Grid>
 		</Box>
 	)
 }
