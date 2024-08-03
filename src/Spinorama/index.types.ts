@@ -3,19 +3,20 @@ import type { BoxProps } from '@mui/material'
 
 export type SpinoramaSettings = {
 	/**
-	 * The duration of the transition between slides (in milliseconds)
+	 * The duration of the interval between slide transitions (in milliseconds)
+	 * This is the time it takes for the transition to complete
 	 *
 	 * @default 10000
 	 */
-	duration?: number
+	interval?: number
 
 	/**
-	 * The duration of the animation that occurs when the user manually
-	 * changes the slide (in milliseconds)
+	 * The duration of the slide change animation (in milliseconds)
+	 * This is the time it takes for the animation to complete
 	 *
 	 * @default 1000
 	 */
-	animateDuration?: number
+	duration?: number
 
 	/**
 	 * The easing function to apply to the transition between slides

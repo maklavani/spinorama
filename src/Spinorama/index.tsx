@@ -23,7 +23,7 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
-	const { duration, animateDuration, ease, className, children } = props
+	const { interval, duration, ease, className, children } = props
 
 	// Variables
 	const theme = useTheme()
@@ -36,8 +36,8 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 	// Settings
 	const settings: SpinoramaSettings = {
-		duration: duration || 10000,
-		animateDuration: (animateDuration || 1000) / 1000,
+		interval: interval || 10000,
+		duration: (duration || 1000) / 1000,
 		ease: ease || 'power1.inOut'
 	}
 
@@ -45,7 +45,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const { contextSafe } = useGSAP(
 		(_, contextSafe) => {
 			// Set Interval
-			itemsInterval.current = setInterval(nextItem, settings.duration)
+			itemsInterval.current = setInterval(nextItem, settings.interval)
 
 			// Next
 			// @ts-ignore
@@ -145,7 +145,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 		gsap.to('.spinorama-items', {
 			xPercent: -100 * xPercent,
-			duration: settings.animateDuration,
+			interval: settings.duration,
 			ease: settings.ease
 		})
 	})
@@ -162,7 +162,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		clearInterval(itemsInterval.current as NodeJS.Timeout)
 
 		// Set Interval
-		itemsInterval.current = setInterval(nextItem, settings.duration)
+		itemsInterval.current = setInterval(nextItem, settings.interval)
 	})
 
 	// Prev item
@@ -177,7 +177,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		clearInterval(itemsInterval.current as NodeJS.Timeout)
 
 		// Set Interval
-		itemsInterval.current = setInterval(nextItem, settings.duration)
+		itemsInterval.current = setInterval(nextItem, settings.interval)
 	})
 
 	// Show item
@@ -189,7 +189,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		clearInterval(itemsInterval.current as NodeJS.Timeout)
 
 		// Set Interval
-		itemsInterval.current = setInterval(nextItem, settings.duration)
+		itemsInterval.current = setInterval(nextItem, settings.interval)
 	})
 
 	useEffect(() => {

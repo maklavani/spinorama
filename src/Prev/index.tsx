@@ -18,15 +18,18 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 
 	return (
 		<Grid ref={ref} item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-prev${className ? ` ${className}` : ''}`}>
-			{Children.map(children, child => {
-				if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonref })
-				else
-					return (
-						<IconButton ref={buttonref} color="primary" sx={{ color: 'primary.dark' }}>
-							{theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />}
-						</IconButton>
-					)
-			})}
+			{Children.count(children) ? (
+				Children.map(children, child => {
+					console.log('child', child)
+
+					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonref })
+					else return child
+				})
+			) : (
+				<IconButton ref={buttonref} color="primary" sx={{ color: 'primary.dark' }}>
+					{theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />}
+				</IconButton>
+			)}
 		</Grid>
 	)
 }

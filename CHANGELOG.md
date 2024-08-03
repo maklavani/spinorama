@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Changed `duration` to `interval` and `animateDuration` to `duration` in the **Spinorama** component
+
 # 0.4.20
 - Modify the **SpinoramaNext** and **SpinoramaPrev** components, which can now accept custom buttons
 
