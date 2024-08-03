@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added the ability to provide custom buttons to the **SpinoramaThumbnail** component
+
 # 0.4.25
 - Fixed bug in setting `animation duration` in the **Spinorama** component
 
