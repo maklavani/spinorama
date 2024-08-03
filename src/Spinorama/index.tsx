@@ -145,7 +145,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 		gsap.to('.spinorama-items', {
 			xPercent: -100 * xPercent,
-			interval: settings.duration,
+			duration: settings.duration,
 			ease: settings.ease
 		})
 	})

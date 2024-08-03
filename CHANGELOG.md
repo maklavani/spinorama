@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixed bug in setting `animation duration` in the **Spinorama** component
+
 # 0.4.24
 - Created `layout` for positioning the **SpinoramaNext** and **SpinoramaPrev** components.
 

@@ -33,7 +33,7 @@ const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProp
 				{Children.map(children, (child, index) => {
 					if (isValidElement(child)) {
 						// Clone element
-						if (child.type.toString().indexOf('spinorama-item') > -1) return cloneElement(child as ReactElement<SpinoramaItemProps>, {})
+						if (child.type.toString().indexOf('spinorama-item') > -1) return cloneElement(child as ReactElement<SpinoramaItemProps>)
 						else return <SpinoramaItem key={index}>{child}</SpinoramaItem>
 					} else return child
 				})}
