@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.21
 - Changed `duration` to `interval` and `animateDuration` to `duration` in the **Spinorama** component
 
 # 0.4.20
