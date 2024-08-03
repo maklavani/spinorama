@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added a `relative position` for the **Spinorama** component
+
 # 0.4.22
 - Fixing a bug in setting a `ref` to an inner child of **SpinoramaNext** and **SpinoramaPrev** components
 
