@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.26
 - Added the ability to provide custom buttons to the **SpinoramaThumbnail** component
 
 # 0.4.25
