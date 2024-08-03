@@ -11,7 +11,7 @@ import type { SpinoramaPrevProps } from './index.types'
 
 const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 	// Props
-	const { ref, buttonref, layout, className, children } = props
+	const { ref, className, buttonRef, layout, showOnHover, sx, children, ...otherProps } = props
 
 	// Variables
 	const theme = useTheme()
@@ -19,6 +19,7 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 	return (
 		<Grid
 			ref={ref}
+			className={`spinorama-btn spinorama-prev${className ? ` ${className}` : ''}`}
 			item
 			flex="0 0 fit-content"
 			display="inline-flex"
@@ -28,21 +29,31 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 			right={layout && (['top-right', 'center-right', 'bottom-right'].includes(layout) ? 0 : 'inherit')}
 			bottom={layout && (['bottom-left', 'bottom-center', 'bottom-right'].includes(layout) ? 0 : 'inherit')}
 			left={layout && (['top-left', 'center-left', 'bottom-left'].includes(layout) ? 0 : ['top-center', 'bottom-center'].includes(layout) ? '50%' : 'inherit')}
+			zIndex={1}
 			sx={{
+				...(showOnHover && {
+					visibility: { md: 'hidden' },
+					opacity: { md: 0 },
+					transition: 'opacity .3s ease',
+					'.spinorama:hover &': {
+						visibility: { md: 'visible' },
+						opacity: { md: 1 }
+					}
+				}),
 				transform: `${layout && ['top-center', 'bottom-center'].includes(layout) ? `translateX(-50%) ` : ''}translateY(${
 					layout && ['bottom-left', 'bottom-center', 'bottom-right'].includes(layout) ? '50%' : '-50%'
-				})`
+				})`,
+				...sx
 			}}
-			{...props}
-			className={`spinorama-btn spinorama-prev${className ? ` ${className}` : ''}`}
+			{...otherProps}
 		>
 			{Children.count(children) ? (
 				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonref })
+					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonRef })
 					else return child
 				})
 			) : (
-				<IconButton ref={buttonref} color="primary" sx={{ color: 'primary.dark' }}>
+				<IconButton ref={buttonRef} color="primary" sx={{ color: 'primary.dark' }}>
 					{theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />}
 				</IconButton>
 			)}

@@ -6,7 +6,12 @@ import type { ResponsiveStyleValue, GridSpacing } from '@mui/system'
 
 export type SpinoramaThumbnailsProps = BoxProps & {
 	/**
-	 * Determines how the slides are aligned.
+	 * A reference to the array of thumbnail button elements
+	 */
+	thumbnailsRef?: React.MutableRefObject<(HTMLButtonElement | null)[]>
+
+	/**
+	 * Determines how the slides are aligned
 	 * Available options are:
 	 * - 'start': aligns the slides to the left (or top if `direction` is 'column');
 	 * - 'center': aligns the slides to center;
@@ -17,22 +22,18 @@ export type SpinoramaThumbnailsProps = BoxProps & {
 	justify?: 'start' | 'center' | 'end'
 
 	/**
-	 * Determines the direction of the slideshow.
-	 * When `true`, the slides will be displayed in reverse order.
+	 * Determines the direction of the slideshow
+	 * When `true`, the slides will be displayed in reverse order
 	 *
 	 * @default false
 	 */
 	reverse?: boolean
 
 	/**
-	 * Defines the space between the type `item` components.
-	 * It can only be used on a type `container` component.
+	 * Defines the space between the type `item` components
+	 * It can only be used on a type `container` component
+	 *
 	 * @default 0
 	 */
 	spacing?: ResponsiveStyleValue<GridSpacing>
-
-	/**
-	 * A reference to the array of thumbnail button elements
-	 */
-	thumbnailsref?: React.MutableRefObject<(HTMLButtonElement | null)[]>
 }

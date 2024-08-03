@@ -23,7 +23,7 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
-	const { interval, duration, ease, className, children } = props
+	const { className, interval, duration, ease, children, ...otherProps } = props
 
 	// Variables
 	const theme = useTheme()
@@ -200,7 +200,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	}, [containerRef, init])
 
 	return (
-		<Box ref={containerRef} position="relative" {...props} className={`spinorama${className ? ` ${className}` : ''}`}>
+		<Box ref={containerRef} className={`spinorama${className ? ` ${className}` : ''}`} position="relative" {...otherProps}>
 			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
@@ -211,30 +211,30 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 					else if (childType.indexOf('spinorama-item') > -1) return cloneElement(child as ReactElement<SpinoramaItemProps>, {})
 					else if (childType.indexOf('spinorama-actions') > -1)
 						return cloneElement(child as ReactElement<SpinoramaActionsProps>, {
-							nextref: nextRef,
-							prevref: prevRef,
-							thumbnailsref: thumbnailsRef
+							nextRef: nextRef,
+							prevRef: prevRef,
+							thumbnailsRef: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-buttons') > -1)
 						return cloneElement(child as ReactElement<SpinoramaButtonsProps>, {
-							nextref: nextRef,
-							prevref: prevRef
+							nextRef: nextRef,
+							prevRef: prevRef
 						})
 					else if (childType.indexOf('spinorama-next') > -1)
 						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
-							buttonref: nextRef
+							buttonRef: nextRef
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
 						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
-							buttonref: prevRef
+							buttonRef: prevRef
 						})
 					else if (childType.indexOf('spinorama-thumbnails') > -1)
 						return cloneElement(child as ReactElement<SpinoramaThumbnailsProps>, {
-							thumbnailsref: thumbnailsRef
+							thumbnailsRef: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-thumbnail') > -1)
 						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
-							thumbnailsref: thumbnailsRef
+							thumbnailsRef: thumbnailsRef
 						})
 					else return cloneElement(child)
 				} else return child

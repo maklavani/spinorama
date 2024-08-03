@@ -8,10 +8,10 @@ import type { SpinoramaItemProps } from './index.types'
 
 const SpinoramaItem: FC<SpinoramaItemProps> = (props: SpinoramaItemProps) => {
 	// Props
-	const { ref, className, children } = props
+	const { ref, className, children, ...otherProps } = props
 
 	return (
-		<Grid ref={ref} item xs={12} flex="0 0 fit-content" {...props} className={`spinorama-item${className ? ` ${className}` : ''}`}>
+		<Grid ref={ref} className={`spinorama-item${className ? ` ${className}` : ''}`} item xs={12} flex="0 0 fit-content" {...otherProps}>
 			{children}
 		</Grid>
 	)

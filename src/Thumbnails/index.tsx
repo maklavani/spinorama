@@ -10,13 +10,13 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
-	const { ref, justify, reverse, spacing, thumbnailsref, className, children } = props
+	const { ref, className, justify, reverse, spacing, thumbnailsRef, children, ...otherProps } = props
 
 	// Varaibles
 	const justifyContent = !justify || justify === 'center' ? 'center' : justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
-		<Box ref={ref} display="flex" flexGrow={1} width={1} {...props} className={`spinorama-thumbnails${className ? ` ${className}` : ''}`}>
+		<Box ref={ref} className={`spinorama-thumbnails${className ? ` ${className}` : ''}`} display="flex" flexGrow={1} width={1} {...otherProps}>
 			<Grid
 				className="spinorama-thumbnails-items"
 				container
@@ -35,7 +35,7 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 						// Clone element
 						if (childType.indexOf('spinorama-thumbnail') > -1) {
 							return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
-								thumbnailsref: thumbnailsref
+								thumbnailsRef: thumbnailsRef
 							})
 						} else return cloneElement(child)
 					} else return child

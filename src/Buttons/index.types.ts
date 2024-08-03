@@ -5,10 +5,10 @@ export type SpinoramaButtonsProps = GridProps & {
 	/**
 	 * A reference to the next button element
 	 */
-	nextref?: React.Ref<HTMLButtonElement>
+	nextRef?: React.Ref<HTMLButtonElement>
 
 	/**
 	 * A reference to the prev button element
 	 */
-	prevref?: React.Ref<HTMLButtonElement>
+	prevRef?: React.Ref<HTMLButtonElement>
 }

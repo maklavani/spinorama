@@ -5,5 +5,5 @@ export type SpinoramaThumbnailProps = GridProps & {
 	/**
 	 * A reference to the array of thumbnail button elements
 	 */
-	thumbnailsref?: React.MutableRefObject<(HTMLButtonElement | null)[]>
+	thumbnailsRef?: React.MutableRefObject<(HTMLButtonElement | null)[]>
 }

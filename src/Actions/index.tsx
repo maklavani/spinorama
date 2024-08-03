@@ -14,10 +14,18 @@ import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaActions: FC<SpinoramaActionsProps> = (props: SpinoramaActionsProps) => {
 	// Props
-	const { ref, nextref, prevref, thumbnailsref, className, children } = props
+	const { ref, className, nextRef, prevRef, thumbnailsRef, children, ...otherProps } = props
 
 	return (
-		<Box ref={ref} display="flex" flexDirection="row" alignItems="center" mt={{ xs: 1, md: 2 }} {...props} className={`spinorama-actions${className ? ` ${className}` : ''}`}>
+		<Box
+			ref={ref}
+			className={`spinorama-actions${className ? ` ${className}` : ''}`}
+			display="flex"
+			flexDirection="row"
+			alignItems="center"
+			mt={{ xs: 1, md: 2 }}
+			{...otherProps}
+		>
 			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
@@ -26,24 +34,24 @@ const SpinoramaActions: FC<SpinoramaActionsProps> = (props: SpinoramaActionsProp
 					// Clone element
 					if (childType.indexOf('spinorama-buttons') > -1)
 						return cloneElement(child as ReactElement<SpinoramaButtonsProps>, {
-							nextref: nextref,
-							prevref: prevref
+							nextRef: nextRef,
+							prevRef: prevRef
 						})
 					else if (childType.indexOf('spinorama-next') > -1)
 						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
-							buttonref: nextref
+							buttonRef: nextRef
 						})
 					else if (childType.indexOf('spinorama-prev') > -1)
 						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
-							buttonref: prevref
+							buttonRef: prevRef
 						})
 					else if (childType.indexOf('spinorama-thumbnails') > -1)
 						return cloneElement(child as ReactElement<SpinoramaThumbnailsProps>, {
-							thumbnailsref: thumbnailsref
+							thumbnailsRef: thumbnailsRef
 						})
 					else if (childType.indexOf('spinorama-thumbnail') > -1)
 						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
-							thumbnailsref: thumbnailsref
+							thumbnailsRef: thumbnailsRef
 						})
 					else return cloneElement(child)
 				} else return child

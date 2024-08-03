@@ -10,18 +10,27 @@ import type { SpinoramaThumbnailProps } from './index.types'
 
 const SpinoramaThumbnail: FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
 	// Props
-	const { ref, thumbnailsref, className, children } = props
+	const { ref, className, thumbnailsRef, children, ...otherProps } = props
 
 	return (
-		<Grid ref={ref} item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}>
+		<Grid
+			ref={ref}
+			className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}
+			item
+			flex="0 0 fit-content"
+			display="inline-flex"
+			justifyContent="center"
+			zIndex={1}
+			{...otherProps}
+		>
 			{Children.count(children) ? (
 				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: (ref: HTMLButtonElement) => thumbnailsref?.current.push(ref) })
+					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: (ref: HTMLButtonElement) => thumbnailsRef?.current.push(ref) })
 					else return child
 				})
 			) : (
 				<IconButton
-					ref={ref => thumbnailsref?.current.push(ref)}
+					ref={ref => thumbnailsRef?.current.push(ref)}
 					size="small"
 					color="primary"
 					sx={{
