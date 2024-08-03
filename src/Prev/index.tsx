@@ -20,8 +20,6 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 		<Grid ref={ref} item flex="0 0 fit-content" display="inline-flex" justifyContent="center" {...props} className={`spinorama-prev${className ? ` ${className}` : ''}`}>
 			{Children.count(children) ? (
 				Children.map(children, child => {
-					console.log('child', child)
-
 					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonref })
 					else return child
 				})

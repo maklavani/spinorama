@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixing a bug in setting a `ref` to an inner child of **SpinoramaNext** and **SpinoramaPrev** components
+
 # 0.4.21
 - Changed `duration` to `interval` and `animateDuration` to `duration` in the **Spinorama** component
 
