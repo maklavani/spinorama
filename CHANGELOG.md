@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.23
 - Added a `relative position` for the **Spinorama** component
 
 # 0.4.22
