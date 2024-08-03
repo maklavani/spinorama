@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Upgraded packages in the **documentation**
+- Created main page in the **documentation**
 
 # 0.4.28
 - Fixed bug in components all props to the DOM elements

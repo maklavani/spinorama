@@ -2,5 +2,11 @@
 	"app": {
 		"description": "Spinorama is a powerful and versatile carousel component designed specifically for React applications with Material-UI integration.",
 		"name": "Spinorama"
+	},
+	"description": {
+		"notFound": "Ooops! The page you are looking for does not exist or has been removed."
+	},
+	"title": {
+		"notFound": "Not found"
 	}
 }

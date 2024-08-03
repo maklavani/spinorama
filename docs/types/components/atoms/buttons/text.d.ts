@@ -6,7 +6,5 @@ export type TextButtonProps = {
 	title: string
 	startIcon?: ReactNode
 	endIcon?: ReactNode
-	color?: string
-	bordercolor?: string
 	onClick?: () => void
 }
