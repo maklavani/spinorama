@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.27
 - Added the `spacing` prop to the **SpinoramaThumbnails** and **SpinoramaWrapper** components
 
 # 0.4.26
