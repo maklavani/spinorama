@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.22
 - Fixing a bug in setting a `ref` to an inner child of **SpinoramaNext** and **SpinoramaPrev** components
 
 # 0.4.21
