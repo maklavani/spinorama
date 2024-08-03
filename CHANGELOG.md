@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created `layout` for positioning the **SpinoramaNext** and **SpinoramaPrev** components.
+
 # 0.4.23
 - Added a `relative position` for the **Spinorama** component
 
