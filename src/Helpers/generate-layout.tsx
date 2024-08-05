@@ -8,7 +8,7 @@ import type { GenerateLayoutPositionsProps, GenerateLayoutProps } from './genera
 
 const GenerateLayoutPositions = (props: GenerateLayoutPositionsProps) => {
 	// Props
-	const { propValue } = props
+	const { propValue, rightHandSide } = props
 
 	return {
 		position: propValue != 'inherit' ? 'absolute' : 'inherit',
@@ -16,7 +16,7 @@ const GenerateLayoutPositions = (props: GenerateLayoutPositionsProps) => {
 		right: ['top-right', 'center-right', 'bottom-right'].includes(propValue) ? 0 : 'inherit',
 		bottom: ['bottom-left', 'bottom-center', 'bottom-right'].includes(propValue) ? 0 : 'inherit',
 		left: ['top-left', 'center-left', 'bottom-left'].includes(propValue) ? 0 : ['top-center', 'bottom-center'].includes(propValue) ? '50%' : 'inherit',
-		transform: `${['top-center', 'bottom-center'].includes(propValue) ? `translateX(-50%) ` : ''}translateY(${
+		transform: `${['top-center', 'bottom-center'].includes(propValue) ? `translateX(${rightHandSide ? 'calc(100% + 5px)' : '-5px'}) ` : ''}translateY(${
 			['bottom-left', 'bottom-center', 'bottom-right'].includes(propValue) ? '50%' : '-50%'
 		})`
 	}
@@ -24,7 +24,7 @@ const GenerateLayoutPositions = (props: GenerateLayoutPositionsProps) => {
 
 export function GenerateLayout(props: GenerateLayoutProps) {
 	// Props
-	const { theme, layout } = props
+	const { theme, layout, rightHandSide } = props
 
 	// Varaibles
 	let styles = {}
@@ -36,7 +36,7 @@ export function GenerateLayout(props: GenerateLayoutProps) {
 		})
 
 		styles = handleBreakpoints({ theme }, layoutValues, (propValue, breakpoint) => {
-			return GenerateLayoutPositions({ propValue })
+			return GenerateLayoutPositions({ propValue, rightHandSide })
 		})
 	}
 

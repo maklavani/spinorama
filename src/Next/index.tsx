@@ -21,7 +21,8 @@ const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 
 	const layoutStyles = GenerateLayout({
 		theme,
-		layout
+		layout,
+		rightHandSide: theme.direction === 'ltr'
 	})
 
 	return (

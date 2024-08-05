@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added the `rightHandSide` prop to the **Generate Layout** helper
+
 # 0.4.30
 - Created `ResponsiveStyleValue` for `layout` attributes in the **SpinoramaThumbnails** and **SpinoramaWrapper** components
 

@@ -21,7 +21,8 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 
 	const layoutStyles = GenerateLayout({
 		theme,
-		layout
+		layout,
+		rightHandSide: theme.direction === 'rtl'
 	})
 
 	return (
