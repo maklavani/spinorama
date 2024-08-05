@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.31
 - Added the `rightHandSide` prop to the **Generate Layout** helper
 
 # 0.4.30
