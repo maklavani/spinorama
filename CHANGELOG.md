@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Create `helper` functions for the package
+
 # 0.4.28
 - Fixed bug in components all props to the DOM elements
 

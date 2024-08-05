@@ -52,6 +52,7 @@
 	"files": [
 		"/Actions",
 		"/Buttons",
+		"/Helpers",
 		"/Item",
 		"/Next",
 		"/Prev",
