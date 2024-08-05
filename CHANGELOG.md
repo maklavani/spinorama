@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.32
 - Added more margin in the `rightHandSide` option
 
 # 0.4.31
