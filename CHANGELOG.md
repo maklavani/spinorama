@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added more margin in the `rightHandSide` option
+
 # 0.4.31
 - Added the `rightHandSide` prop to the **Generate Layout** helper
 

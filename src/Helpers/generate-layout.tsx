@@ -16,7 +16,7 @@ const GenerateLayoutPositions = (props: GenerateLayoutPositionsProps) => {
 		right: ['top-right', 'center-right', 'bottom-right'].includes(propValue) ? 0 : 'inherit',
 		bottom: ['bottom-left', 'bottom-center', 'bottom-right'].includes(propValue) ? 0 : 'inherit',
 		left: ['top-left', 'center-left', 'bottom-left'].includes(propValue) ? 0 : ['top-center', 'bottom-center'].includes(propValue) ? '50%' : 'inherit',
-		transform: `${['top-center', 'bottom-center'].includes(propValue) ? `translateX(${rightHandSide ? 'calc(100% + 5px)' : '-5px'}) ` : ''}translateY(${
+		transform: `${['top-center', 'bottom-center'].includes(propValue) ? `translateX(${rightHandSide ? 'calc(100% + 10px)' : '10px'}) ` : ''}translateY(${
 			['bottom-left', 'bottom-center', 'bottom-right'].includes(propValue) ? '50%' : '-50%'
 		})`
 	}
