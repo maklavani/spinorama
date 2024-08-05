@@ -1,5 +1,7 @@
 // Types
+import type { ResponsiveStyleValue } from '@mui/system'
 import type { GridProps } from '@mui/material'
+import type { LayoutPositions } from '../Helpers/generate-layout.types'
 
 export type SpinoramaNextProps = GridProps & {
 	/**
@@ -11,7 +13,7 @@ export type SpinoramaNextProps = GridProps & {
 	 * Defines the positioning of the button component
 	 * @default undefined
 	 */
-	layout?: 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | undefined
+	layout?: ResponsiveStyleValue<LayoutPositions> | undefined
 
 	/**
 	 * Changes the visibility of the button component based on whether the parent element is being hovered over or not

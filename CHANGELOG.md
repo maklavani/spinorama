@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created `ResponsiveStyleValue` for `layout` attributes in the **SpinoramaThumbnails** and **SpinoramaWrapper** components
+
 # 0.4.29
 - Create `helper` functions for the package
 
