@@ -1,6 +1,6 @@
 {
 	"name": "spinorama",
-	"version": "0.4.32",
+	"version": "0.4.33",
 	"private": false,
 	"main": "index.js",
 	"module": "index.js",

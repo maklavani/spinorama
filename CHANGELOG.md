@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.33
 - Removed all unnecessary `cloneElement` calls in the components
 
 # 0.4.32
