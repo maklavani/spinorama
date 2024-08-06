@@ -29,7 +29,7 @@ const SpinoramaButtons: FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProp
 						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
 							buttonRef: prevRef
 						})
-					else return cloneElement(child)
+					else return child
 				} else return child
 			})}
 		</Grid>

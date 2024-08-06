@@ -53,7 +53,7 @@ const SpinoramaActions: FC<SpinoramaActionsProps> = (props: SpinoramaActionsProp
 						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
 							thumbnailsRef: thumbnailsRef
 						})
-					else return cloneElement(child)
+					else return child
 				} else return child
 			})}
 		</Box>
