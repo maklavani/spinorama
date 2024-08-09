@@ -23,6 +23,8 @@ npm install @mui/material @emotion/react @emotion/styled
 
 import { Spinorama, SpinoramaWrapper, SpinoramaItem, SpinoramaActions, SpinoramaThumbnails, SpinoramaThumbnail, SpinoramaButtons, SpinoramaNext, SpinoramaPrev } from 'spinorama'
 
+...
+
 <Spinorama>
 	<SpinoramaWrapper>
 		<SpinoramaItem>Item 1</SpinoramaItem>
@@ -43,4 +45,22 @@ import { Spinorama, SpinoramaWrapper, SpinoramaItem, SpinoramaActions, Spinorama
 		</SpinoramaThumbnails>
 	</SpinoramaActions>
 </Spinorama>
+
+...
+```
+
+## Customizing
+
+### Spinorama Component
+
+You can customize the `Spinorama` component by passing the following props:
+
+- `interval` (default: `10000`): The duration of the interval between slide transitions (in milliseconds). This is the time it takes for the transition to complete.
+- `duration` (default: `1000`): The duration of the slide change animation (in milliseconds). This is the time it takes for the animation to complete.
+- `ease` (default: `power1.inOut`): The easing function to apply to the transition between slides. This can be any valid [GSAP easing function](https://greensock.com/ease-visualizer/)
+
+Here's an example of how to customize the `Spinorama` component:
+
+```jsx
+<Spinorama interval={10000} duration={1000} ease="power1">
 ```
