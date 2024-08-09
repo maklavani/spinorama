@@ -19,7 +19,9 @@ npm install @mui/material @emotion/react @emotion/styled
 ## Example
 
 ```jsx
-import { Spinorama, SpinoramaWrapper, SpinoramaItem } from 'spinorama'
+'use client'
+
+import { Spinorama, SpinoramaWrapper, SpinoramaItem, SpinoramaActions, SpinoramaThumbnails, SpinoramaThumbnail, SpinoramaButtons, SpinoramaNext, SpinoramaPrev } from 'spinorama'
 
 <Spinorama>
 	<SpinoramaWrapper>
@@ -27,5 +29,18 @@ import { Spinorama, SpinoramaWrapper, SpinoramaItem } from 'spinorama'
 		<SpinoramaItem>Item 2</SpinoramaItem>
 		<SpinoramaItem>Item 3</SpinoramaItem>
 	</SpinoramaWrapper>
+
+	<SpinoramaActions>
+		<SpinoramaButtons>
+			<SpinoramaPrev />
+			<SpinoramaNext />
+		</SpinoramaButtons>
+
+		<SpinoramaThumbnails justify="end">
+			<SpinoramaThumbnail />
+			<SpinoramaThumbnail />
+			<SpinoramaThumbnail />
+		</SpinoramaThumbnails>
+	</SpinoramaActions>
 </Spinorama>
 ```

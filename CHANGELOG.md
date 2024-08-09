@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Improved **README.md** by adding a summary of the changes necessary when using `Spinorama` in **Next.js** apps
+
 # 0.4.34
 - Updated **README.md** to include more detailed instructions on how to use `Spinorama`
 
