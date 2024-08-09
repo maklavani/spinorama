@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Updated **README.md** to include more detailed instructions on how to use `Spinorama`
+
 # 0.4.33
 - Removed all unnecessary `cloneElement` calls in the components
 
