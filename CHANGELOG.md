@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.37
 - Added a section on customizing `SpinoramaWrapper` to **README.md**
 
 # 0.4.36
