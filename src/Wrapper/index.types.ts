@@ -6,8 +6,8 @@ export type SpinoramaWrapperProps = BoxProps & {
 	/**
 	 * Determines how the slides are aligned
 	 * Available options are:
-	 * - 'start': aligns the slides to the left (or top if `direction` is 'column');
-	 * - 'end': aligns the slides to the right (or bottom if `direction` is 'column');
+	 * - 'start': aligns the slides to the left
+	 * - 'end': aligns the slides to the right
 	 *
 	 * @default 'start'
 	 */
@@ -23,7 +23,8 @@ export type SpinoramaWrapperProps = BoxProps & {
 
 	/**
 	 * Defines the space between the type `item` components
-	 * It can only be used on a type `container` component
+	 * This can be any valid [Spacing value](https://mui.com/material-ui/react-grid/#spacing)
+	 *
 	 *
 	 * @default 0
 	 */

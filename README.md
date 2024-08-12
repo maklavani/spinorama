@@ -55,12 +55,26 @@ import { Spinorama, SpinoramaWrapper, SpinoramaItem, SpinoramaActions, Spinorama
 
 You can customize the `Spinorama` component by passing the following props:
 
-- `interval` (default: `10000`): The duration of the interval between slide transitions (in milliseconds). This is the time it takes for the transition to complete.
-- `duration` (default: `1000`): The duration of the slide change animation (in milliseconds). This is the time it takes for the animation to complete.
-- `ease` (default: `power1.inOut`): The easing function to apply to the transition between slides. This can be any valid [GSAP easing function](https://greensock.com/ease-visualizer/)
+| Prop | Default | Description |
+| - | - | - |
+| `interval` | 10000 | The duration of the interval between slide transitions (in milliseconds). This is the time it takes for the transition to complete. |
+| `duration` | 1000 | The duration of the slide change animation (in milliseconds). This is the time it takes for the animation to complete. |
+| `ease` | power1.inOut | The easing function to apply to the transition between slides. This can be any valid [GSAP easing function](https://greensock.com/ease-visualizer/) |
 
 Here's an example of how to customize the `Spinorama` component:
 
 ```jsx
-<Spinorama interval={10000} duration={1000} ease="power1">
+<Spinorama interval={10000} duration={1000} ease="power1.inOut">
+```
+
+### SpinoramaWrapper Component
+
+| Prop | Default | Description |
+| - | - | - |
+| `justify` | 'start' | Determines how the slides are aligned. Available options are: <ul><li>`start`: aligns the slides to the left</li><li>`end`: aligns the slides to the right</li></ul> |
+| `reverse` | false | Determines the direction of the slideshow. When `true`, the slides will be displayed in reverse order. |
+| `spacing` | 0 | Defines the space between the type `item` components. This can be any valid [Spacing value](https://mui.com/material-ui/react-grid/#spacing). |
+
+```jsx
+<SpinoramaWrapper justify="start" direction={false} spacing={0}>
 ```

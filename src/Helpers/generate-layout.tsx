@@ -1,7 +1,7 @@
 'use client'
 
 // @ts-ignore
-import { handleBreakpoints, unstable_resolveBreakpointValues as resolveBreakpointValues, style } from '@mui/system'
+import { handleBreakpoints, unstable_resolveBreakpointValues as resolveBreakpointValues } from '@mui/system'
 
 // Types
 import type { GenerateLayoutPositionsProps, GenerateLayoutProps } from './generate-layout.types'
