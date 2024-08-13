@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.39
 - Upgraded packages in the **documentation**
 - Created main page in the **documentation**
 - Added `three`, `@react-three/drei`, and `@react-three/fiber` packages to the project
