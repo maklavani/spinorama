@@ -60,7 +60,7 @@ You can customize the `Spinorama` component by passing the following props:<br>
 | `interval` | 10000 | The duration of the interval between slide transitions (in milliseconds). This is the time it takes for the transition to complete. |
 | `duration` | 1000 | The duration of the slide change animation (in milliseconds). This is the time it takes for the animation to complete. |
 | `ease` | power1.inOut | The easing function to apply to the transition between slides. This can be any valid [GSAP easing function](https://greensock.com/ease-visualizer/) |
-
+<br>
 
 Here's an example of how to customize the `Spinorama` component:
 
@@ -75,7 +75,7 @@ Here's an example of how to customize the `Spinorama` component:
 | `justify` | start | Determines how the slides are aligned. Available options are: <ul><li>`start`: aligns the slides to the left</li><li>`end`: aligns the slides to the right</li></ul> |
 | `reverse` | false | Determines the direction of the slideshow. When `true`, the slides will be displayed in reverse order. |
 | `spacing` | 0 | Defines the space between the type `item` components. This can be any valid [Spacing value](https://mui.com/material-ui/react-grid/#spacing). |
-
+<br>
 
 ```jsx
 <SpinoramaWrapper justify="start" direction={false} spacing={0}>
