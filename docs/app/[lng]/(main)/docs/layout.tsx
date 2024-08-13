@@ -1,3 +1,6 @@
+import dynamic from 'next/dynamic'
+import { Box, Toolbar } from '@mui/material'
+
 // Types
 import type { Metadata } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
@@ -5,9 +8,13 @@ import type { PageProps } from '@/types/app/pages'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
+import ThemeConfig from '@/config/theme'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/server'
+
+// Components
+const DrawerOrganism = dynamic(() => import('@/components/organisms/list'))
 
 // Metadata
 export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
@@ -30,7 +37,16 @@ const MainLayout = (props: LayoutProps) => {
 	// Props
 	const { children } = props
 
-	return <>{children}</>
+	return (
+		<>
+			<DrawerOrganism />
+
+			<Box component="main" flexGrow={1} maxWidth={`calc(100% - ${ThemeConfig.listWidth}px)`} px={3}>
+				<Toolbar />
+				{children}
+			</Box>
+		</>
+	)
 }
 
 export default MainLayout

@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 
 // Types
-import type { IndexProps } from '@/types/components/templates'
+import type { IndexProps } from '@/types/components/templates/docs'
 
 // MDX
 const IndexEn = dynamic(() => import('@/md/en/index.mdx'))

@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Box, Toolbar } from '@mui/material'
+import { Box } from '@mui/material'
 
 // Types
 import type { Metadata } from 'next'
@@ -14,7 +14,6 @@ import { useTranslation } from '@/helpers/i18n/server'
 
 // Components
 const AppbarOrganism = dynamic(() => import('@/components/organisms/appbar'))
-const DrawerOrganism = dynamic(() => import('@/components/organisms/list'))
 
 // Metadata
 export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
@@ -43,12 +42,7 @@ const MainLayout = (props: LayoutProps) => {
 	return (
 		<Box display="flex">
 			<AppbarOrganism lng={lng} />
-			<DrawerOrganism />
-
-			<Box component="main" sx={{ flexGrow: 1, px: 3 }}>
-				<Toolbar />
-				{children}
-			</Box>
+			{children}
 		</Box>
 	)
 }

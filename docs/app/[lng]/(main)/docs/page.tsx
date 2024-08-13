@@ -8,7 +8,7 @@ import type { PageProps } from '@/types/app/pages'
 import LocaleConfig from '@/config/locale'
 
 // Components
-const IndexTemplate = dynamic(() => import('@/components/templates/index'))
+const IndexTemplate = dynamic(() => import('@/components/templates/docs'))
 
 const HomePage = (props: PageProps) => {
 	// Props
