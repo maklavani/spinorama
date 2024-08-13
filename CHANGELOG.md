@@ -4,6 +4,36 @@ All notable changes to this package will be documented in this file.
 - Upgraded packages in the **documentation**
 - Created main page in the **documentation**
 
+# 0.4.38
+- Updated **README.md**
+
+# 0.4.37
+- Added a section on customizing `SpinoramaWrapper` to **README.md**
+
+# 0.4.36
+- Added `customizing` section to **README.md**
+
+# 0.4.35
+- Improved **README.md** by adding a summary of the changes necessary when using `Spinorama` in **Next.js** apps
+
+# 0.4.34
+- Updated **README.md** to include more detailed instructions on how to use `Spinorama`
+
+# 0.4.33
+- Removed all unnecessary `cloneElement` calls in the components
+
+# 0.4.32
+- Added more margin in the `rightHandSide` option
+
+# 0.4.31
+- Added the `rightHandSide` prop to the **Generate Layout** helper
+
+# 0.4.30
+- Created `ResponsiveStyleValue` for `layout` attributes in the **SpinoramaThumbnails** and **SpinoramaWrapper** components
+
+# 0.4.29
+- Create `helper` functions for the package
+
 # 0.4.28
 - Fixed bug in components all props to the DOM elements
 

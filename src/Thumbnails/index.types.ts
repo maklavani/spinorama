@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 // Types
-import type { BoxProps } from '@mui/material'
 import type { ResponsiveStyleValue, GridSpacing } from '@mui/system'
+import type { BoxProps } from '@mui/material'
 
 export type SpinoramaThumbnailsProps = BoxProps & {
 	/**

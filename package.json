@@ -1,6 +1,6 @@
 {
 	"name": "spinorama",
-	"version": "0.4.28",
+	"version": "0.4.38",
 	"private": false,
 	"main": "index.js",
 	"module": "index.js",
@@ -52,6 +52,7 @@
 	"files": [
 		"/Actions",
 		"/Buttons",
+		"/Helpers",
 		"/Item",
 		"/Next",
 		"/Prev",
