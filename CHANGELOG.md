@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.41
 - Created a circle animation for the homepage in the **documentation**
 
 # 0.4.40
