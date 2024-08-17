@@ -3,9 +3,16 @@ import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	// Configure `pageExtensions`` to include MDX files
-	pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx']
-	// Optionally, add any other Next.js config below
+	pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+	reactStrictMode: true,
+	webpack(config) {
+		config.module.rules.push({
+			test: /\.(glsl|vs|fs)$/,
+			use: 'raw-loader'
+		})
+
+		return config
+	}
 }
 
 const withMDX = createMDX({

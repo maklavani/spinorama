@@ -21,8 +21,6 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const pathname = usePathname()
 	const isHomePage = pathname === `/${lng}`
 
-	console.log('isHomePage', isHomePage)
-
 	return (
 		<HideOnScroll onlyDesktop={true}>
 			<AppBar
