@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.40
 - Upgraded packages in the **documentation**
 
 # 0.4.39
