@@ -1,8 +1,10 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created content for the home page in the **documentation** in the `mdx` files
+
 # 0.4.41
-- Created a circle animation for the homepage in the **documentation**
+- Created a circle animation for the home page in the **documentation**
 
 # 0.4.40
 - Upgraded packages in the **documentation**

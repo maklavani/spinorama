@@ -1,19 +1,57 @@
-import { Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import { Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
 // Types
 import type { MDXComponents } from 'mdx/types'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
-		h1: ({ children }) => <Typography variant="h1">{children}</Typography>,
-		h2: ({ children }) => <Typography variant="h2">{children}</Typography>,
-		h3: ({ children }) => <Typography variant="h3">{children}</Typography>,
-		h4: ({ children }) => <Typography variant="h4">{children}</Typography>,
-		h5: ({ children }) => <Typography variant="h5">{children}</Typography>,
-		h6: ({ children }) => <Typography variant="h6">{children}</Typography>,
-		p: ({ children }) => <Typography variant="body1">{children}</Typography>,
-		pre: ({ children }) => <Typography component="pre">{children}</Typography>,
-		table: ({ children }) => <Table>{children}</Table>,
+		h1: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h1" fontWeight={700}>
+					{children}
+				</Typography>
+			</Grid>
+		),
+		h2: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h2">{children}</Typography>
+			</Grid>
+		),
+		h3: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h3">{children}</Typography>
+			</Grid>
+		),
+		h4: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h4">{children}</Typography>
+			</Grid>
+		),
+		h5: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h5">{children}</Typography>
+			</Grid>
+		),
+		h6: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="h6">{children}</Typography>
+			</Grid>
+		),
+		p: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography variant="body1">{children}</Typography>
+			</Grid>
+		),
+		pre: ({ children }) => (
+			<Grid item xs={12}>
+				<Typography component="pre">{children}</Typography>
+			</Grid>
+		),
+		table: ({ children }) => (
+			<Grid item xs={12}>
+				<Table>{children}</Table>
+			</Grid>
+		),
 		thead: ({ children }) => <TableHead>{children}</TableHead>,
 		tbody: ({ children }) => <TableBody>{children}</TableBody>,
 		tr: ({ children }) => <TableRow>{children}</TableRow>,

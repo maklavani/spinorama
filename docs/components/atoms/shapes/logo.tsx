@@ -32,7 +32,7 @@ const LogoShapeAtom = (props: LogoShapeProps) => {
 					'& .MuiSvgIcon-root': { fontSize: 36 }
 				}}
 			>
-				<Typography variant="body2" fontSize={24} fontWeight={700}>
+				<Typography variant="body2" fontSize={24} fontWeight={300} color="text.primary">
 					{t('common:app.name')}
 				</Typography>
 			</Button>
