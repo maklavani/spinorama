@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.42
 - Created content for the home page in the **documentation** in the `mdx` files
 
 # 0.4.41
