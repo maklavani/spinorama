@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Box, Toolbar } from '@mui/material'
+import { Box } from '@mui/material'
 
 // Types
 import type { PageProps } from '@/types/app/pages'
@@ -19,7 +19,6 @@ const HomePage = (props: PageProps) => {
 
 	return (
 		<Box component="main" width={1} px={3}>
-			<Toolbar />
 			<HomeTemplate lng={lng} />
 		</Box>
 	)
