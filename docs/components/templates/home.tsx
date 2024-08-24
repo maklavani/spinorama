@@ -7,11 +7,10 @@ import { OrthographicCamera } from '@react-three/drei'
 
 // Types
 import type { HomeProps } from '@/types/components/templates/home'
-import { textAlign } from '@mui/system'
 
 // MDX
-const HomeEn = dynamic(() => import('@/md/en/home.mdx'))
-const HomeFa = dynamic(() => import('@/md/fa/home.mdx'))
+import HomeEn from '@/md/en/home.mdx'
+import HomeFa from '@/md/fa/home.mdx'
 
 // Components
 const SceneOrganism = dynamic(() => import('@/components/organisms/scene'), { ssr: false })
