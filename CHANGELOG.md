@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Renamed **md** directory to **markdown**
+
 # 0.4.44
 - Fixed bugs in building **documentation**
 

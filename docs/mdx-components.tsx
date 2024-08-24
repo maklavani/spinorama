@@ -7,7 +7,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		h1: ({ children }) => (
 			<Grid item xs={12}>
-				<Typography variant="h1" fontWeight={700}>
+				<Typography variant="h1" fontSize={{ xs: 36, md: 72 }} fontWeight={700}>
 					{children}
 				</Typography>
 			</Grid>

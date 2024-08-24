@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, alpha } from '@mui/material/styles'
-import { AppBar, Container, Toolbar } from '@mui/material'
+import { AppBar, Container, Toolbar, Grid } from '@mui/material'
 
 // Types
 import type { AppbarProps } from '@/types/components/organisms/appbar'
@@ -35,7 +35,15 @@ const AppbarOrganism = (props: AppbarProps) => {
 			>
 				<Container maxWidth="xl">
 					<Toolbar>
-						<LogoShapeAtom lng={lng} />
+						<Grid container spacing>
+							<Grid item>
+								<LogoShapeAtom lng={lng} />
+							</Grid>
+
+							<Grid item flexGrow={1}></Grid>
+
+							<Grid item></Grid>
+						</Grid>
 					</Toolbar>
 				</Container>
 			</AppBar>

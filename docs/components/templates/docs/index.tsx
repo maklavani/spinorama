@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic'
 import type { IndexProps } from '@/types/components/templates/docs'
 
 // MDX
-const IndexEn = dynamic(() => import('@/md/en/docs/index.mdx'))
-const IndexFa = dynamic(() => import('@/md/fa/docs/index.mdx'))
+const IndexEn = dynamic(() => import('@/markdown/en/docs/index.mdx'))
+const IndexFa = dynamic(() => import('@/markdown/fa/docs/index.mdx'))
 
 const IndexTemplate = (props: IndexProps) => {
 	// Props
