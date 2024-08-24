@@ -18,35 +18,45 @@ npm install @mui/material @emotion/react @emotion/styled
 
 ## Example
 
-```jsx
+```tsx
 'use client'
 
-import { Spinorama, SpinoramaWrapper, SpinoramaItem, SpinoramaActions, SpinoramaThumbnails, SpinoramaThumbnail, SpinoramaButtons, SpinoramaNext, SpinoramaPrev } from 'spinorama'
+import Spinorama from 'spinorama/Spinorama'
+import SpinoramaWrapper from 'spinorama/SpinoramaWrapper'
+import SpinoramaItem from 'spinorama/SpinoramaItem'
+import SpinoramaActions from 'spinorama/SpinoramaActions'
+import SpinoramaThumbnails from 'spinorama/SpinoramaThumbnails'
+import SpinoramaThumbnail from 'spinorama/SpinoramaThumbnail'
+import SpinoramaButtons from 'spinorama/SpinoramaButtons'
+import SpinoramaNext from 'spinorama/SpinoramaNext'
+import SpinoramaPrev from 'spinorama/SpinoramaPrev'
 
-...
+const SpinoramaSlideshow = () => {
+	return (
+		<Spinorama>
+			<SpinoramaWrapper>
+				<SpinoramaItem>Item 1</SpinoramaItem>
+				<SpinoramaItem>Item 2</SpinoramaItem>
+				<SpinoramaItem>Item 3</SpinoramaItem>
+			</SpinoramaWrapper>
 
-<Spinorama>
-	<SpinoramaWrapper>
-		<SpinoramaItem>Item 1</SpinoramaItem>
-		<SpinoramaItem>Item 2</SpinoramaItem>
-		<SpinoramaItem>Item 3</SpinoramaItem>
-	</SpinoramaWrapper>
+			<SpinoramaActions>
+				<SpinoramaButtons>
+					<SpinoramaPrev />
+					<SpinoramaNext />
+				</SpinoramaButtons>
 
-	<SpinoramaActions>
-		<SpinoramaButtons>
-			<SpinoramaPrev />
-			<SpinoramaNext />
-		</SpinoramaButtons>
+				<SpinoramaThumbnails justify="end">
+					<SpinoramaThumbnail />
+					<SpinoramaThumbnail />
+					<SpinoramaThumbnail />
+				</SpinoramaThumbnails>
+			</SpinoramaActions>
+		</Spinorama>
+	)
+}
 
-		<SpinoramaThumbnails justify="end">
-			<SpinoramaThumbnail />
-			<SpinoramaThumbnail />
-			<SpinoramaThumbnail />
-		</SpinoramaThumbnails>
-	</SpinoramaActions>
-</Spinorama>
-
-...
+export default SpinoramaSlideshow
 ```
 
 ## Customizing
@@ -64,7 +74,7 @@ You can customize the `Spinorama` component by passing the following props:<br /
 
 Here's an example of how to customize the `Spinorama` component:
 
-```jsx
+```tsx
 <Spinorama interval={10000} duration={1000} ease="power1.inOut">
 ```
 
@@ -77,6 +87,6 @@ Here's an example of how to customize the `Spinorama` component:
 | `spacing` | 0 | Defines the space between the type `item` components. This can be any valid [Spacing value](https://mui.com/material-ui/react-grid/#spacing). |
 <br />
 
-```jsx
+```tsx
 <SpinoramaWrapper justify="start" direction={false} spacing={0}>
 ```

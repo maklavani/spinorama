@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added **prismjs** to the project
+
 # 0.4.45
 - Renamed **md** directory to **markdown**
 - Added a `docs` button in the **home** page

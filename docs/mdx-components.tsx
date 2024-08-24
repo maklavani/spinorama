@@ -1,7 +1,17 @@
 import { Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import 'prismjs'
+
+// Load the languages to highlight
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-tsx'
 
 // Types
 import type { MDXComponents } from 'mdx/types'
+
+// Styles
+// Option 1: Load a default theme (included in the 'prismjs' package)
+import 'prismjs/themes/prism-okaidia.css'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
@@ -44,9 +54,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		),
 		pre: ({ children }) => (
 			<Grid item xs={12}>
-				<Typography component="pre">{children}</Typography>
+				<pre style={{ overflow: 'auto' }}>{children}</pre>
 			</Grid>
 		),
+		code: ({ className, children }) => <code className={className}>{children}</code>,
 		table: ({ children }) => (
 			<Grid item xs={12}>
 				<Table>{children}</Table>

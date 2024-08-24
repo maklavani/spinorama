@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 import { Box, Toolbar } from '@mui/material'
+import hljs from 'highlight.js'
 
 // Types
 import type { Metadata } from 'next'
