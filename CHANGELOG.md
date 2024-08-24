@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added styles for `code` tags with **prismjs**
+
 # 0.4.46
 - Added **prismjs** to the project
 

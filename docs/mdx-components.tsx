@@ -1,16 +1,11 @@
+import dynamic from 'next/dynamic'
 import { Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
-import 'prismjs'
-
-// Load the languages to highlight
-import 'prismjs/components/prism-bash'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-tsx'
 
 // Types
 import type { MDXComponents } from 'mdx/types'
 
-// Styles
-import 'prismjs/themes/prism-okaidia.css'
+// Components
+const CodeAtom = dynamic(() => import('@/components/atoms/code'), { ssr: false })
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
@@ -56,7 +51,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 				<pre style={{ overflow: 'auto' }}>{children}</pre>
 			</Grid>
 		),
-		code: ({ className, children }) => <code className={className}>{children}</code>,
+		code: ({ className, children }) => <CodeAtom className={className}>{children}</CodeAtom>,
 		table: ({ children }) => (
 			<Grid item xs={12}>
 				<Table>{children}</Table>

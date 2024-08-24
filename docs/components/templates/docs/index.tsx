@@ -1,7 +1,3 @@
-'use client'
-
-import dynamic from 'next/dynamic'
-
 // Types
 import type { IndexProps } from '@/types/components/templates/docs'
 

@@ -1,7 +1,6 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { usePathname } from 'next/navigation'
 import { useTheme, alpha } from '@mui/material/styles'
 import { AppBar, Container, Toolbar, Grid } from '@mui/material'
 
@@ -18,8 +17,6 @@ const AppbarOrganism = (props: AppbarProps) => {
 
 	// Variables
 	const theme = useTheme()
-	const pathname = usePathname()
-	const isHomePage = pathname === `/${lng}`
 
 	return (
 		<HideOnScroll onlyDesktop={true}>
@@ -29,7 +26,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 					color: 'inherit',
 					bgcolor: alpha('#fff', 0.17),
 					backdropFilter: 'blur(20px)',
-					boxShadow: isHomePage ? 'none' : `0 0 23px ${alpha('#000', 0.085)}`,
+					boxShadow: 'none',
 					zIndex: theme.zIndex.drawer + 1
 				}}
 			>

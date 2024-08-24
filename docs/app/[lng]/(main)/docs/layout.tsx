@@ -1,7 +1,5 @@
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
-import { Box, Toolbar } from '@mui/material'
-import hljs from 'highlight.js'
+import { Container, Toolbar, Grid } from '@mui/material'
 
 // Types
 import type { Metadata } from 'next'
@@ -16,7 +14,7 @@ import ThemeConfig from '@/config/theme'
 import { useTranslation } from '@/helpers/i18n/server'
 
 // Components
-const DrawerOrganism = dynamic(() => import('@/components/organisms/list'))
+const DrawerOrganism = dynamic(() => import('@/components/organisms/drawer'))
 
 // Metadata
 export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
@@ -37,17 +35,23 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 
 const MainLayout = (props: LayoutProps) => {
 	// Props
-	const { children } = props
+	const { children, params } = props
+
+	// Variables
+	const lng = params?.lng ?? LocaleConfig.default
 
 	return (
-		<>
-			<DrawerOrganism />
+		<Container maxWidth="xl">
+			<Toolbar />
 
-			<Box component="main" flexGrow={1} maxWidth={`calc(100% - ${ThemeConfig.listWidth}px)`} px={3}>
-				<Toolbar />
-				{children}
-			</Box>
-		</>
+			<Grid container direction="row" flexWrap="nowrap">
+				<DrawerOrganism lng={lng} />
+
+				<Grid item width={`calc(100% - ${ThemeConfig.listWidth}px)`}>
+					{children}
+				</Grid>
+			</Grid>
+		</Container>
 	)
 }
 
