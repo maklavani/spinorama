@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.45
 - Renamed **md** directory to **markdown**
 - Added a `docs` button in the **home** page
 
