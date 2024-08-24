@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Grid } from '@mui/material'
+import { GitHub as GitHubIcon, Favorite as FavoriteIcon } from '@mui/icons-material'
 
 // Types
 import { DrawerProps } from '@/types/components/organisms/drawer'
@@ -16,7 +17,26 @@ const DrawerOrganism = (props: DrawerProps) => {
 	const { lng } = props
 
 	// Variables
-	const items: ListItemProp[] = [{ title: 'links:gettingStarted', link: `/${lng}/docs`, children: [{ title: 'links:installation', link: `/${lng}/docs/installation` }] }]
+	const items: ListItemProp[] = [
+		{
+			title: 'links:gettingStarted',
+			children: [
+				{ title: 'links:overview', link: `/${lng}/docs` },
+				{ title: 'links:installation', link: `/${lng}/docs/installation` }
+			]
+		},
+		{
+			title: 'links:github',
+			link: 'https://github.com/maklavani/spinorama.git',
+			icon: <GitHubIcon />
+		},
+		{
+			title: 'links:sponser',
+			link: 'https://opencollective.com/spinorama',
+			icon: <FavoriteIcon />,
+			iconColor: '#f44336'
+		}
+	]
 
 	return (
 		<Grid item width={ThemeConfig.listWidth}>

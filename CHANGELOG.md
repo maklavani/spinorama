@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `styles` for list component
+
 # 0.4.47
 - Added styles for `code` tags with **prismjs**
 

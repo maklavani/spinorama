@@ -44,7 +44,7 @@ const MainLayout = (props: LayoutProps) => {
 		<Container maxWidth="xl">
 			<Toolbar />
 
-			<Grid container direction="row" flexWrap="nowrap">
+			<Grid container direction="row" flexWrap="nowrap" spacing={{ xs: 1, md: 2 }}>
 				<DrawerOrganism lng={lng} />
 
 				<Grid item width={`calc(100% - ${ThemeConfig.listWidth}px)`}>

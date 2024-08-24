@@ -27,7 +27,8 @@ const AppbarOrganism = (props: AppbarProps) => {
 					bgcolor: alpha('#fff', 0.17),
 					backdropFilter: 'blur(20px)',
 					boxShadow: 'none',
-					zIndex: theme.zIndex.drawer + 1
+					zIndex: theme.zIndex.drawer + 1,
+					'& .MuiToolbar-root': { px: 0 }
 				}}
 			>
 				<Container maxWidth="xl">
