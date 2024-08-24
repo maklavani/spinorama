@@ -8,6 +8,7 @@ import { ListProps } from '@/types/components/molecules/list'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/client'
+import { width } from '@mui/system'
 
 const ListMolecule = (props: ListProps) => {
 	// Props
@@ -19,8 +20,12 @@ const ListMolecule = (props: ListProps) => {
 	return (
 		<List
 			sx={{
-				width: 1,
-				'& a': { width: 1 }
+				width: 'inherit',
+				py: 0,
+				'& a': {
+					textDecoration: 'none',
+					color: 'currentColor'
+				}
 			}}
 		>
 			{items.map((item, index) => (
@@ -28,19 +33,19 @@ const ListMolecule = (props: ListProps) => {
 					{item.link ? (
 						<Link href={item.link}>
 							<ListItemButton
+								className={item.icon ? 'list-item-with-icon' : ''}
 								sx={{
 									py: 0.5,
 									pr: 1,
-									pl: level ? level * 2 + 1 : 1,
-									color: 'grey.800'
+									pl: level ? level * 2 + 1 : 1
 								}}
 							>
 								{item.icon && (
 									<ListItemIcon
 										sx={{
 											minWidth: 'auto',
-											mr: 1,
-											color: item.iconColor ?? 'grey.800',
+											...(item.title && { mr: 1 }),
+											...(item.iconColor && { color: item.iconColor }),
 											'& .MuiSvgIcon-root': { fontSize: 20 }
 										}}
 									>
@@ -48,17 +53,31 @@ const ListMolecule = (props: ListProps) => {
 									</ListItemIcon>
 								)}
 
-								<ListItemText sx={{ '& .MuiTypography-root': { fontWeight: level ? 500 : 600 } }}>{t(item.title)}</ListItemText>
+								{item.title && <ListItemText sx={{ '& .MuiTypography-root': { fontWeight: level ? 500 : 600 } }}>{t(item.title)}</ListItemText>}
 							</ListItemButton>
 						</Link>
 					) : (
-						<Box width={1} px={1} color="grey.800">
+						<ListItemButton
+							disableTouchRipple={!item.onClick ? true : false}
+							className={item.icon ? 'list-item-with-icon' : ''}
+							onClick={item.onClick}
+							sx={{
+								width: 1,
+								py: 0.5,
+								pr: 1,
+								pl: level ? level * 2 + 1 : 1,
+								...(!item.onClick && {
+									cursor: 'inherit',
+									'&:hover': { bgcolor: 'transparent' }
+								})
+							}}
+						>
 							{item.icon && (
 								<ListItemIcon
 									sx={{
 										minWidth: 'auto',
-										mr: 1,
-										color: item.iconColor ?? 'grey.800',
+										...(item.title && { mr: 1 }),
+										...(item.iconColor && { color: item.iconColor }),
 										'& .MuiSvgIcon-root': { fontSize: 20 }
 									}}
 								>
@@ -66,17 +85,19 @@ const ListMolecule = (props: ListProps) => {
 								</ListItemIcon>
 							)}
 
-							<ListItemText
-								sx={{
-									'& .MuiTypography-root': {
-										fontSize: 16,
-										fontWeight: 600
-									}
-								}}
-							>
-								{t(item.title)}
-							</ListItemText>
-						</Box>
+							{item.title && (
+								<ListItemText
+									sx={{
+										'& .MuiTypography-root': {
+											fontSize: 16,
+											fontWeight: 600
+										}
+									}}
+								>
+									{t(item.title)}
+								</ListItemText>
+							)}
+						</ListItemButton>
 					)}
 
 					{item.children && <ListMolecule lng={lng} items={item.children} level={level ? level + 1 : 1} />}

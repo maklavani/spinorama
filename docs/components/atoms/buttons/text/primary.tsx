@@ -27,6 +27,7 @@ const PrimaryButtonAtom = (props: TextButtonProps) => {
 				px: { xs: 1.5, md: 3 },
 				fontWeight: 700,
 				letterSpacing: -0.3,
+				textTransform: 'inherit',
 				color: 'primary.contrastText',
 				bgcolor: 'primary.dark',
 				'&:hover': {

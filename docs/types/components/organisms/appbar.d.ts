@@ -1,1 +1,1 @@
-export type AppbarProps = { lng?: string }
+export type AppbarProps = { lng: string }

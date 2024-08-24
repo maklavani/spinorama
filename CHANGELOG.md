@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created `menu` and `settings` list components in the **AppBar**
+
 # 0.4.48
 - Added `styles` for list component
 

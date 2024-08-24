@@ -27,7 +27,7 @@ const ExtendThemeConfig = (dir: Direction) =>
 				}
 			}
 		},
-		shape: { borderRadius: 16 },
+		shape: { borderRadius: 8 },
 		typography: {
 			fontFamily: `${RubikFont.style.fontFamily}, ${RobotoFont.style.fontFamily}`,
 			fontSize: 14

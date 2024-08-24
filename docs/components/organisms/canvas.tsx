@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { NoToneMapping } from 'three'
 import { Canvas } from '@react-three/fiber'
 import { OrthographicCamera } from '@react-three/drei'
 
@@ -9,7 +10,12 @@ const SceneMolecule = dynamic(() => import('@/components/molecules/scene'), { ss
 
 const CanvasOrganism = () => {
 	return (
-		<Canvas orthographic>
+		<Canvas
+			orthographic
+			onCreated={({ gl }) => {
+				gl.toneMapping = NoToneMapping
+			}}
+		>
 			<OrthographicCamera makeDefault position={[0, 0, 1]} />
 			<SceneMolecule />
 		</Canvas>

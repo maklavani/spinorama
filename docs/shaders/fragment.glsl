@@ -17,6 +17,10 @@ uniform float u_pixelRatio;
 #define VAR 0
 #endif
 
+#ifndef NIGHT
+#define NIGHT 0
+#endif
+
 /* Coordinate and unit utils */
 #ifndef FNC_COORD
 #define FNC_COORD
@@ -123,7 +127,14 @@ void main() {
 	}
 
 	// Map the sdf value to a color gradient between two colors
-	vec3 color1 = vec3(1.0, 1.0, 1.0);
+	vec3 color1;
+
+	if (NIGHT == 0) {
+		color1 = vec3(1.0, 1.0, 1.0);
+	} else {
+		color1 = vec3(0.05859375, 0.07421875, 0.1796875);
+	}
+
 	vec3 color2 = vec3(0.5, 0.328125, 0.92578125);
 
 	// Use sdf to interpolate between color1 and color2

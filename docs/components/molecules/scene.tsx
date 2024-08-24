@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
+import { useTheme } from '@mui/material/styles'
 import { Vector2, MathUtils } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 
@@ -13,6 +14,7 @@ import type { Mesh, ShaderMaterial } from 'three'
 
 const SceneMolecule = () => {
 	// Variables
+	const theme = useTheme()
 	const meshRef = useRef<Mesh>(null)
 	const { size } = useThree()
 	const [vMouse, setVMouse] = useState<Vector2>(new Vector2())
@@ -70,7 +72,10 @@ const SceneMolecule = () => {
 					u_resolution: { value: new Vector2() },
 					u_pixelRatio: { value: 2 }
 				}}
-				defines={{ VAR: 2 }}
+				defines={{
+					VAR: 2,
+					NIGHT: theme.palette.mode === 'dark' ? 1 : 0
+				}}
 			/>
 		</mesh>
 	)
