@@ -1,0 +1,52 @@
+# نصب کردن
+
+```bash
+npm install spinorama
+```
+
+> **یادداشت**
+>
+> برای استفاده از **اسپینوراما** در پروژه خود، باید Material-UI را نصب کرده باشید. اگر هنوز آن را نصب نکرده اید، می توانید با اجرای دستور زیر آن را به پروژه خود اضافه کنید:
+
+## مثال
+
+```tsx
+'use client'
+
+import Spinorama from 'spinorama/Spinorama'
+import SpinoramaWrapper from 'spinorama/SpinoramaWrapper'
+import SpinoramaItem from 'spinorama/SpinoramaItem'
+import SpinoramaActions from 'spinorama/SpinoramaActions'
+import SpinoramaThumbnails from 'spinorama/SpinoramaThumbnails'
+import SpinoramaThumbnail from 'spinorama/SpinoramaThumbnail'
+import SpinoramaButtons from 'spinorama/SpinoramaButtons'
+import SpinoramaNext from 'spinorama/SpinoramaNext'
+import SpinoramaPrev from 'spinorama/SpinoramaPrev'
+
+const SpinoramaSlideshow = () => {
+	return (
+		<Spinorama>
+			<SpinoramaWrapper>
+				<SpinoramaItem>Item 1</SpinoramaItem>
+				<SpinoramaItem>Item 2</SpinoramaItem>
+				<SpinoramaItem>Item 3</SpinoramaItem>
+			</SpinoramaWrapper>
+
+			<SpinoramaActions>
+				<SpinoramaButtons>
+					<SpinoramaPrev />
+					<SpinoramaNext />
+				</SpinoramaButtons>
+
+				<SpinoramaThumbnails justify="end">
+					<SpinoramaThumbnail />
+					<SpinoramaThumbnail />
+					<SpinoramaThumbnail />
+				</SpinoramaThumbnails>
+			</SpinoramaActions>
+		</Spinorama>
+	)
+}
+
+export default SpinoramaSlideshow
+```

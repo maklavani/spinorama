@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Grid, Box, Container } from '@mui/material'
 
 // Types
-import type { HomeProps } from '@/types/components/templates/home'
+import type { TemplateProps } from '@/types/components/templates'
 
 // MDX
 import HomeEn from '@/markdown/en/home.mdx'
@@ -15,7 +15,7 @@ import HomeFa from '@/markdown/fa/home.mdx'
 const CanvasOrganism = dynamic(() => import('@/components/organisms/canvas'), { ssr: false })
 const PrimaryButtonAtom = dynamic(() => import('@/components/atoms/buttons/text/primary'))
 
-const HomeTemplate = (props: HomeProps) => {
+const HomeTemplate = (props: TemplateProps) => {
 	// Props
 	const { lng } = props
 

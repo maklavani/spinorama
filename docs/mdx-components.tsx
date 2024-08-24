@@ -11,14 +11,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		h1: ({ children }) => (
 			<Grid item xs={12}>
-				<Typography variant="h1" fontSize={{ xs: 36, md: 72 }} fontWeight={700}>
+				<Typography variant="h1" fontSize={{ xs: 36, md: 48 }} fontWeight={700} lineHeight={2}>
 					{children}
 				</Typography>
 			</Grid>
 		),
 		h2: ({ children }) => (
 			<Grid item xs={12}>
-				<Typography variant="h2">{children}</Typography>
+				<Typography variant="h2" fontSize={{ xs: 30, md: 40 }} fontWeight={600} lineHeight={1.5}>
+					{children}
+				</Typography>
 			</Grid>
 		),
 		h3: ({ children }) => (
@@ -47,11 +49,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</Grid>
 		),
 		pre: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid item xs={12} sx={{ "& div[class^='language-']:nth-child(2)": { display: 'none' } }}>
 				<pre style={{ overflow: 'auto' }}>{children}</pre>
 			</Grid>
 		),
-		code: ({ className, children }) => <CodeAtom className={className}>{children}</CodeAtom>,
+		code: ({ className, children }) => {
+			return (
+				<>
+					<CodeAtom className={className}>{children}</CodeAtom>
+					<div className={className}>{children}</div>
+				</>
+			)
+		},
 		table: ({ children }) => (
 			<Grid item xs={12}>
 				<Table>{children}</Table>

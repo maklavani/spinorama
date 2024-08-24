@@ -25,7 +25,6 @@ import LocaleConfig from '@/config/locale'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/client'
-import { height } from '@mui/system'
 
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
@@ -115,8 +114,11 @@ const AppbarOrganism = (props: AppbarProps) => {
 												opacity: 0,
 												p: 1,
 												position: 'absolute',
-												top: 50,
+												top: 54,
 												left: 0,
+												bgcolor: alpha(theme.palette.mode === 'dark' ? '#252f72' : '#fff', 0.17),
+												backdropFilter: 'blur(20px)',
+												boxShadow: theme.shadows[1],
 												transition: 'all 0.2s ease',
 												'& .MuiList-root': {
 													flexDirection: 'column',
@@ -128,9 +130,14 @@ const AppbarOrganism = (props: AppbarProps) => {
 													}
 												}
 											},
-											'&:hover > .MuiPaper-root': {
-												visibility: 'visible',
-												opacity: 1
+											'&:hover': {
+												'& > .MuiButtonBase-root': {
+													bgcolor: theme.palette.mode === 'dark' ? alpha('#fff', 0.08) : alpha('#000', 0.08)
+												},
+												'& > .MuiPaper-root': {
+													visibility: 'visible',
+													opacity: 1
+												}
 											}
 										}
 									}
@@ -159,13 +166,14 @@ const AppbarOrganism = (props: AppbarProps) => {
 												p: 1,
 												borderRadius: 1,
 												'&.list-item-with-icon': {
-													pr: 2,
+													pr: 2.25,
 													'& .MuiListItemIcon-root': {
+														opacity: 0.7,
 														mr: 0,
 														position: 'absolute',
 														top: 8,
 														right: 6,
-														'& .MuiSvgIcon-root': { fontSize: 10 }
+														'& .MuiSvgIcon-root': { fontSize: 8 }
 													}
 												}
 											}

@@ -2,8 +2,6 @@
 import type { ReactNode } from 'react'
 
 export type LayoutProps = Readonly<{
-	children: ReactNode
-	params?: {
-		lng: string
-	}
+	params?: { lng: string }
+	children?: ReactNode
 }>

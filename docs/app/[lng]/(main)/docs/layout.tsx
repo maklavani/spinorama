@@ -4,7 +4,6 @@ import { Container, Toolbar, Grid } from '@mui/material'
 // Types
 import type { Metadata } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
-import type { PageProps } from '@/types/app/pages'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
@@ -17,7 +16,7 @@ import { useTranslation } from '@/helpers/i18n/server'
 const DrawerOrganism = dynamic(() => import('@/components/organisms/drawer'))
 
 // Metadata
-export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
+export const generateMetadata = async (props: LayoutProps): Promise<Metadata> => {
 	// Props
 	const { params } = props
 
@@ -28,14 +27,14 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const { t } = await useTranslation(lng)
 
-	const metadata: Metadata = { title: t('links:docs') }
+	const metadata: Metadata = { title: `${t('links:docs')} | ${t('common:app.name')}` }
 
 	return metadata
 }
 
-const MainLayout = (props: LayoutProps) => {
+const DocsLayout = (props: LayoutProps) => {
 	// Props
-	const { children, params } = props
+	const { params, children } = props
 
 	// Variables
 	const lng = params?.lng ?? LocaleConfig.default
@@ -55,4 +54,4 @@ const MainLayout = (props: LayoutProps) => {
 	)
 }
 
-export default MainLayout
+export default DocsLayout

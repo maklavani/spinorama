@@ -4,7 +4,6 @@ import { Box } from '@mui/material'
 // Types
 import type { Metadata } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
-import type { PageProps } from '@/types/app/pages'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
@@ -16,7 +15,7 @@ import { useTranslation } from '@/helpers/i18n/server'
 const AppbarOrganism = dynamic(() => import('@/components/organisms/appbar'))
 
 // Metadata
-export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
+export const generateMetadata = async (props: LayoutProps): Promise<Metadata> => {
 	// Props
 	const { params } = props
 
@@ -34,7 +33,7 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 
 const MainLayout = (props: LayoutProps) => {
 	// Props
-	const { children, params } = props
+	const { params, children } = props
 
 	// Variables
 	const lng = params?.lng ?? LocaleConfig.default

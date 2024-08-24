@@ -29,7 +29,7 @@ const StyledListItemButton = (props: StyledListItemButtonProps) => {
 				...(!item.link &&
 					!item.onClick && {
 						cursor: 'inherit',
-						...(!item.children && { '&:hover': { bgcolor: 'transparent' } })
+						'&:hover': { bgcolor: 'transparent' }
 					})
 			}}
 		>
