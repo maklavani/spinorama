@@ -8,7 +8,7 @@ import type { TextButtonProps } from '@/types/components/atoms/buttons/text'
 // Helpers
 import { useTranslation } from '@/helpers/i18n/client'
 
-const PurpleButtonAtom = (props: TextButtonProps) => {
+const PrimaryButtonAtom = (props: TextButtonProps) => {
 	// Props
 	const { lng, title, startIcon, endIcon, onClick } = props
 
@@ -40,4 +40,4 @@ const PurpleButtonAtom = (props: TextButtonProps) => {
 	)
 }
 
-export default PurpleButtonAtom
+export default PrimaryButtonAtom

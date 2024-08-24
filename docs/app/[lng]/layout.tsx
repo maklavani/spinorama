@@ -36,15 +36,15 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 			title: t('common:app.name'),
 			statusBarStyle: 'black-translucent',
 			startupImage: [
-				'/images/theme/pwa-192x192.png',
+				'/images/pwa-192x192.png',
 				{
-					url: '/images/theme/pwa-512x512.png',
+					url: '/images/pwa-512x512.png',
 					media: '(device-width: 768px) and (device-height: 1024px)'
 				}
 			]
 		},
 		referrer: 'origin-when-cross-origin',
-		manifest: '/manifest.json',
+		// manifest: '/manifest.json',
 		title: {
 			template: `%s | ${t('common:app.name')}`,
 			default: t('common:app.name')

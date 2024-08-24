@@ -46,7 +46,7 @@
 		}
 	],
 	"bugs": {
-		"url": "https://github.com/regiti/spinorama/issues"
+		"url": "https://github.com/maklavani/spinorama/issues"
 	},
 	"homepage": "https://spinorama.dev",
 	"files": [
@@ -66,21 +66,21 @@
 		"README.md"
 	],
 	"dependencies": {
-		"@emotion/react": "^11.13.0",
+		"@emotion/react": "^11.13.3",
 		"@emotion/styled": "^11.13.0",
 		"@gsap/react": "^2.1.1",
-		"@mui/icons-material": "^5.16.4",
-		"@mui/material": "^5.16.4",
-		"@mui/system": "^5.16.4",
+		"@mui/icons-material": "^5.16.7",
+		"@mui/material": "^5.16.7",
+		"@mui/system": "^5.16.7",
 		"gsap": "^3.12.5",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.3.3",
+		"@types/react": "^18.3.4",
 		"rimraf": "^6.0.1",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.5.3"
+		"typescript": "^5.5.4"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.0.0",
