@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Changed language files
+
 # 0.5.0
 - Added mdx files for **overview** and **installation**
 

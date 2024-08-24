@@ -46,7 +46,7 @@
 		"react-dom": "^18.3.1",
 		"react-i18next": "^15.0.1",
 		"remark-gfm": "^4.0.0",
-		"spinorama": "^0.4.50",
+		"spinorama": "latest",
 		"stylis": "^4.3.4",
 		"stylis-plugin-rtl": "^2.1.1",
 		"three": "^0.167.1"
