@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.44
 - Fixed bugs in building **documentation**
 
 # 0.4.43
