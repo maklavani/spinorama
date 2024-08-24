@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.50
 - Fixed **bugs** in changing `language` and `mode` in **AppBar**
 
 # 0.4.49
