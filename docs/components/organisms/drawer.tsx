@@ -4,7 +4,7 @@ import { GitHub as GitHubIcon, Favorite as FavoriteIcon } from '@mui/icons-mater
 
 // Types
 import type { DrawerProps } from '@/types/components/organisms/drawer'
-import type { ListItemProp } from '@/types/components/molecules/list'
+import type { ListItemProps } from '@/types/components/molecules/list'
 
 // Configurations
 import ThemeConfig from '@/config/theme'
@@ -17,7 +17,7 @@ const DrawerOrganism = (props: DrawerProps) => {
 	const { lng } = props
 
 	// Variables
-	const items: ListItemProp[] = [
+	const items: ListItemProps[] = [
 		{
 			title: 'links:gettingStarted',
 			children: [
@@ -36,10 +36,14 @@ const DrawerOrganism = (props: DrawerProps) => {
 				position="sticky"
 				top={{ xs: 56, md: 64 }}
 				sx={{
-					'& .MuiList-root': {
+					'& .MuiPaper-root': {
 						width: 1,
-						py: 1,
-						'& a': { width: 1 }
+						bgcolor: 'inherit',
+						'& .MuiList-root': {
+							width: 1,
+							py: 1,
+							'& a': { width: 1 }
+						}
 					}
 				}}
 			>

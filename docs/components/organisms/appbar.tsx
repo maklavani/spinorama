@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, AppBar, Container, Toolbar, Grid } from '@mui/material'
+import { useMediaQuery, AppBar, Container, Toolbar, Grid, Divider } from '@mui/material'
 
 import {
 	NorthEast as NorthEastIcon,
@@ -17,7 +18,14 @@ import {
 
 // Types
 import type { AppbarProps } from '@/types/components/organisms/appbar'
-import type { ListItemProp } from '@/types/components/molecules/list'
+import type { ListItemProps } from '@/types/components/molecules/list'
+
+// Configurations
+import LocaleConfig from '@/config/locale'
+
+// Helpers
+import { useTranslation } from '@/helpers/i18n/client'
+import { height } from '@mui/system'
 
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
@@ -30,41 +38,58 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const { lng } = props
 
 	// Variables
+	const { t } = useTranslation(lng)
 	const theme = useTheme()
 	const { mode, setMode } = useColorScheme()
+	const pathname = usePathname()
+	const appBarRef = useRef<HTMLDivElement>(null)
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
-	const menu: ListItemProp[] = [
+	const menu: ListItemProps[] = [
 		{ title: 'links:docs', link: `/${lng}/docs` },
 		{ title: 'links:regiti', link: 'https://regiti.com', icon: theme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
 	]
 
-	const settingsMenu: ListItemProp[] = [
+	const settingsMenu: ListItemProps[] = [
+		{
+			icon: <TranslateIcon />,
+			children: LocaleConfig.list.map((item, index) => ({
+				title: `${t(`common:title.${item}`)} (${item})`,
+				link: pathname.replace(`/${lng}`, `/${item}`),
+				linkType: 'mui'
+			}))
+		},
 		{ link: 'https://opencollective.com/spinorama', icon: <OpenCollectiveIconAtom />, iconColor: '#7ba8ea' },
 		{ link: 'https://github.com/maklavani/spinorama', icon: <GitHubIcon /> }
 	]
 
 	// Callbacks
 	const changeMode = () => {
-		console.log(mode)
 		if (preferredColorScheme) setMode(mode === 'dark' ? 'light' : mode === 'light' ? 'system' : 'dark')
 		else setMode(mode === 'light' ? 'dark' : mode === 'dark' ? 'system' : 'light')
+
+		if (pathname === `/${lng}`) window.location.reload()
 	}
 
-	const [settings, setSettings] = useState<ListItemProp[]>([...[{ icon: <BrightnessAutoIcon />, onClick: changeMode }], ...settingsMenu])
+	const [settings, setSettings] = useState<ListItemProps[]>([...[{ icon: <BrightnessAutoIcon />, onClick: changeMode }], ...settingsMenu])
 
 	useEffect(() => {
 		setSettings([...[{ icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />, onClick: changeMode }], ...settingsMenu])
 	}, [mode])
 
+	useEffect(() => {
+		if (appBarRef.current) appBarRef.current.style.backgroundColor = alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17)
+	}, [])
+
 	return (
 		<HideOnScroll onlyDesktop={true}>
 			<AppBar
+				red={appBarRef}
 				component="nav"
 				sx={{
 					color: 'inherit',
 					backgroundImage: 'none',
-					bgcolor: alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17),
+					bgcolor: 'inherit',
 					backdropFilter: 'blur(20px)',
 					boxShadow: 'none',
 					zIndex: theme.zIndex.drawer + 1,
@@ -78,10 +103,37 @@ const AppbarOrganism = (props: AppbarProps) => {
 							alignItems="center"
 							spacing={{ xs: 1, md: 2 }}
 							sx={{
-								'& .MuiList-root': {
-									display: 'flex',
-									flexDirection: 'row',
-									gap: 1
+								'& .MuiPaper-root': {
+									'& .MuiList-root': {
+										display: 'flex',
+										flexDirection: 'row',
+										gap: 1,
+										'& .MuiListItem-root': {
+											position: 'relative',
+											'& .MuiPaper-root': {
+												visibility: 'hidden',
+												opacity: 0,
+												p: 1,
+												position: 'absolute',
+												top: 50,
+												left: 0,
+												transition: 'all 0.2s ease',
+												'& .MuiList-root': {
+													flexDirection: 'column',
+													gap: 0,
+													'& .MuiButtonBase-root': {
+														minWidth: 120,
+														py: 0.5,
+														'& .MuiTypography-root': { fontSize: 14 }
+													}
+												}
+											},
+											'&:hover > .MuiPaper-root': {
+												visibility: 'visible',
+												opacity: 1
+											}
+										}
+									}
 								}
 							}}
 						>
@@ -89,7 +141,16 @@ const AppbarOrganism = (props: AppbarProps) => {
 								<LogoShapeAtom lng={lng} />
 							</Grid>
 
-							<Grid item flexGrow={1} ml={2}>
+							<Grid item>
+								<Divider
+									orientation="vertical"
+									sx={{
+										height: 24
+									}}
+								/>
+							</Grid>
+
+							<Grid item>
 								<Grid container>
 									<Grid
 										item
@@ -115,17 +176,15 @@ const AppbarOrganism = (props: AppbarProps) => {
 								</Grid>
 							</Grid>
 
-							<Grid item>
-								<Grid container>
+							<Grid item flexGrow={1}>
+								<Grid container justifyContent="flex-end">
 									<Grid
 										item
 										sx={{
 											'& .MuiButtonBase-root': {
 												p: 1.25,
 												borderRadius: 1,
-												'& .MuiListItemIcon-root': {
-													'& .MuiSvgIcon-root': { fontSize: 28 }
-												}
+												'& .MuiListItemIcon-root': { '& .MuiSvgIcon-root': { fontSize: 28 } }
 											}
 										}}
 									>

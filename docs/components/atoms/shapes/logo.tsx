@@ -24,15 +24,16 @@ const LogoShapeAtom = (props: LogoShapeProps) => {
 		<Link href={`/${lng}`}>
 			<Button
 				size="large"
-				startIcon={<LogoIconAtom primary="#7d54ed" secondary="#ba39a7" />}
+				startIcon={<LogoIconAtom />}
 				sx={{
-					p: 0.75,
-					textTransform: 'inherit',
+					p: 1.25,
 					borderRadius: 1,
-					'& .MuiSvgIcon-root': { fontSize: 36 }
+					color: 'text.primary',
+					'& .MuiSvgIcon-root': { fontSize: 28 },
+					'&:hover': { bgcolor: 'inherit' }
 				}}
 			>
-				<Typography variant="body2" fontSize={24} fontWeight={300} color="text.primary">
+				<Typography variant="body2" fontSize={24} fontWeight={700} lineHeight={1} color="text.primary">
 					{t('common:app.name')}
 				</Typography>
 			</Button>
