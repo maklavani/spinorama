@@ -10,7 +10,6 @@ import 'prismjs/components/prism-tsx'
 import type { MDXComponents } from 'mdx/types'
 
 // Styles
-// Option 1: Load a default theme (included in the 'prismjs' package)
 import 'prismjs/themes/prism-okaidia.css'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
