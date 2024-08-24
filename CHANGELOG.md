@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.4.48
 - Added `styles` for list component
 
 # 0.4.47
