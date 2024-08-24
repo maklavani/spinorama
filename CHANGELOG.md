@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Renamed **md** directory to **markdown**
+- Added a `docs` button in the **home** page
 
 # 0.4.44
 - Fixed bugs in building **documentation**

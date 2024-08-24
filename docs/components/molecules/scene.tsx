@@ -11,12 +11,12 @@ import fragmentShader from '@/shaders/fragment.glsl'
 // Types
 import type { Mesh, ShaderMaterial } from 'three'
 
-const SceneOrganism = () => {
+const SceneMolecule = () => {
 	// Variables
 	const meshRef = useRef<Mesh>(null)
-	const { viewport, size } = useThree()
-	const [vMouse, setVMouse] = useState(new Vector2())
-	const [vMouseDamp, setVMouseDamp] = useState(new Vector2())
+	const { size } = useThree()
+	const [vMouse, setVMouse] = useState<Vector2>(new Vector2())
+	const [vMouseDamp, setVMouseDamp] = useState<Vector2>(new Vector2())
 
 	// Callbacks
 	// Update uniforms on resize
@@ -45,7 +45,7 @@ const SceneOrganism = () => {
 	}, [])
 
 	// Animation loop
-	useFrame((state, delta) => {
+	useFrame((_, delta) => {
 		// Damping mouse movement
 		vMouseDamp.x = MathUtils.damp(vMouseDamp.x, vMouse.x, 8, delta)
 		vMouseDamp.y = MathUtils.damp(vMouseDamp.y, vMouse.y, 8, delta)
@@ -76,4 +76,4 @@ const SceneOrganism = () => {
 	)
 }
 
-export default SceneOrganism
+export default SceneMolecule

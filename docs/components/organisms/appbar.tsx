@@ -35,7 +35,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 			>
 				<Container maxWidth="xl">
 					<Toolbar>
-						<Grid container spacing>
+						<Grid container spacing={{ xs: 1, md: 2 }}>
 							<Grid item>
 								<LogoShapeAtom lng={lng} />
 							</Grid>
