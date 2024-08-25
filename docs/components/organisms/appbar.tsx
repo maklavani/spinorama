@@ -1,12 +1,13 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme, alpha } from '@mui/material/styles'
 import { useMediaQuery, AppBar, Container, Toolbar, Grid, Divider } from '@mui/material'
 
 import {
+	Menu as MenuIcon,
 	NorthEast as NorthEastIcon,
 	NorthWest as NorthWestIcon,
 	BrightnessAuto as BrightnessAutoIcon,
@@ -29,6 +30,7 @@ import { useTranslation } from '@/helpers/i18n/client'
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
+const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
 const LogoShapeAtom = dynamic(() => import('@/components/atoms/shapes/logo'))
 const OpenCollectiveIconAtom = dynamic(() => import('@/components/atoms/icons/open-collective'))
 
@@ -63,22 +65,22 @@ const AppbarOrganism = (props: AppbarProps) => {
 	]
 
 	// Callbacks
-	const changeMode = () => {
+	const changeMode = useCallback(() => {
 		if (preferredColorScheme) setMode(mode === 'dark' ? 'light' : mode === 'light' ? 'system' : 'dark')
 		else setMode(mode === 'light' ? 'dark' : mode === 'dark' ? 'system' : 'light')
 
 		if (pathname === `/${lng}`) window.location.reload()
-	}
+	}, [lng, mode, pathname, preferredColorScheme, setMode])
 
-	const [settings, setSettings] = useState<ListItemProps[]>([...[{ icon: <BrightnessAutoIcon />, onClick: changeMode }], ...settingsMenu])
+	const [settings, setSettings] = useState<ListItemProps[]>([{ icon: <BrightnessAutoIcon />, onClick: changeMode }])
 
 	useEffect(() => {
-		setSettings([...[{ icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />, onClick: changeMode }], ...settingsMenu])
-	}, [mode])
+		setSettings([{ icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />, onClick: changeMode }])
+	}, [changeMode, mode])
 
 	useEffect(() => {
 		if (appBarRef.current) appBarRef.current.style.backgroundColor = alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17)
-	}, [])
+	}, [theme])
 
 	return (
 		<HideOnScroll onlyDesktop={true}>
@@ -99,6 +101,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 					<Toolbar>
 						<Grid
 							container
+							justifyContent="space-between"
 							alignItems="center"
 							spacing={{ xs: 1, md: 2 }}
 							sx={{
@@ -131,9 +134,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 												}
 											},
 											'&:hover': {
-												'& > .MuiButtonBase-root': {
-													bgcolor: theme.palette.mode === 'dark' ? alpha('#fff', 0.08) : alpha('#000', 0.08)
-												},
+												'& > .MuiButtonBase-root': { bgcolor: theme.palette.mode === 'dark' ? alpha('#fff', 0.08) : alpha('#000', 0.08) },
 												'& > .MuiPaper-root': {
 													visibility: 'visible',
 													opacity: 1
@@ -149,15 +150,14 @@ const AppbarOrganism = (props: AppbarProps) => {
 							</Grid>
 
 							<Grid item>
-								<Divider
-									orientation="vertical"
-									sx={{
-										height: 24
-									}}
-								/>
+								<IconButtonAtom icon={<MenuIcon />} />
 							</Grid>
 
-							<Grid item>
+							<Grid item display={{ xs: 'none', md: 'flex' }}>
+								<Divider orientation="vertical" sx={{ height: 24 }} />
+							</Grid>
+
+							<Grid item display={{ xs: 'none', md: 'flex' }}>
 								<Grid container>
 									<Grid
 										item
@@ -184,7 +184,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 								</Grid>
 							</Grid>
 
-							<Grid item flexGrow={1}>
+							<Grid item flexGrow={1} display={{ xs: 'none', md: 'flex' }}>
 								<Grid container justifyContent="flex-end">
 									<Grid
 										item
@@ -196,7 +196,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 											}
 										}}
 									>
-										<ListMolecule lng={lng} items={settings} />
+										<ListMolecule lng={lng} items={[...settings, ...settingsMenu]} />
 									</Grid>
 								</Grid>
 							</Grid>

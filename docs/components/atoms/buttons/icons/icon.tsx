@@ -16,12 +16,12 @@ const IconButtonAtom = (props: IconButtonProps) => {
 			onClick={onClick}
 			sx={{
 				p: 0.75,
-				color: 'primary.dark',
-				bgcolor: 'primary.light',
+				color: 'primary.main',
+				bgcolor: 'transparent',
 				borderRadius: 1,
 				'&:hover': {
-					color: 'primary.dark',
-					bgcolor: 'primary.light'
+					color: 'primary.main',
+					bgcolor: 'transparent'
 				},
 				'& .MuiSvgIcon-root': { fontSize: 36 },
 				'& .MuiTouchRipple-root .MuiTouchRipple-child': { borderRadius: 1 }

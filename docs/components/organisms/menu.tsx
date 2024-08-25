@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 import { GitHub as GitHubIcon, Favorite as FavoriteIcon } from '@mui/icons-material'
 
 // Types
-import type { DrawerProps } from '@/types/components/organisms/drawer'
+import type { MenuProps } from '@/types/components/organisms/menu'
 import type { ListItemProps } from '@/types/components/molecules/list'
 
 // Configurations
@@ -12,7 +12,7 @@ import ThemeConfig from '@/config/theme'
 // Components
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 
-const DrawerOrganism = (props: DrawerProps) => {
+const MenuOrganism = (props: MenuProps) => {
 	// Props
 	const { lng } = props
 
@@ -30,7 +30,7 @@ const DrawerOrganism = (props: DrawerProps) => {
 	]
 
 	return (
-		<Grid item width={ThemeConfig.listWidth}>
+		<Grid item width={{ xs: 1, md: ThemeConfig.listWidth }}>
 			<Grid
 				container
 				position="sticky"
@@ -53,4 +53,4 @@ const DrawerOrganism = (props: DrawerProps) => {
 	)
 }
 
-export default DrawerOrganism
+export default MenuOrganism
