@@ -29,6 +29,7 @@ import { useTranslation } from '@/helpers/i18n/client'
 
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
+const DrawerOrganism = dynamic(() => import('@/components/organisms/drawer'))
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
 const LogoShapeAtom = dynamic(() => import('@/components/atoms/shapes/logo'))
@@ -44,6 +45,8 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
 	const appBarRef = useRef<HTMLDivElement>(null)
+	const [open, setOpen] = useState<boolean>(false)
+	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
 	const menu: ListItemProps[] = [
@@ -54,7 +57,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const settingsMenu: ListItemProps[] = [
 		{
 			icon: <TranslateIcon />,
-			children: LocaleConfig.list.map((item, index) => ({
+			children: LocaleConfig.list.map(item => ({
 				title: `${t(`common:title.${item}`)} (${item})`,
 				link: pathname.replace(`/${lng}`, `/${item}`),
 				linkType: 'mui'
@@ -70,7 +73,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 		else setMode(mode === 'light' ? 'dark' : mode === 'dark' ? 'system' : 'light')
 
 		if (pathname === `/${lng}`) window.location.reload()
-	}, [lng, mode, pathname, preferredColorScheme, setMode])
+	}, [lng, mode, preferredColorScheme, pathname, setMode])
 
 	const [settings, setSettings] = useState<ListItemProps[]>([{ icon: <BrightnessAutoIcon />, onClick: changeMode }])
 
@@ -93,7 +96,6 @@ const AppbarOrganism = (props: AppbarProps) => {
 					bgcolor: 'inherit',
 					backdropFilter: 'blur(20px)',
 					boxShadow: 'none',
-					zIndex: theme.zIndex.drawer + 1,
 					'& .MuiToolbar-root': { px: 0 }
 				}}
 			>
@@ -149,60 +151,68 @@ const AppbarOrganism = (props: AppbarProps) => {
 								<LogoShapeAtom lng={lng} />
 							</Grid>
 
-							<Grid item>
-								<IconButtonAtom icon={<MenuIcon />} />
-							</Grid>
+							{!greaterThanMedium && (
+								<Grid item>
+									<IconButtonAtom icon={<MenuIcon />} onClick={() => setOpen(!open)} />
+								</Grid>
+							)}
 
-							<Grid item display={{ xs: 'none', md: 'flex' }}>
-								<Divider orientation="vertical" sx={{ height: 24 }} />
-							</Grid>
+							{greaterThanMedium && (
+								<>
+									<Grid item display={{ xs: 'none', md: 'flex' }}>
+										<Divider orientation="vertical" sx={{ height: 24 }} />
+									</Grid>
 
-							<Grid item display={{ xs: 'none', md: 'flex' }}>
-								<Grid container>
-									<Grid
-										item
-										sx={{
-											'& .MuiButtonBase-root': {
-												p: 1,
-												borderRadius: 1,
-												'&.list-item-with-icon': {
-													pr: 2.25,
-													'& .MuiListItemIcon-root': {
-														opacity: 0.7,
-														mr: 0,
-														position: 'absolute',
-														top: 8,
-														right: 6,
-														'& .MuiSvgIcon-root': { fontSize: 8 }
+									<Grid item display={{ xs: 'none', md: 'flex' }}>
+										<Grid container>
+											<Grid
+												item
+												sx={{
+													'& .MuiButtonBase-root': {
+														p: 1,
+														borderRadius: 1,
+														'&.list-item-with-icon': {
+															pr: 2.25,
+															'& .MuiListItemIcon-root': {
+																opacity: 0.7,
+																mr: 0,
+																position: 'absolute',
+																top: 8,
+																right: 6,
+																'& .MuiSvgIcon-root': { fontSize: 8 }
+															}
+														}
 													}
-												}
-											}
-										}}
-									>
-										<ListMolecule lng={lng} items={menu} />
+												}}
+											>
+												<ListMolecule lng={lng} items={menu} />
+											</Grid>
+										</Grid>
 									</Grid>
-								</Grid>
-							</Grid>
 
-							<Grid item flexGrow={1} display={{ xs: 'none', md: 'flex' }}>
-								<Grid container justifyContent="flex-end">
-									<Grid
-										item
-										sx={{
-											'& .MuiButtonBase-root': {
-												p: 1.25,
-												borderRadius: 1,
-												'& .MuiListItemIcon-root': { '& .MuiSvgIcon-root': { fontSize: 28 } }
-											}
-										}}
-									>
-										<ListMolecule lng={lng} items={[...settings, ...settingsMenu]} />
+									<Grid item flexGrow={1} display={{ xs: 'none', md: 'flex' }}>
+										<Grid container justifyContent="flex-end">
+											<Grid
+												item
+												sx={{
+													'& .MuiButtonBase-root': {
+														p: 1.25,
+														borderRadius: 1,
+														'& .MuiListItemIcon-root': { '& .MuiSvgIcon-root': { fontSize: 28 } }
+													}
+												}}
+											>
+												<ListMolecule lng={lng} items={[...settings, ...settingsMenu]} />
+											</Grid>
+										</Grid>
 									</Grid>
-								</Grid>
-							</Grid>
+								</>
+							)}
 						</Grid>
 					</Toolbar>
 				</Container>
+
+				{!greaterThanMedium && <DrawerOrganism lng={lng} open={open} setOpen={setOpen} />}
 			</AppBar>
 		</HideOnScroll>
 	)

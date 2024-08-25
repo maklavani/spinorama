@@ -7,6 +7,7 @@ export type ListItemProps = {
 	linkType?: 'next' | 'mui'
 	icon?: ReactNode
 	iconColor?: string
+	endIcon?: ReactNode
 	children?: ListItem[]
 	onClick?: () => void
 }

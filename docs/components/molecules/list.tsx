@@ -47,6 +47,18 @@ const StyledListItemButton = (props: StyledListItemButtonProps) => {
 			)}
 
 			{item.title && <ListItemText sx={{ '& .MuiTypography-root': { fontWeight: level ? 500 : 600 } }}>{t(item.title)}</ListItemText>}
+
+			{item.endIcon && (
+				<ListItemIcon
+					sx={{
+						minWidth: 'auto',
+						...(item.title && { mr: 1 }),
+						'& .MuiSvgIcon-root': { fontSize: 20 }
+					}}
+				>
+					{item.endIcon}
+				</ListItemIcon>
+			)}
 		</ListItemButton>
 	)
 }

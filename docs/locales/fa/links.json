@@ -1,10 +1,16 @@
 {
+	"dark": "تیره",
 	"docs": "مستندات",
 	"gettingStarted": "شروع به کار",
 	"github": "گیت‌هاب",
 	"home": "صفحه اصلی",
 	"installation": "نصب",
+	"language": "زبان",
+	"light": "روشن",
+	"openCollective": "اپن کلکتیو",
 	"overview": "بررسی اجمالی",
 	"regiti": "ریگیتی",
-	"sponser": "اسپانسر"
+	"sponser": "اسپانسر",
+	"system": "بر اساس سیستم",
+	"theme": "قالب"
 }

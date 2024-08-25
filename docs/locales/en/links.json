@@ -1,10 +1,16 @@
 {
+	"dark": "Dark",
 	"docs": "Docs",
 	"gettingStarted": "Getting Started",
 	"github": "GitHub",
 	"home": "Home",
 	"installation": "Installation",
+	"language": "Language",
+	"light": "Light",
+	"openCollective": "Open Collective",
 	"overview": "Overview",
 	"regiti": "Regiti",
-	"sponser": "Sponser"
+	"sponser": "Sponser",
+	"system": "System",
+	"theme": "Theme"
 }

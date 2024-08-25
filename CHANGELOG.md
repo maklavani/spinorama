@@ -3,6 +3,7 @@ All notable changes to this package will be documented in this file.
 
 - Changed language files
 - Added an icon button menu in **AppBar**
+- Created `SwipeableDrawer` organism component in the **AppBar**
 
 # 0.5.0
 - Added mdx files for **overview** and **installation**
