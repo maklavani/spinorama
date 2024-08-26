@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme, alpha } from '@mui/material/styles'
 import { useMediaQuery, Grid, Box } from '@mui/material'
@@ -14,6 +15,7 @@ import ThemeConfig from '@/config/theme'
 
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
+const EdgeDrawerOrganism = dynamic(() => import('@/components/organisms/drawer/edge'))
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
 
@@ -23,6 +25,7 @@ const LeftMenuOrganism = (props: MenuProps) => {
 
 	// Variables
 	const theme = useTheme()
+	const [open, setOpen] = useState<boolean>(false)
 	const lessThanMedium = useMediaQuery(theme.breakpoints.down('md'))
 	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
 
@@ -58,12 +61,34 @@ const LeftMenuOrganism = (props: MenuProps) => {
 							item={{
 								title: 'links:menu',
 								icon: <ListIcon />,
-								onClick: () => {}
+								onClick: () => setOpen(!open)
 							}}
 							showItem={true}
 						/>
 					</Box>
 				</HideOnScroll>
+			)}
+
+			{lessThanMedium && (
+				<EdgeDrawerOrganism lng={lng} open={open} setOpen={setOpen}>
+					<Grid
+						item
+						xs={12}
+						sx={{
+							'& .MuiPaper-root': {
+								width: 1,
+								bgcolor: 'inherit',
+								'& .MuiList-root': {
+									width: 1,
+									py: 1,
+									'& a': { width: 1 }
+								}
+							}
+						}}
+					>
+						<ListMolecule lng={lng} items={menu} />
+					</Grid>
+				</EdgeDrawerOrganism>
 			)}
 
 			{greaterThanMedium && (

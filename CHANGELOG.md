@@ -1,11 +1,13 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created `EdgeDrawer` organism component
+
 # 0.5.6
 - Created `Menu` Button in **LeftMenu**
 
 # 0.5.5
-- Created the `TopMenu` organism component
+- Created `TopMenu` organism component
 
 # 0.5.4
 - Renamed Menu to TopMenu
