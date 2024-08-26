@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme } from '@mui/material/styles'
-import { SwipeableDrawer, Grid, Toolbar } from '@mui/material'
+import { SwipeableDrawer, Grid, Toolbar, SvgIcon } from '@mui/material'
 
 import {
 	Close as CloseIcon,
@@ -29,9 +29,6 @@ import type { LinkItemProps } from '@/types/components/atoms/list-item'
 // Configurations
 import LocaleConfig from '@/config/locale'
 
-// Helpers
-import { useTranslation } from '@/helpers/i18n/client'
-
 // Components
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
@@ -43,7 +40,6 @@ const DrawerOrganism = (props: DrawerProps) => {
 	const { lng, open, setOpen } = props
 
 	// Variables
-	const { t } = useTranslation(lng)
 	const theme = useTheme()
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
@@ -61,7 +57,14 @@ const DrawerOrganism = (props: DrawerProps) => {
 			onClick: () => setParent('language'),
 			children: LocaleConfig.list.map(item => ({
 				parent: 'language',
-				title: `${t(`common:title.${item}`)} (${item})`,
+				title: `common:title.${item}`,
+				endIcon: (
+					<SvgIcon>
+						<text x={12} y={17} text-anchor="middle" fontSize={16}>
+							<tspan>{item}</tspan>
+						</text>
+					</SvgIcon>
+				),
 				link: pathname.replace(`/${lng}`, `/${item}`),
 				linkType: 'mui',
 				onClick: () => {
