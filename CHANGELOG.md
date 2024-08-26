@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.5.6
 - Created `Menu` Button in **LeftMenu**
 
 # 0.5.5
