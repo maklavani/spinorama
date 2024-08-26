@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Fixed bugs in removing shaders
+
 # 0.5.7
 - Created `EdgeDrawer` organism component
 
