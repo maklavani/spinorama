@@ -7,7 +7,6 @@ import type { LayoutProps } from '@/types/app/layouts'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
-import ThemeConfig from '@/config/theme'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/server'
@@ -46,7 +45,7 @@ const DocsLayout = (props: LayoutProps) => {
 			<Grid container direction="row" flexWrap={{ md: 'nowrap' }} spacing={{ xs: 1, md: 2 }}>
 				<LeftMenuOrganism lng={lng} />
 
-				<Grid item width={{ xs: 1, md: `calc(100% - ${ThemeConfig.listWidth}px)` }}>
+				<Grid item flexGrow={{ md: 1 }} width={{ xs: 1, md: 'inherit' }}>
 					{children}
 				</Grid>
 			</Grid>

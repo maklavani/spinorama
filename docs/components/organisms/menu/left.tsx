@@ -1,6 +1,9 @@
+'use client'
+
 import dynamic from 'next/dynamic'
-import { Grid } from '@mui/material'
-import { GitHub as GitHubIcon, Favorite as FavoriteIcon } from '@mui/icons-material'
+import { useTheme, alpha } from '@mui/material/styles'
+import { useMediaQuery, Grid, Box } from '@mui/material'
+import { GitHub as GitHubIcon, Favorite as FavoriteIcon, List as ListIcon } from '@mui/icons-material'
 
 // Types
 import type { MenuProps } from '@/types/components/organisms/menu'
@@ -10,14 +13,20 @@ import type { LinkItemProps } from '@/types/components/atoms/list-item'
 import ThemeConfig from '@/config/theme'
 
 // Components
+const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
+const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
 
 const LeftMenuOrganism = (props: MenuProps) => {
 	// Props
 	const { lng } = props
 
 	// Variables
-	const items: LinkItemProps[] = [
+	const theme = useTheme()
+	const lessThanMedium = useMediaQuery(theme.breakpoints.down('md'))
+	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
+
+	const menu: LinkItemProps[] = [
 		{
 			title: 'links:gettingStarted',
 			children: [
@@ -30,26 +39,56 @@ const LeftMenuOrganism = (props: MenuProps) => {
 	]
 
 	return (
-		<Grid item width={{ xs: 1, md: ThemeConfig.listWidth }}>
-			<Grid
-				container
-				position="sticky"
-				top={{ xs: 56, md: 64 }}
-				sx={{
-					'& .MuiPaper-root': {
-						width: 1,
-						bgcolor: 'inherit',
-						'& .MuiList-root': {
-							width: 1,
-							py: 1,
-							'& a': { width: 1 }
-						}
-					}
-				}}
-			>
-				<ListMolecule lng={lng} items={items} />
-			</Grid>
-		</Grid>
+		<>
+			{lessThanMedium && (
+				<HideOnScroll onlyMobile={true}>
+					<Box
+						width={1}
+						position="sticky"
+						top={56}
+						pb={1}
+						zIndex={theme.zIndex.appBar - 1}
+						sx={{
+							bgcolor: alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17),
+							backdropFilter: 'blur(50px)'
+						}}
+					>
+						<ListItemAtom
+							lng={lng}
+							item={{
+								title: 'links:menu',
+								icon: <ListIcon />,
+								onClick: () => {}
+							}}
+							showItem={true}
+						/>
+					</Box>
+				</HideOnScroll>
+			)}
+
+			{greaterThanMedium && (
+				<Grid item width={{ xs: 1, md: ThemeConfig.listWidth }}>
+					<Grid
+						container
+						position="sticky"
+						top={{ xs: 56, md: 64 }}
+						sx={{
+							'& .MuiPaper-root': {
+								width: 1,
+								bgcolor: 'inherit',
+								'& .MuiList-root': {
+									width: 1,
+									py: 1,
+									'& a': { width: 1 }
+								}
+							}
+						}}
+					>
+						<ListMolecule lng={lng} items={menu} />
+					</Grid>
+				</Grid>
+			)}
+		</>
 	)
 }
 

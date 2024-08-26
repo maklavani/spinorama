@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created `Menu` Button in **LeftMenu**
+
 # 0.5.5
 - Created the `TopMenu` organism component
 

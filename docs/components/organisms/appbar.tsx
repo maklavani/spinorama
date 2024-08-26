@@ -12,7 +12,7 @@ import type { AppbarProps } from '@/types/components/organisms/appbar'
 // Components
 const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
 const TopMenuOrganism = dynamic(() => import('@/components/organisms/menu/top'))
-const DrawerOrganism = dynamic(() => import('@/components/organisms/drawer'))
+const MobileDrawerOrganism = dynamic(() => import('@/components/organisms/drawer/mobile'))
 const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
 const LogoShapeAtom = dynamic(() => import('@/components/atoms/shapes/logo'))
 
@@ -24,7 +24,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const theme = useTheme()
 	const appBarRef = useRef<HTMLDivElement>(null)
 	const [open, setOpen] = useState<boolean>(false)
-	const lessThanSmall = useMediaQuery(theme.breakpoints.down('sm'))
+	const lessThanMedium = useMediaQuery(theme.breakpoints.down('md'))
 	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
 
 	// Callbacks
@@ -54,7 +54,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 								<LogoShapeAtom lng={lng} />
 							</Grid>
 
-							{lessThanSmall && (
+							{lessThanMedium && (
 								<Grid item>
 									<IconButtonAtom icon={<MenuIcon />} onClick={() => setOpen(!open)} />
 								</Grid>
@@ -69,7 +69,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 					</Toolbar>
 				</Container>
 
-				{!greaterThanMedium && <DrawerOrganism lng={lng} open={open} setOpen={setOpen} />}
+				{!greaterThanMedium && <MobileDrawerOrganism lng={lng} open={open} setOpen={setOpen} />}
 			</AppBar>
 		</HideOnScroll>
 	)

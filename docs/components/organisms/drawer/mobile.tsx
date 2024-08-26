@@ -38,7 +38,7 @@ const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
 const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
 const OpenCollectiveIconAtom = dynamic(() => import('@/components/atoms/icons/open-collective'))
 
-const DrawerOrganism = (props: DrawerProps) => {
+const MobileDrawerOrganism = (props: DrawerProps) => {
 	// Props
 	const { lng, open, setOpen } = props
 
@@ -165,4 +165,4 @@ const DrawerOrganism = (props: DrawerProps) => {
 	)
 }
 
-export default DrawerOrganism
+export default MobileDrawerOrganism
