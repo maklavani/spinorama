@@ -1,25 +1,10 @@
 // Types
 import type { ReactNode } from 'react'
-
-export type ListItemProps = {
-	title?: string
-	link?: string
-	linkType?: 'next' | 'mui'
-	icon?: ReactNode
-	iconColor?: string
-	endIcon?: ReactNode
-	children?: ListItem[]
-	onClick?: () => void
-}
-
-export type StyledListItemButtonProps = {
-	lng: string
-	item: ListItemProps
-	level?: number
-}
+import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 export type ListProps = {
 	lng: string
-	items: ListItemProps[]
+	items: LinkItemProps[]
+	parent?: string
 	level?: number
 }

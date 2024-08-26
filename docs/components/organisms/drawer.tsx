@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme } from '@mui/material/styles'
@@ -24,7 +24,7 @@ import {
 // Types
 import type { Mode } from '@mui/system/cssVars/useCurrentColorScheme'
 import type { DrawerProps } from '@/types/components/organisms/drawer'
-import type { ListItemProps } from '@/types/components/molecules/list'
+import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
@@ -34,6 +34,7 @@ import { useTranslation } from '@/helpers/i18n/client'
 
 // Components
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
+const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
 const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
 const OpenCollectiveIconAtom = dynamic(() => import('@/components/atoms/icons/open-collective'))
 
@@ -46,9 +47,10 @@ const DrawerOrganism = (props: DrawerProps) => {
 	const theme = useTheme()
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
+	const [parent, setParent] = useState<string>('')
 	const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
-	const menu: ListItemProps[] = [
+	const menu: LinkItemProps[] = [
 		{ title: 'links:home', link: `/${lng}`, icon: <CottageIcon />, onClick: () => setOpen(!open) },
 		{ title: 'links:docs', link: `/${lng}/docs`, icon: <ArticleIcon />, onClick: () => setOpen(!open) },
 		{ title: 'links:regiti', link: 'https://regiti.com', icon: theme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon />, onClick: () => setOpen(!open) },
@@ -56,42 +58,49 @@ const DrawerOrganism = (props: DrawerProps) => {
 			title: 'links:language',
 			icon: <TranslateIcon />,
 			endIcon: theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
-			onClick: () => setOpen(!open),
+			onClick: () => setParent('language'),
 			children: LocaleConfig.list.map(item => ({
+				parent: 'language',
 				title: `${t(`common:title.${item}`)} (${item})`,
 				link: pathname.replace(`/${lng}`, `/${item}`),
 				linkType: 'mui',
-				onClick: () => setOpen(!open)
+				onClick: () => {
+					setParent('')
+					setOpen(!open)
+				}
 			}))
 		},
 		{
 			title: 'links:theme',
 			icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />,
 			endIcon: theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
-			onClick: () => setOpen(!open),
+			onClick: () => setParent('theme'),
 			children: [
 				{
+					parent: 'theme',
 					title: 'links:system',
 					icon: <BrightnessAutoIcon />,
 					onClick: () => {
 						changeMode('system')
-						setOpen(!open)
+						setParent('')
 					}
 				},
 				{
+					parent: 'theme',
 					title: 'links:light',
 					icon: <LightModeIcon />,
 					onClick: () => {
 						changeMode('light')
-						setOpen(!open)
+						setParent('')
 					}
 				},
 				{
+					parent: 'theme',
 					title: 'links:dark',
 					icon: <NightsStayIcon />,
 					onClick: () => {
 						changeMode('dark')
-						setOpen(!open)
+						setParent('')
 					}
 				}
 			]
@@ -134,7 +143,17 @@ const DrawerOrganism = (props: DrawerProps) => {
 			</Toolbar>
 
 			<Grid container px={2}>
-				<ListMolecule lng={lng} items={menu} />
+				<ListItemAtom
+					lng={lng}
+					item={{
+						title: 'links:back',
+						icon: theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />,
+						onClick: () => setParent('')
+					}}
+					showItem={parent !== ''}
+				/>
+
+				<ListMolecule lng={lng} items={menu} parent={parent} />
 			</Grid>
 		</SwipeableDrawer>
 	)

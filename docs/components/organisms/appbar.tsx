@@ -19,7 +19,7 @@ import {
 
 // Types
 import type { AppbarProps } from '@/types/components/organisms/appbar'
-import type { ListItemProps } from '@/types/components/molecules/list'
+import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
@@ -49,12 +49,12 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
-	const menu: ListItemProps[] = [
+	const menu: LinkItemProps[] = [
 		{ title: 'links:docs', link: `/${lng}/docs` },
 		{ title: 'links:regiti', link: 'https://regiti.com', icon: theme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
 	]
 
-	const settingsMenu: ListItemProps[] = [
+	const settingsMenu: LinkItemProps[] = [
 		{
 			icon: <TranslateIcon />,
 			children: LocaleConfig.list.map(item => ({
@@ -75,7 +75,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 		if (pathname === `/${lng}`) window.location.reload()
 	}, [lng, mode, preferredColorScheme, pathname, setMode])
 
-	const [settings, setSettings] = useState<ListItemProps[]>([{ icon: <BrightnessAutoIcon />, onClick: changeMode }])
+	const [settings, setSettings] = useState<LinkItemProps[]>([{ icon: <BrightnessAutoIcon />, onClick: changeMode }])
 
 	useEffect(() => {
 		setSettings([{ icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />, onClick: changeMode }])
@@ -88,7 +88,8 @@ const AppbarOrganism = (props: AppbarProps) => {
 	return (
 		<HideOnScroll onlyDesktop={true}>
 			<AppBar
-				red={appBarRef}
+				ref={appBarRef}
+				position="fixed"
 				component="nav"
 				sx={{
 					color: 'inherit',
@@ -168,18 +169,21 @@ const AppbarOrganism = (props: AppbarProps) => {
 											<Grid
 												item
 												sx={{
-													'& .MuiButtonBase-root': {
-														p: 1,
-														borderRadius: 1,
-														'&.list-item-with-icon': {
-															pr: 2.25,
-															'& .MuiListItemIcon-root': {
-																opacity: 0.7,
-																mr: 0,
-																position: 'absolute',
-																top: 8,
-																right: 6,
-																'& .MuiSvgIcon-root': { fontSize: 8 }
+													'& .MuiListItem-root': {
+														mb: 0,
+														'& .MuiButtonBase-root': {
+															p: 1,
+															borderRadius: 1,
+															'&.list-item-with-icon': {
+																pr: 2.25,
+																'& .MuiListItemIcon-root': {
+																	opacity: 0.7,
+																	mr: 0,
+																	position: 'absolute',
+																	top: 8,
+																	right: 6,
+																	'& .MuiSvgIcon-root': { fontSize: 8 }
+																}
 															}
 														}
 													}
@@ -195,10 +199,13 @@ const AppbarOrganism = (props: AppbarProps) => {
 											<Grid
 												item
 												sx={{
-													'& .MuiButtonBase-root': {
-														p: 1.25,
-														borderRadius: 1,
-														'& .MuiListItemIcon-root': { '& .MuiSvgIcon-root': { fontSize: 28 } }
+													'& .MuiListItem-root': {
+														mb: 0,
+														'& .MuiButtonBase-root': {
+															p: 1.25,
+															borderRadius: 1,
+															'& .MuiListItemIcon-root': { '& .MuiSvgIcon-root': { fontSize: 28 } }
+														}
 													}
 												}}
 											>

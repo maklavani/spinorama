@@ -4,7 +4,7 @@ import { GitHub as GitHubIcon, Favorite as FavoriteIcon } from '@mui/icons-mater
 
 // Types
 import type { MenuProps } from '@/types/components/organisms/menu'
-import type { ListItemProps } from '@/types/components/molecules/list'
+import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 // Configurations
 import ThemeConfig from '@/config/theme'
@@ -17,7 +17,7 @@ const MenuOrganism = (props: MenuProps) => {
 	const { lng } = props
 
 	// Variables
-	const items: ListItemProps[] = [
+	const items: LinkItemProps[] = [
 		{
 			title: 'links:gettingStarted',
 			children: [

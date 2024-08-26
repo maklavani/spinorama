@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Created a `CheckParentInChildren` utility
+- Created a back button in the menu **AppBar**
 
 # 0.5.1
 - Changed language files

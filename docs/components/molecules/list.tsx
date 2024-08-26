@@ -1,71 +1,21 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Paper, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link as MuiLink } from '@mui/material'
+import { Paper, List, ListItem, Link as MuiLink } from '@mui/material'
 
 // Type
-import { StyledListItemButtonProps, ListProps } from '@/types/components/molecules/list'
+import { ListProps } from '@/types/components/molecules/list'
 
-// Helpers
-import { useTranslation } from '@/helpers/i18n/client'
+// Utils
+import CheckParentInChildren from '@/utils/check-parent-in-children'
 
-const StyledListItemButton = (props: StyledListItemButtonProps) => {
-	// Props
-	const { lng, item, level } = props
-
-	// Variables
-	const { t } = useTranslation(lng)
-
-	return (
-		<ListItemButton
-			className={item.icon ? 'list-item-with-icon' : ''}
-			disableTouchRipple={!item.link && !item.onClick ? true : false}
-			onClick={item.onClick}
-			sx={{
-				...(!item.link && { width: 1 }),
-				py: 0.5,
-				pr: 1,
-				pl: level ? level * 2 + 1 : 1,
-				...(!item.link &&
-					!item.onClick && {
-						cursor: 'inherit',
-						'&:hover': { bgcolor: 'transparent' }
-					})
-			}}
-		>
-			{item.icon && (
-				<ListItemIcon
-					sx={{
-						minWidth: 'auto',
-						...(item.title && { mr: 1 }),
-						...(item.iconColor && { color: item.iconColor }),
-						'& .MuiSvgIcon-root': { fontSize: 20 }
-					}}
-				>
-					{item.icon}
-				</ListItemIcon>
-			)}
-
-			{item.title && <ListItemText sx={{ '& .MuiTypography-root': { fontWeight: level ? 500 : 600 } }}>{t(item.title)}</ListItemText>}
-
-			{item.endIcon && (
-				<ListItemIcon
-					sx={{
-						minWidth: 'auto',
-						...(item.title && { mr: 1 }),
-						'& .MuiSvgIcon-root': { fontSize: 20 }
-					}}
-				>
-					{item.endIcon}
-				</ListItemIcon>
-			)}
-		</ListItemButton>
-	)
-}
+// Components
+const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
 
 const ListMolecule = (props: ListProps) => {
 	// Props
-	const { lng, items, level } = props
+	const { lng, items, parent, level } = props
 
 	return (
 		<Paper
@@ -84,25 +34,41 @@ const ListMolecule = (props: ListProps) => {
 					}
 				}}
 			>
-				{items.map((item, index) => (
-					<ListItem key={index} sx={{ width: 1, flexDirection: 'column', mb: 0.5, p: 0, '&:last-child': { mb: 0 } }}>
-						{item.link ? (
-							item.linkType === 'mui' ? (
-								<MuiLink href={item.link}>
-									<StyledListItemButton lng={lng} item={item} level={level} />
-								</MuiLink>
-							) : (
-								<Link href={item.link}>
-									<StyledListItemButton lng={lng} item={item} level={level} />
-								</Link>
-							)
-						) : (
-							<StyledListItemButton lng={lng} item={item} level={level} />
-						)}
+				{items.map((item, index) => {
+					// Variables
+					const showItem = (!parent && !item.parent) || item.parent === parent
+					const showChildren = item.children && CheckParentInChildren(item.children, parent)
 
-						{item.children && <ListMolecule lng={lng} items={item.children} level={level ? level + 1 : 1} />}
-					</ListItem>
-				))}
+					return (
+						<ListItem
+							key={index}
+							sx={{
+								display: showItem || showChildren ? 'block' : 'none',
+								width: 1,
+								flexDirection: 'column',
+								mb: 0.5,
+								p: 0,
+								'&:last-child': { mb: 0 }
+							}}
+						>
+							{item.link ? (
+								item.linkType === 'mui' ? (
+									<MuiLink href={item.link}>
+										<ListItemAtom lng={lng} item={item} showItem={showItem} level={level} />
+									</MuiLink>
+								) : (
+									<Link href={item.link}>
+										<ListItemAtom lng={lng} item={item} showItem={showItem} level={level} />
+									</Link>
+								)
+							) : (
+								<ListItemAtom lng={lng} item={item} showItem={showItem} level={level} />
+							)}
+
+							{item.children && <ListMolecule lng={lng} items={item.children} parent={parent} level={level ? level + 1 : 1} />}
+						</ListItem>
+					)
+				})}
 			</List>
 		</Paper>
 	)
