@@ -52,7 +52,7 @@ const ListItemAtom = (props: ListItemProps) => {
 				<ListItemIcon
 					sx={{
 						minWidth: 'auto',
-						...(item.title && { mr: 1 }),
+						...(item.title && { ml: 1 }),
 						'& .MuiSvgIcon-root': { fontSize: 20 }
 					}}
 				>

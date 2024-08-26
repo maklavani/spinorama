@@ -29,6 +29,9 @@ import type { LinkItemProps } from '@/types/components/atoms/list-item'
 // Configurations
 import LocaleConfig from '@/config/locale'
 
+// Fonts
+import RobotoFont from '@/styles/fonts/roboto'
+
 // Components
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))
@@ -60,7 +63,7 @@ const DrawerOrganism = (props: DrawerProps) => {
 				title: `common:title.${item}`,
 				endIcon: (
 					<SvgIcon>
-						<text x={12} y={17} text-anchor="middle" fontSize={16}>
+						<text x={12} y={18} textAnchor="middle" fontFamily={RobotoFont.style.fontFamily} fontSize={20} fontWeight={500}>
 							<tspan>{item}</tspan>
 						</text>
 					</SvgIcon>
