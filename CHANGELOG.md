@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.5.3
 - Created icons for language items
 
 # 0.5.2
