@@ -13,7 +13,7 @@ import ThemeConfig from '@/config/theme'
 import { useTranslation } from '@/helpers/i18n/server'
 
 // Components
-const MenuOrganism = dynamic(() => import('@/components/organisms/menu'))
+const LeftMenuOrganism = dynamic(() => import('@/components/organisms/menu/left'))
 
 // Metadata
 export const generateMetadata = async (props: LayoutProps): Promise<Metadata> => {
@@ -44,7 +44,7 @@ const DocsLayout = (props: LayoutProps) => {
 			<Toolbar />
 
 			<Grid container direction="row" flexWrap={{ md: 'nowrap' }} spacing={{ xs: 1, md: 2 }}>
-				<MenuOrganism lng={lng} />
+				<LeftMenuOrganism lng={lng} />
 
 				<Grid item width={{ xs: 1, md: `calc(100% - ${ThemeConfig.listWidth}px)` }}>
 					{children}

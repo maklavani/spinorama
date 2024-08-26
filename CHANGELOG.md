@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Renamed Menu to TopMenu
+
 # 0.5.3
 - Created icons for language items
 

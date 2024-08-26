@@ -12,7 +12,7 @@ import ThemeConfig from '@/config/theme'
 // Components
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 
-const MenuOrganism = (props: MenuProps) => {
+const LeftMenuOrganism = (props: MenuProps) => {
 	// Props
 	const { lng } = props
 
@@ -53,4 +53,4 @@ const MenuOrganism = (props: MenuProps) => {
 	)
 }
 
-export default MenuOrganism
+export default LeftMenuOrganism
