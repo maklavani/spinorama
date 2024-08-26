@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.5.8
 - Fixed bugs in removing shaders
 
 # 0.5.7
