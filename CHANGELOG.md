@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Created a `CheckParentInChildren` utility
+
 # 0.5.1
 - Changed language files
 - Added an icon button menu in **AppBar**
