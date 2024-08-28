@@ -11,8 +11,8 @@ const HideOnScroll = (props: HideOnScrollProps) => {
 	const { children, window, onlyMobile, onlyDesktop } = props
 
 	// Variables
-	const theme = useTheme()
-	const lessThanSmall = useMediaQuery(theme.breakpoints.down('sm'))
+	const muiTheme = useTheme()
+	const lessThanSmall = useMediaQuery(muiTheme.breakpoints.down('sm'))
 
 	const trigger = useScrollTrigger({
 		target: window ? window() : undefined

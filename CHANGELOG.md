@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Removed all **deprecated** `Grid` components and converted to `Grid2`
+
 # 0.5.10
 - Modified the new configuration for **MUI**
 

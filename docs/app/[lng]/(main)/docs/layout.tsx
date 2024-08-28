@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Container, Toolbar, Grid } from '@mui/material'
+import { Container, Toolbar, Grid2 as Grid } from '@mui/material'
 
 // Types
 import type { Metadata } from 'next'
@@ -45,7 +45,7 @@ const DocsLayout = (props: LayoutProps) => {
 			<Grid container direction="row" flexWrap={{ md: 'nowrap' }} spacing={{ xs: 1, md: 2 }}>
 				<LeftMenuOrganism lng={lng} />
 
-				<Grid item flexGrow={{ md: 1 }} width={{ xs: 1, md: 'inherit' }}>
+				<Grid size={{ md: 'grow' }} width={{ xs: 1, md: 'inherit' }}>
 					{children}
 				</Grid>
 			</Grid>

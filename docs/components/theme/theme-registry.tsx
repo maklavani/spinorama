@@ -16,7 +16,7 @@ export default function ThemeRegistry(props: ThemeRegistryProps) {
 
 	return (
 		<ThemeProvider theme={CreateThemeConfig(dir)}>
-			<InitColorSchemeScript />
+			<InitColorSchemeScript attribute="class" />
 			<CssBaseline />
 			{children}
 		</ThemeProvider>

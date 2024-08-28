@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Grid, Box, Container } from '@mui/material'
+import { Grid2 as Grid, Box, Container } from '@mui/material'
 
 // Types
 import type { TemplateProps } from '@/types/components/templates'
@@ -39,7 +39,7 @@ const HomeTemplate = (props: TemplateProps) => {
 				{lng === 'fa' ? <HomeFa /> : <HomeEn />}
 
 				<Grid container direction="column" mt={{ xs: 2, md: 4 }}>
-					<Grid item>
+					<Grid>
 						<Link href={`/${lng}/docs`}>
 							<PrimaryButtonAtom title="form:button.docs" />
 						</Link>

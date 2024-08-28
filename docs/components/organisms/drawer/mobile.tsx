@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme } from '@mui/material/styles'
-import { SwipeableDrawer, Grid, Toolbar, SvgIcon } from '@mui/material'
+import { SwipeableDrawer, Grid2 as Grid, Toolbar, SvgIcon } from '@mui/material'
 
 import {
 	Close as CloseIcon,
@@ -43,7 +43,7 @@ const MobileDrawerOrganism = (props: DrawerProps) => {
 	const { lng, open, setOpen } = props
 
 	// Variables
-	const theme = useTheme()
+	const muiTheme = useTheme()
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
 	const [parent, setParent] = useState<string>('')
@@ -52,11 +52,11 @@ const MobileDrawerOrganism = (props: DrawerProps) => {
 	const menu: LinkItemProps[] = [
 		{ title: 'links:home', link: `/${lng}`, icon: <CottageIcon />, onClick: () => setOpen(!open) },
 		{ title: 'links:docs', link: `/${lng}/docs`, icon: <ArticleIcon />, onClick: () => setOpen(!open) },
-		{ title: 'links:regiti', link: 'https://regiti.com', icon: theme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon />, onClick: () => setOpen(!open) },
+		{ title: 'links:regiti', link: 'https://regiti.com', icon: muiTheme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon />, onClick: () => setOpen(!open) },
 		{
 			title: 'links:language',
 			icon: <TranslateIcon />,
-			endIcon: theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
+			endIcon: muiTheme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
 			onClick: () => setParent('language'),
 			children: LocaleConfig.list.map(item => ({
 				parent: 'language',
@@ -79,7 +79,7 @@ const MobileDrawerOrganism = (props: DrawerProps) => {
 		{
 			title: 'links:theme',
 			icon: mode === 'system' ? <BrightnessAutoIcon /> : mode === 'light' ? <LightModeIcon /> : <NightsStayIcon />,
-			endIcon: theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
+			endIcon: muiTheme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />,
 			onClick: () => setParent('theme'),
 			children: [
 				{
@@ -153,7 +153,7 @@ const MobileDrawerOrganism = (props: DrawerProps) => {
 					lng={lng}
 					item={{
 						title: 'links:back',
-						icon: theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />,
+						icon: muiTheme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />,
 						onClick: () => setParent('')
 					}}
 					showItem={parent !== ''}

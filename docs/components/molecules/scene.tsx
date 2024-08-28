@@ -14,7 +14,7 @@ import type { Mesh, ShaderMaterial } from 'three'
 
 const SceneMolecule = () => {
 	// Variables
-	const theme = useTheme()
+	const muiTheme = useTheme()
 	const meshRef = useRef<Mesh>(null)
 	const { size } = useThree()
 	const [vMouse, setVMouse] = useState<Vector2>(new Vector2())
@@ -74,7 +74,7 @@ const SceneMolecule = () => {
 				}}
 				defines={{
 					VAR: 2,
-					NIGHT: theme.palette.mode === 'dark' ? 1 : 0
+					NIGHT: muiTheme.palette.mode === 'dark' ? 1 : 0
 				}}
 			/>
 		</mesh>

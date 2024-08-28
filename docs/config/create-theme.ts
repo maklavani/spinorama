@@ -10,7 +10,9 @@ import RobotoFont from '@/styles/fonts/roboto'
 const CreateThemeConfig = (dir: Direction) =>
 	createTheme({
 		direction: dir,
-		cssVariables: true,
+		cssVariables: {
+			colorSchemeSelector: 'class'
+		},
 		colorSchemes: {
 			light: {
 				palette: {

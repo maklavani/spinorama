@@ -3,10 +3,11 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, Grid, Box } from '@mui/material'
+import { useMediaQuery, Grid2 as Grid, Box } from '@mui/material'
 import { GitHub as GitHubIcon, Favorite as FavoriteIcon, List as ListIcon } from '@mui/icons-material'
 
 // Types
+import type { Theme } from '@mui/material'
 import type { MenuProps } from '@/types/components/organisms/menu'
 import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
@@ -24,10 +25,10 @@ const LeftMenuOrganism = (props: MenuProps) => {
 	const { lng } = props
 
 	// Variables
-	const theme = useTheme()
+	const muiTheme = useTheme()
 	const [open, setOpen] = useState<boolean>(false)
-	const lessThanMedium = useMediaQuery(theme.breakpoints.down('md'))
-	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
+	const lessThanMedium = useMediaQuery(muiTheme.breakpoints.down('md'))
+	const greaterThanMedium = useMediaQuery(muiTheme.breakpoints.up('md'))
 
 	const menu: LinkItemProps[] = [
 		{
@@ -50,11 +51,14 @@ const LeftMenuOrganism = (props: MenuProps) => {
 						position="sticky"
 						top={56}
 						pb={1}
-						zIndex={theme.zIndex.appBar - 1}
-						sx={{
-							bgcolor: alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17),
-							backdropFilter: 'blur(50px)'
-						}}
+						zIndex="calc(var(--mui-zIndex-appBar) + 1)"
+						sx={(theme: Theme) => ({
+							bgcolor: alpha('#fff', 0.17),
+							backdropFilter: 'blur(50px)',
+							...theme.applyStyles('dark', {
+								bgcolor: alpha('#0f132e', 0.17)
+							})
+						})}
 					>
 						<ListItemAtom
 							lng={lng}
@@ -72,12 +76,11 @@ const LeftMenuOrganism = (props: MenuProps) => {
 			{lessThanMedium && (
 				<EdgeDrawerOrganism lng={lng} open={open} setOpen={setOpen}>
 					<Grid
-						item
-						xs={12}
+						size={12}
 						sx={{
 							'& .MuiPaper-root': {
 								width: 1,
-								bgcolor: 'inherit',
+								bgcolor: 'none',
 								'& .MuiList-root': {
 									width: 1,
 									py: 1,
@@ -92,7 +95,7 @@ const LeftMenuOrganism = (props: MenuProps) => {
 			)}
 
 			{greaterThanMedium && (
-				<Grid item width={{ xs: 1, md: ThemeConfig.listWidth }}>
+				<Grid width={{ xs: 1, md: ThemeConfig.listWidth }}>
 					<Grid
 						container
 						position="sticky"

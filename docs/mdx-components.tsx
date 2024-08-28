@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import { Grid2 as Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
 // Types
 import type { MDXComponents } from 'mdx/types'
@@ -10,41 +10,41 @@ const CodeAtom = dynamic(() => import('@/components/atoms/code'), { ssr: false }
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		h1: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h1" fontSize={{ xs: 36, md: 48 }} fontWeight={700} lineHeight={2}>
 					{children}
 				</Typography>
 			</Grid>
 		),
 		h2: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h2" fontSize={{ xs: 30, md: 40 }} fontWeight={600} lineHeight={1.5}>
 					{children}
 				</Typography>
 			</Grid>
 		),
 		h3: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h3">{children}</Typography>
 			</Grid>
 		),
 		h4: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h4">{children}</Typography>
 			</Grid>
 		),
 		h5: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h5">{children}</Typography>
 			</Grid>
 		),
 		h6: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="h6">{children}</Typography>
 			</Grid>
 		),
 		p: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Typography variant="body1">{children}</Typography>
 			</Grid>
 		),
@@ -62,7 +62,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			)
 		},
 		table: ({ children }) => (
-			<Grid item xs={12}>
+			<Grid size={12}>
 				<Table>{children}</Table>
 			</Grid>
 		),

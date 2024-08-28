@@ -1,12 +1,13 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, AppBar, Container, Toolbar, Grid } from '@mui/material'
+import { useMediaQuery, AppBar, Container, Toolbar, Grid2 as Grid } from '@mui/material'
 import { Menu as MenuIcon } from '@mui/icons-material'
 
 // Types
+import type { Theme } from '@mui/material'
 import type { AppbarProps } from '@/types/components/organisms/appbar'
 
 // Components
@@ -21,16 +22,11 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const { lng } = props
 
 	// Variables
-	const theme = useTheme()
+	const muiTheme = useTheme()
 	const appBarRef = useRef<HTMLDivElement>(null)
 	const [open, setOpen] = useState<boolean>(false)
-	const lessThanMedium = useMediaQuery(theme.breakpoints.down('md'))
-	const greaterThanMedium = useMediaQuery(theme.breakpoints.up('md'))
-
-	// Callbacks
-	useEffect(() => {
-		if (appBarRef.current) appBarRef.current.style.backgroundColor = alpha(theme.palette.mode === 'dark' ? '#0f132e' : '#fff', 0.17)
-	}, [theme])
+	const lessThanMedium = useMediaQuery(muiTheme.breakpoints.down('md'))
+	const greaterThanMedium = useMediaQuery(muiTheme.breakpoints.up('md'))
 
 	return (
 		<HideOnScroll onlyDesktop={true}>
@@ -38,30 +34,33 @@ const AppbarOrganism = (props: AppbarProps) => {
 				ref={appBarRef}
 				position="fixed"
 				component="nav"
-				sx={{
+				sx={(theme: Theme) => ({
 					color: 'inherit',
 					backgroundImage: 'none',
-					bgcolor: 'inherit',
+					bgcolor: alpha('#fff', 0.17),
 					backdropFilter: 'blur(20px)',
 					boxShadow: 'none',
-					'& .MuiToolbar-root': { px: 0 }
-				}}
+					'& .MuiToolbar-root': { px: 0 },
+					...theme.applyStyles('dark', {
+						bgcolor: alpha('#0f132e', 0.17)
+					})
+				})}
 			>
 				<Container maxWidth="xl">
 					<Toolbar>
-						<Grid container justifyContent="space-between" alignItems="center" spacing={{ xs: 1, md: 2 }}>
-							<Grid item>
+						<Grid container justifyContent="space-between" alignItems="center" spacing={{ xs: 1, md: 2 }} width={1}>
+							<Grid size="auto">
 								<LogoShapeAtom lng={lng} />
 							</Grid>
 
 							{lessThanMedium && (
-								<Grid item>
+								<Grid size="auto">
 									<IconButtonAtom icon={<MenuIcon />} onClick={() => setOpen(!open)} />
 								</Grid>
 							)}
 
 							{greaterThanMedium && (
-								<Grid item flexGrow={1}>
+								<Grid size="grow">
 									<TopMenuOrganism lng={lng} />
 								</Grid>
 							)}

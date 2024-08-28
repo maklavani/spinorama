@@ -1,9 +1,9 @@
 'use client'
 
-import { useTheme } from '@mui/material/styles'
-import { SwipeableDrawer, Box, Grid } from '@mui/material'
+import { SwipeableDrawer, Box, Grid2 as Grid } from '@mui/material'
 
 // Types
+import type { Theme } from '@mui/material'
 import type { DrawerProps } from '@/types/components/organisms/drawer'
 
 const EdgeDrawerOrganism = (props: DrawerProps) => {
@@ -11,7 +11,6 @@ const EdgeDrawerOrganism = (props: DrawerProps) => {
 	const { open, setOpen, children } = props
 
 	// Variables
-	const theme = useTheme()
 	const drawerBleeding = 56
 
 	return (
@@ -35,7 +34,16 @@ const EdgeDrawerOrganism = (props: DrawerProps) => {
 				}
 			}}
 		>
-			<Box width={30} height={6} position="absolute" top={8} left="calc(50% - 15px)" bgcolor={theme.palette.mode === 'dark' ? 'grey.900' : 'grey.300'} borderRadius={3} />
+			<Box
+				width={30}
+				height={6}
+				position="absolute"
+				top={8}
+				left="calc(50% - 15px)"
+				bgcolor="grey.300"
+				borderRadius={3}
+				sx={(theme: Theme) => ({ ...theme.applyStyles('dark', { bgcolor: 'grey.900' }) })}
+			/>
 
 			<Grid container px={2} overflow="auto">
 				{children}

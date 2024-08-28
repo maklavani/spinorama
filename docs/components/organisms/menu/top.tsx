@@ -1,10 +1,10 @@
 'use client'
 
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTheme, useColorScheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, Grid, Divider, SvgIcon } from '@mui/material'
+import { useMediaQuery, Grid2 as Grid, Divider, SvgIcon } from '@mui/material'
 
 import {
 	NorthEast as NorthEastIcon,
@@ -17,14 +17,12 @@ import {
 } from '@mui/icons-material'
 
 // Types
+import type { Theme } from '@mui/material'
 import type { MenuProps } from '@/types/components/organisms/menu'
 import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 // Configurations
 import LocaleConfig from '@/config/locale'
-
-// Helpers
-import { useTranslation } from '@/helpers/i18n/client'
 
 // Fonts
 import RobotoFont from '@/styles/fonts/roboto'
@@ -38,15 +36,14 @@ const TopMenuOrganism = (props: MenuProps) => {
 	const { lng } = props
 
 	// Variables
-	const { t } = useTranslation(lng)
-	const theme = useTheme()
+	const muiTheme = useTheme()
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
 	const menu: LinkItemProps[] = [
 		{ title: 'links:docs', link: `/${lng}/docs` },
-		{ title: 'links:regiti', link: 'https://regiti.com', icon: theme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
+		{ title: 'links:regiti', link: 'https://regiti.com', icon: muiTheme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
 	]
 
 	const settingsMenu: LinkItemProps[] = [
@@ -87,8 +84,9 @@ const TopMenuOrganism = (props: MenuProps) => {
 			justifyContent="space-between"
 			alignItems="center"
 			spacing={{ xs: 1, md: 2 }}
-			sx={{
+			sx={(theme: Theme) => ({
 				'& .MuiPaper-root': {
+					backgroundImage: 'none',
 					'& .MuiList-root': {
 						display: 'flex',
 						flexDirection: 'row',
@@ -102,10 +100,13 @@ const TopMenuOrganism = (props: MenuProps) => {
 								position: 'absolute',
 								top: 54,
 								right: 0,
-								bgcolor: alpha(theme.palette.mode === 'dark' ? '#252f72' : '#fff', 0.17),
+								bgcolor: alpha('#fff', 0.17),
 								backdropFilter: 'blur(20px)',
 								boxShadow: theme.shadows[1],
 								transition: 'all 0.2s ease',
+								...theme.applyStyles('dark', {
+									bgcolor: alpha('#252f72', 0.17)
+								}),
 								'& .MuiList-root': {
 									flexDirection: 'column',
 									gap: 0.25,
@@ -117,7 +118,12 @@ const TopMenuOrganism = (props: MenuProps) => {
 								}
 							},
 							'&:hover': {
-								'& > .MuiButtonBase-root': { bgcolor: theme.palette.mode === 'dark' ? alpha('#fff', 0.08) : alpha('#000', 0.08) },
+								'& > .MuiButtonBase-root': {
+									bgcolor: alpha('#000', 0.08),
+									...theme.applyStyles('dark', {
+										bgcolor: alpha('#fff', 0.08)
+									})
+								},
 								'& > .MuiPaper-root': {
 									visibility: 'visible',
 									opacity: 1
@@ -126,16 +132,15 @@ const TopMenuOrganism = (props: MenuProps) => {
 						}
 					}
 				}
-			}}
+			})}
 		>
-			<Grid item display={{ xs: 'none', md: 'flex' }}>
+			<Grid display={{ xs: 'none', md: 'flex' }}>
 				<Divider orientation="vertical" sx={{ height: 24 }} />
 			</Grid>
 
-			<Grid item display={{ xs: 'none', md: 'flex' }}>
+			<Grid display={{ xs: 'none', md: 'flex' }}>
 				<Grid container>
 					<Grid
-						item
 						sx={{
 							'& .MuiListItem-root': {
 								mb: 0,
@@ -162,10 +167,10 @@ const TopMenuOrganism = (props: MenuProps) => {
 				</Grid>
 			</Grid>
 
-			<Grid item flexGrow={1} display={{ xs: 'none', md: 'flex' }}>
-				<Grid container justifyContent="flex-end">
+			<Grid size="grow" display={{ xs: 'none', md: 'flex' }}>
+				<Grid container justifyContent="flex-end" width={1}>
 					<Grid
-						item
+						size={12}
 						sx={{
 							'& .MuiListItem-root': {
 								mb: 0,
