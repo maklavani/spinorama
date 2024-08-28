@@ -40,10 +40,10 @@ const AppbarOrganism = (props: AppbarProps) => {
 					bgcolor: alpha('#fff', 0.17),
 					backdropFilter: 'blur(20px)',
 					boxShadow: 'none',
-					'& .MuiToolbar-root': { px: 0 },
 					...theme.applyStyles('dark', {
 						bgcolor: alpha('#0f132e', 0.17)
-					})
+					}),
+					'& .MuiToolbar-root': { px: 0 }
 				})}
 			>
 				<Container maxWidth="xl">

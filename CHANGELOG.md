@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Upgraded packages
+
 # 0.5.11
 - Removed all **deprecated** `Grid` components and converted to `Grid2`
 

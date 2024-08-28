@@ -3,7 +3,8 @@
 import { useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
-import { useTheme, useColorScheme, alpha } from '@mui/material/styles'
+import { dir } from 'i18next'
+import { useColorScheme, alpha } from '@mui/material/styles'
 import { useMediaQuery, Grid2 as Grid, Divider, SvgIcon } from '@mui/material'
 
 import {
@@ -36,14 +37,13 @@ const TopMenuOrganism = (props: MenuProps) => {
 	const { lng } = props
 
 	// Variables
-	const muiTheme = useTheme()
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
 	const menu: LinkItemProps[] = [
 		{ title: 'links:docs', link: `/${lng}/docs` },
-		{ title: 'links:regiti', link: 'https://regiti.com', icon: muiTheme.direction === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
+		{ title: 'links:regiti', link: 'https://regiti.com', icon: dir(lng) === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
 	]
 
 	const settingsMenu: LinkItemProps[] = [
