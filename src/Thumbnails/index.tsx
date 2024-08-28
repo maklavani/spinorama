@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC, Children, isValidElement, cloneElement } from 'react'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid2 as Grid } from '@mui/material'
 
 // Types
 import type { ReactElement } from 'react'

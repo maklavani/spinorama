@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Modified the new configuration for **MUI**
+
 # 0.5.12
 - Upgraded packages
 - Updated the `GridProps` type to `Grid2Props` type
@@ -9,7 +11,7 @@ All notable changes to this package will be documented in this file.
 - Removed all **deprecated** `Grid` components and converted to `Grid2`
 
 # 0.5.10
-- Modified the new configuration for **MUI**
+- Modified the new configuration for **MUI** in the **documentation**
 
 # 0.5.9
 - Upgraded packages in the **documentation**

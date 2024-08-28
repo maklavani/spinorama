@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC, Children, isValidElement, cloneElement } from 'react'
-import { Grid } from '@mui/material'
+import { Grid2 as Grid } from '@mui/material'
 
 // Types
 import type { ReactElement } from 'react'
@@ -14,7 +14,7 @@ const SpinoramaButtons: FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProp
 	const { ref, className, nextRef, prevRef, children, ...otherProps } = props
 
 	return (
-		<Grid ref={ref} className={`spinorama-buttons${className ? ` ${className}` : ''}`} item flexGrow={1} width={1} {...otherProps}>
+		<Grid ref={ref} className={`spinorama-buttons${className ? ` ${className}` : ''}`} size="grow" width={1} {...otherProps}>
 			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
