@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Modified the new configuration for **MUI**
+
 # 0.5.9
 - Upgraded packages in the **documentation**
 

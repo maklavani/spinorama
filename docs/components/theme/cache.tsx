@@ -11,7 +11,16 @@ const AppCache = (props: AppCacheProps) => {
 	// Props
 	const { dir, children } = props
 
-	return <AppRouterCacheProvider options={{ stylisPlugins: dir == 'rtl' ? [prefixer, rtlPlugin] : [prefixer] }}>{children}</AppRouterCacheProvider>
+	return (
+		<AppRouterCacheProvider
+			options={{
+				enableCssLayer: true,
+				stylisPlugins: dir == 'rtl' ? [prefixer, rtlPlugin] : [prefixer]
+			}}
+		>
+			{children}
+		</AppRouterCacheProvider>
+	)
 }
 
 export default AppCache

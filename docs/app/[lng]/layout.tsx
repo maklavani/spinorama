@@ -72,7 +72,7 @@ const RootLayout = (props: LayoutProps) => {
 	const lng = params?.lng ?? LocaleConfig.default
 
 	return (
-		<html lang={lng} dir={dir(lng)} data-mui-color-scheme="light">
+		<html lang={lng} dir={dir(lng)} suppressHydrationWarning>
 			<body>
 				<AppCache dir={dir(lng)}>
 					<ThemeRegistry dir={dir(lng)}>{children}</ThemeRegistry>
