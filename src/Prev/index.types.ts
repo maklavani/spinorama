@@ -1,6 +1,6 @@
 // Types
 import type { ResponsiveStyleValue } from '@mui/system'
-import type { GridProps } from '@mui/material'
+import type { Grid2Props as GridProps } from '@mui/material'
 import type { LayoutPositions } from '../Helpers/generate-layout.types'
 
 export type SpinoramaPrevProps = GridProps & {

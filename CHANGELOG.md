@@ -3,6 +3,7 @@ All notable changes to this package will be documented in this file.
 
 # 0.5.12
 - Upgraded packages
+- Updated the `GridProps` type to `Grid2Props` type
 
 # 0.5.11
 - Removed all **deprecated** `Grid` components and converted to `Grid2`
