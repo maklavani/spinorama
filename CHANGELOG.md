@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+# 0.5.14
 - Added `dir` from `i18next` for detecting **language** direction
 
 # 0.5.13
