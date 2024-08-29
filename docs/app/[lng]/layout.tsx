@@ -70,13 +70,13 @@ const RootLayout = (props: LayoutProps) => {
 
 	// Variables
 	const lng = params?.lng ?? LocaleConfig.default
-	const langDir = dir(lng)
+	const lngDir = dir(lng)
 
 	return (
-		<html lang={lng} dir={langDir} suppressHydrationWarning>
+		<html lang={lng} dir={lngDir} suppressHydrationWarning>
 			<body>
-				<AppCache dir={langDir}>
-					<ThemeRegistry dir={langDir}>{children}</ThemeRegistry>
+				<AppCache dir={lngDir}>
+					<ThemeRegistry dir={lngDir}>{children}</ThemeRegistry>
 				</AppCache>
 
 				<Analytics mode="auto" />
