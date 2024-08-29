@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `dir` from `i18next` for detecting **language** direction
+
 # 0.5.13
 - Modified the new configuration for **MUI**
 

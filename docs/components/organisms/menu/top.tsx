@@ -37,13 +37,14 @@ const TopMenuOrganism = (props: MenuProps) => {
 	const { lng } = props
 
 	// Variables
+	const langDir = dir(lng)
 	const { mode, setMode } = useColorScheme()
 	const pathname = usePathname()
 	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)')
 
 	const menu: LinkItemProps[] = [
 		{ title: 'links:docs', link: `/${lng}/docs` },
-		{ title: 'links:regiti', link: 'https://regiti.com', icon: dir(lng) === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
+		{ title: 'links:regiti', link: 'https://regiti.com', icon: langDir === 'rtl' ? <NorthWestIcon /> : <NorthEastIcon /> }
 	]
 
 	const settingsMenu: LinkItemProps[] = [
