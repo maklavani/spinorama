@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Removed extra `enableCssLayer` AppCache
+
 # 0.5.14
 - Added `dir` from `i18next` for detecting **language** direction
 
