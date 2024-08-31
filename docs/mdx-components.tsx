@@ -49,7 +49,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</Grid>
 		),
 		pre: ({ children }) => (
-			<Grid item xs={12} sx={{ "& div[class^='language-']:nth-child(2)": { display: 'none' } }}>
+			<Grid size={12} sx={{ "& div[class^='language-']:nth-child(2)": { display: 'none' } }}>
 				<pre style={{ overflow: 'auto' }}>{children}</pre>
 			</Grid>
 		),
