@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `direction` to GenerateLayoutPositions
+
 # 0.5.18
 - Added `flexShrink` to **Item** to prevent a bug.
 
