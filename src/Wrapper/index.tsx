@@ -26,7 +26,8 @@ const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProp
 				flexDirection={reverse ? 'row-reverse' : 'row'}
 				flexWrap="nowrap"
 				justifyContent={justifyContent}
-				spacing={spacing ?? { xs: 1, md: 2 }}
+				columns={12}
+				spacing={spacing ? { xs: 1, md: 2 } : 0}
 				minWidth={1}
 				height="100%"
 			>

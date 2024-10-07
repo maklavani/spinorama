@@ -23,7 +23,8 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 				flexDirection={reverse ? 'row-reverse' : 'row'}
 				flexWrap="nowrap"
 				justifyContent={justifyContent}
-				spacing={spacing ?? 1}
+				columns={12}
+				spacing={spacing ? 1 : 0}
 				minWidth={1}
 				height="100%"
 			>

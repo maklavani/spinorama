@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Added `columns` and `spacing` to the container of **Grid2**.
+
 # 0.5.16
 - Upgraded packages in the **documentation**
 

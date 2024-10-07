@@ -200,7 +200,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	}, [containerRef, init])
 
 	return (
-		<Box ref={containerRef} className={`spinorama${className ? ` ${className}` : ''}`} position="relative" {...otherProps}>
+		<Box ref={containerRef} className={`spinorama${className ? ` ${className}` : ''}`} width={1} position="relative" {...otherProps}>
 			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
