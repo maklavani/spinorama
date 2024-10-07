@@ -1,7 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
-- Added `flexShrink` to **Item** to prevent a bug
+# 0.5.18
+- Added `flexShrink` to **Item** to prevent a bug.
 
 # 0.5.17
 - Added `columns` and `spacing` to the container of **Grid2**.
