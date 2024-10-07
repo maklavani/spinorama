@@ -11,7 +11,7 @@ const SpinoramaItem: FC<SpinoramaItemProps> = (props: SpinoramaItemProps) => {
 	const { ref, className, children, ...otherProps } = props
 
 	return (
-		<Grid ref={ref} className={`spinorama-item${className ? ` ${className}` : ''}`} size={12} flex="0 0 fit-content" {...otherProps}>
+		<Grid ref={ref} className={`spinorama-item${className ? ` ${className}` : ''}`} flexShrink={0} size={12} {...otherProps}>
 			{children}
 		</Grid>
 	)
