@@ -1,12 +1,11 @@
 'use client'
 
-import React, { FC, Children, isValidElement, cloneElement } from 'react'
+import React, { FC } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Grid, IconButton } from '@mui/material'
 import { ArrowForwardIos as ArrowForwardIosIcon, ArrowBackIosNew as ArrowBackIosNewIcon } from '@mui/icons-material'
 
 // Types
-import type { ReactElement } from 'react'
 import type { SpinoramaNextProps } from './index.types'
 
 // Helpers
@@ -47,12 +46,7 @@ const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 			}}
 			{...otherProps}
 		>
-			{Children.count(children) ? (
-				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement)
-					else return child
-				})
-			) : (
+			{children ?? (
 				<IconButton color="primary" sx={{ color: 'primary.dark' }}>
 					{theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />}
 				</IconButton>

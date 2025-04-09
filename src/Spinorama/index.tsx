@@ -51,9 +51,9 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 			const onClickShow = contextSafe(showItem)
 
 			if (containerRef.current) {
-				const nextElm = containerRef.current.querySelector('.spinorama-next')
-				const prevElm = containerRef.current.querySelector('.spinorama-prev')
-				const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail')
+				const nextElm = containerRef.current.querySelector('.spinorama-next > button')
+				const prevElm = containerRef.current.querySelector('.spinorama-prev > button')
+				const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail > button')
 
 				nextElm?.addEventListener('click', onClickNext)
 				prevElm?.addEventListener('click', onClickPrev)
@@ -66,9 +66,9 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 
 				// Clear Events
 				if (containerRef.current) {
-					const nextElm = containerRef.current.querySelector('.spinorama-next')
-					const prevElm = containerRef.current.querySelector('.spinorama-prev')
-					const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail')
+					const nextElm = containerRef.current.querySelector('.spinorama-next > button')
+					const prevElm = containerRef.current.querySelector('.spinorama-prev > button')
+					const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail > button')
 
 					nextElm?.removeEventListener('click', onClickNext)
 					prevElm?.removeEventListener('click', onClickPrev)

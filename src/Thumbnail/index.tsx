@@ -1,11 +1,10 @@
 'use client'
 
-import React, { FC, Children, isValidElement, cloneElement } from 'react'
+import React, { FC } from 'react'
 import { Grid, IconButton } from '@mui/material'
 import { CircleOutlined as CircleOutlinedIcon } from '@mui/icons-material'
 
 // Types
-import type { ReactElement } from 'react'
 import type { SpinoramaThumbnailProps } from './index.types'
 
 const SpinoramaThumbnail: FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbnailProps) => {
@@ -14,12 +13,7 @@ const SpinoramaThumbnail: FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbna
 
 	return (
 		<Grid className={`spinorama-thumbnail${className ? ` ${className}` : ''}`} flex="0 0 fit-content" display="inline-flex" justifyContent="center" zIndex={1} {...otherProps}>
-			{Children.count(children) ? (
-				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement)
-					else return child
-				})
-			) : (
+			{children ?? (
 				<IconButton
 					size="small"
 					color="primary"

@@ -1,12 +1,10 @@
 'use client'
 
-import React, { FC, Children, isValidElement, cloneElement } from 'react'
+import React, { FC } from 'react'
 import { Box, Grid } from '@mui/material'
 
 // Types
-import type { ReactElement } from 'react'
 import type { SpinoramaThumbnailsProps } from './index.types'
-import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumbnailsProps) => {
 	// Props
@@ -28,17 +26,7 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 				minWidth={1}
 				height={1}
 			>
-				{Children.map(children, child => {
-					if (isValidElement(child)) {
-						// Type
-						const childType = child.type.toString()
-
-						// Clone element
-						if (childType.indexOf('spinorama-thumbnail') > -1) {
-							return cloneElement(child as ReactElement<SpinoramaThumbnailProps>)
-						} else return child
-					} else return child
-				})}
+				{children}
 			</Grid>
 		</Box>
 	)

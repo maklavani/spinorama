@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Removed `Children` from components
+
 # 0.5.20
 - Upgraded the packages
 - Removed all references
