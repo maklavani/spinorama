@@ -11,24 +11,18 @@ import type { SpinoramaPrevProps } from '../Prev/index.types'
 
 const SpinoramaButtons: FC<SpinoramaButtonsProps> = (props: SpinoramaButtonsProps) => {
 	// Props
-	const { ref, className, nextRef, prevRef, children, ...otherProps } = props
+	const { className, children, ...otherProps } = props
 
 	return (
-		<Grid ref={ref} className={`spinorama-buttons${className ? ` ${className}` : ''}`} size="grow" width={1} {...otherProps}>
+		<Grid className={`spinorama-buttons${className ? ` ${className}` : ''}`} size="grow" width={1} {...otherProps}>
 			{Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
 
 					// Clone element
-					if (childType.indexOf('spinorama-next') > -1)
-						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
-							buttonRef: nextRef
-						})
-					else if (childType.indexOf('spinorama-prev') > -1)
-						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
-							buttonRef: prevRef
-						})
+					if (childType.indexOf('spinorama-next') > -1) return cloneElement(child as ReactElement<SpinoramaNextProps>)
+					else if (childType.indexOf('spinorama-prev') > -1) return cloneElement(child as ReactElement<SpinoramaPrevProps>)
 					else return child
 				} else return child
 			})}

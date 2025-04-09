@@ -14,7 +14,7 @@ import { GenerateLayout } from '../Helpers/generate-layout'
 
 const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 	// Props
-	const { ref, className, buttonRef, layout, showOnHover, sx, children, ...otherProps } = props
+	const { className, layout, showOnHover, sx, children, ...otherProps } = props
 
 	// Variables
 	const theme = useTheme()
@@ -27,7 +27,6 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 
 	return (
 		<Grid
-			ref={ref}
 			className={`spinorama-btn spinorama-prev${className ? ` ${className}` : ''}`}
 			flex="0 0 fit-content"
 			display="inline-flex"
@@ -50,11 +49,11 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 		>
 			{Children.count(children) ? (
 				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonRef })
+					if (isValidElement(child)) return cloneElement(child as ReactElement)
 					else return child
 				})
 			) : (
-				<IconButton ref={buttonRef} color="primary" sx={{ color: 'primary.dark' }}>
+				<IconButton color="primary" sx={{ color: 'primary.dark' }}>
 					{theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosNewIcon />}
 				</IconButton>
 			)}

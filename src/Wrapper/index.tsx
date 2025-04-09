@@ -13,13 +13,13 @@ const SpinoramaItem = lazy(() => import('../Item'))
 
 const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props
-	const { ref, className, justify, reverse, spacing, children, ...otherProps } = props
+	const { className, justify, reverse, spacing, children, ...otherProps } = props
 
 	// Varaibles
 	const justifyContent = justify === 'end' ? 'flex-end' : 'flex-start'
 
 	return (
-		<Box ref={ref} className={`spinorama-wrapper${className ? ` ${className}` : ''}`} display="flex" width={1} overflow="hidden" {...otherProps}>
+		<Box className={`spinorama-wrapper${className ? ` ${className}` : ''}`} display="flex" width={1} overflow="hidden" {...otherProps}>
 			<Grid
 				className="spinorama-items"
 				container

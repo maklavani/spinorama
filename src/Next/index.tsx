@@ -14,7 +14,7 @@ import { GenerateLayout } from '../Helpers/generate-layout'
 
 const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 	// Props
-	const { ref, className, buttonRef, layout, showOnHover, sx, children, ...otherProps } = props
+	const { className, layout, showOnHover, sx, children, ...otherProps } = props
 
 	// Variables
 	const theme = useTheme()
@@ -27,7 +27,6 @@ const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 
 	return (
 		<Grid
-			ref={ref}
 			className={`spinorama-btn spinorama-next${className ? ` ${className}` : ''}`}
 			flex="0 0 fit-content"
 			display="inline-flex"
@@ -50,11 +49,11 @@ const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 		>
 			{Children.count(children) ? (
 				Children.map(children, child => {
-					if (isValidElement(child)) return cloneElement(child as ReactElement, { ref: buttonRef })
+					if (isValidElement(child)) return cloneElement(child as ReactElement)
 					else return child
 				})
 			) : (
-				<IconButton ref={buttonRef} color="primary" sx={{ color: 'primary.dark' }}>
+				<IconButton color="primary" sx={{ color: 'primary.dark' }}>
 					{theme.direction === 'rtl' ? <ArrowBackIosNewIcon /> : <ArrowForwardIosIcon />}
 				</IconButton>
 			)}

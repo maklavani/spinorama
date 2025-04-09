@@ -2,6 +2,7 @@
 All notable changes to this package will be documented in this file.
 
 - Upgraded the packages
+- Removed all references
 
 # 0.5.19
 - Added `direction` to GenerateLayoutPositions

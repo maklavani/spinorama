@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, useRef, useState, useEffect, Children, isValidElement, cloneElement } from 'react'
+import React, { FC, useRef, useState, useEffect } from 'react'
 import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import gsap from 'gsap'
@@ -10,16 +10,7 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(useGSAP)
 
 // Types
-import type { ReactElement } from 'react'
 import type { SpinoramaProps, SpinoramaSettings } from './index.types'
-import type { SpinoramaWrapperProps } from '../Wrapper/index.types'
-import type { SpinoramaItemProps } from '../Item/index.types'
-import type { SpinoramaActionsProps } from '../Actions/index.types'
-import type { SpinoramaButtonsProps } from '../Buttons/index.types'
-import type { SpinoramaNextProps } from '../Next/index.types'
-import type { SpinoramaPrevProps } from '../Prev/index.types'
-import type { SpinoramaThumbnailsProps } from '../Thumbnails/index.types'
-import type { SpinoramaThumbnailProps } from '../Thumbnail/index.types'
 
 const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	// Props
@@ -29,9 +20,9 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 	const theme = useTheme()
 	const itemsInterval = useRef<NodeJS.Timeout | null>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
-	const nextRef = useRef<HTMLButtonElement>(null)
-	const prevRef = useRef<HTMLButtonElement>(null)
-	const thumbnailsRef = useRef<(HTMLButtonElement | null)[]>([])
+	// const nextRef = useRef<HTMLButtonElement>(null)
+	// const prevRef = useRef<HTMLButtonElement>(null)
+	// const thumbnailsRef = useRef<(HTMLButtonElement | null)[]>([])
 	const [init, setInit] = useState<boolean>(false)
 
 	// Settings
@@ -59,18 +50,30 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 			// @ts-ignore
 			const onClickShow = contextSafe(showItem)
 
-			nextRef.current?.addEventListener('click', onClickNext)
-			prevRef.current?.addEventListener('click', onClickPrev)
-			thumbnailsRef.current?.map((thumbnail, index) => thumbnail?.addEventListener('click', () => onClickShow(index)))
+			if (containerRef.current) {
+				const nextElm = containerRef.current.querySelector('.spinorama-next')
+				const prevElm = containerRef.current.querySelector('.spinorama-prev')
+				const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail')
+
+				nextElm?.addEventListener('click', onClickNext)
+				prevElm?.addEventListener('click', onClickPrev)
+				thumbnailsElm.forEach((thumbnail, index) => thumbnail.addEventListener('click', () => onClickShow(index)))
+			}
 
 			return () => {
 				// Clear Interval
 				clearInterval(itemsInterval.current as NodeJS.Timeout)
 
 				// Clear Events
-				nextRef.current?.removeEventListener('click', onClickNext)
-				prevRef.current?.removeEventListener('click', onClickPrev)
-				thumbnailsRef.current?.map((thumbnail, index) => thumbnail?.removeEventListener('click', () => onClickShow(index)))
+				if (containerRef.current) {
+					const nextElm = containerRef.current.querySelector('.spinorama-next')
+					const prevElm = containerRef.current.querySelector('.spinorama-prev')
+					const thumbnailsElm = containerRef.current.querySelectorAll('.spinorama-thumbnail')
+
+					nextElm?.removeEventListener('click', onClickNext)
+					prevElm?.removeEventListener('click', onClickPrev)
+					thumbnailsElm.forEach((thumbnail, index) => thumbnail.removeEventListener('click', () => onClickShow(index)))
+				}
 			}
 		},
 		{ scope: containerRef }
@@ -199,48 +202,9 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		}
 	}, [containerRef, init])
 
-	console.log(Children, children)
-
 	return (
 		<Box ref={containerRef} className={`spinorama${className ? ` ${className}` : ''}`} width={1} position="relative" {...otherProps}>
-			{/* {Children.map(children, child => {
-				if (isValidElement(child)) {
-					// Type
-					const childType = child.type.toString()
-
-					// Clone element
-					if (childType.indexOf('spinorama-wrapper') > -1) return cloneElement(child as ReactElement<SpinoramaWrapperProps>, {})
-					else if (childType.indexOf('spinorama-item') > -1) return cloneElement(child as ReactElement<SpinoramaItemProps>, {})
-					else if (childType.indexOf('spinorama-actions') > -1)
-						return cloneElement(child as ReactElement<SpinoramaActionsProps>, {
-							nextRef: nextRef,
-							prevRef: prevRef,
-							thumbnailsRef: thumbnailsRef
-						})
-					else if (childType.indexOf('spinorama-buttons') > -1)
-						return cloneElement(child as ReactElement<SpinoramaButtonsProps>, {
-							nextRef: nextRef,
-							prevRef: prevRef
-						})
-					else if (childType.indexOf('spinorama-next') > -1)
-						return cloneElement(child as ReactElement<SpinoramaNextProps>, {
-							buttonRef: nextRef
-						})
-					else if (childType.indexOf('spinorama-prev') > -1)
-						return cloneElement(child as ReactElement<SpinoramaPrevProps>, {
-							buttonRef: prevRef
-						})
-					else if (childType.indexOf('spinorama-thumbnails') > -1)
-						return cloneElement(child as ReactElement<SpinoramaThumbnailsProps>, {
-							thumbnailsRef: thumbnailsRef
-						})
-					else if (childType.indexOf('spinorama-thumbnail') > -1)
-						return cloneElement(child as ReactElement<SpinoramaThumbnailProps>, {
-							thumbnailsRef: thumbnailsRef
-						})
-					else return child
-				} else return child
-			})} */}
+			{children}
 		</Box>
 	)
 }

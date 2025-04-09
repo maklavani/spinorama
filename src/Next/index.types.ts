@@ -1,15 +1,9 @@
 // Types
-import type { Ref } from 'react'
 import type { ResponsiveStyleValue } from '@mui/system'
 import type { GridProps } from '@mui/material'
 import type { LayoutPositions } from '../Helpers/generate-layout.types'
 
 export type SpinoramaNextProps = GridProps & {
-	/**
-	 * A reference to the button element
-	 */
-	buttonRef?: Ref<HTMLButtonElement>
-
 	/**
 	 * Defines the positioning of the button component
 	 * @default undefined
