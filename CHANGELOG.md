@@ -1,300 +1,301 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.5.21
 - Removed `Children` from components
 
-# 0.5.20
+## 0.5.20
 - Upgraded the packages
 - Removed all references
 - Fixed build bugs
 
-# 0.5.19
+## 0.5.19
 - Added `direction` to GenerateLayoutPositions
 
-# 0.5.18
+## 0.5.18
 - Added `flexShrink` to **Item** to prevent a bug.
 
-# 0.5.17
+## 0.5.17
 - Added `columns` and `spacing` to the container of **Grid2**.
 
-# 0.5.16
+## 0.5.16
 - Upgraded packages in the **documentation**
 
-# 0.5.15
+## 0.5.15
 - Removed extra `enableCssLayer` AppCache
 
-# 0.5.14
+## 0.5.14
 - Added `dir` from `i18next` for detecting **language** direction
 
-# 0.5.13
+## 0.5.13
 - Modified the new configuration for **MUI**
 
-# 0.5.12
+## 0.5.12
 - Upgraded packages
 - Updated the `GridProps` type to `Grid2Props` type
 
-# 0.5.11
+## 0.5.11
 - Removed all **deprecated** `Grid` components and converted to `Grid2`
 
-# 0.5.10
+## 0.5.10
 - Modified the new configuration for **MUI** in the **documentation**
 
-# 0.5.9
+## 0.5.9
 - Upgraded packages in the **documentation**
 
-# 0.5.8
+## 0.5.8
 - Fixed bugs in removing shaders
 
-# 0.5.7
+## 0.5.7
 - Created `EdgeDrawer` organism component
 
-# 0.5.6
+## 0.5.6
 - Created `Menu` Button in **LeftMenu**
 
-# 0.5.5
+## 0.5.5
 - Created `TopMenu` organism component
 
-# 0.5.4
+## 0.5.4
 - Renamed Menu to TopMenu
 
-# 0.5.3
+## 0.5.3
 - Created icons for language items
 
-# 0.5.2
+## 0.5.2
 - Created a `CheckParentInChildren` utility
 - Created a back button in the menu **AppBar**
 
-# 0.5.1
+## 0.5.1
 - Changed language files
 - Added an icon button menu in **AppBar**
 - Created `SwipeableDrawer` organism component in the **AppBar**
 
-# 0.5.0
+## 0.5.0
 - Added mdx files for **overview** and **installation**
 
-# 0.4.50
+## 0.4.50
 - Fixed **bugs** in changing `language` and `mode` in **AppBar**
 
-# 0.4.49
+## 0.4.49
 - Created `menu` and `settings` list components in the **AppBar**
 
-# 0.4.48
+## 0.4.48
 - Added `styles` for list component
 
-# 0.4.47
+## 0.4.47
 - Added styles for `code` tags with **prismjs**
 
-# 0.4.46
+## 0.4.46
 - Added **prismjs** to the project
 
-# 0.4.45
+## 0.4.45
 - Renamed **md** directory to **markdown**
 - Added a `docs` button in the **home** page
 
-# 0.4.44
+## 0.4.44
 - Fixed bugs in building **documentation**
 
-# 0.4.43
+## 0.4.43
 - Upgraded packages
 
-# 0.4.42
+## 0.4.42
 - Created content for the home page in the **documentation** in the `mdx` files
 
-# 0.4.41
+## 0.4.41
 - Created a circle animation for the home page in the **documentation**
 
-# 0.4.40
+## 0.4.40
 - Upgraded packages in the **documentation**
 
-# 0.4.39
+## 0.4.39
 - Upgraded packages in the **documentation**
 - Created main page in the **documentation**
 - Added `three`, `@react-three/drei`, and `@react-three/fiber` packages to the project
 
-# 0.4.38
+## 0.4.38
 - Updated **README.md**
 
-# 0.4.37
+## 0.4.37
 - Added a section on customizing `SpinoramaWrapper` to **README.md**
 
-# 0.4.36
+## 0.4.36
 - Added `customizing` section to **README.md**
 
-# 0.4.35
+## 0.4.35
 - Improved **README.md** by adding a summary of the changes necessary when using `Spinorama` in **Next.js** apps
 
-# 0.4.34
+## 0.4.34
 - Updated **README.md** to include more detailed instructions on how to use `Spinorama`
 
-# 0.4.33
+## 0.4.33
 - Removed all unnecessary `cloneElement` calls in the components
 
-# 0.4.32
+## 0.4.32
 - Added more margin in the `rightHandSide` option
 
-# 0.4.31
+## 0.4.31
 - Added the `rightHandSide` prop to the **Generate Layout** helper
 
-# 0.4.30
+## 0.4.30
 - Created `ResponsiveStyleValue` for `layout` attributes in the **SpinoramaThumbnails** and **SpinoramaWrapper** components
 
-# 0.4.29
+## 0.4.29
 - Create `helper` functions for the package
 
-# 0.4.28
+## 0.4.28
 - Fixed bug in components all props to the DOM elements
 
-# 0.4.27
+## 0.4.27
 - Added the `spacing` prop to the **SpinoramaThumbnails** and **SpinoramaWrapper** components
 
-# 0.4.26
+## 0.4.26
 - Added the ability to provide custom buttons to the **SpinoramaThumbnail** component
 
-# 0.4.25
+## 0.4.25
 - Fixed bug in setting `animation duration` in the **Spinorama** component
 
-# 0.4.24
+## 0.4.24
 - Created `layout` for positioning the **SpinoramaNext** and **SpinoramaPrev** components.
 
-# 0.4.23
+## 0.4.23
 - Added a `relative position` for the **Spinorama** component
 
-# 0.4.22
+## 0.4.22
 - Fixing a bug in setting a `ref` to an inner child of **SpinoramaNext** and **SpinoramaPrev** components
 
-# 0.4.21
+## 0.4.21
 - Changed `duration` to `interval` and `animateDuration` to `duration` in the **Spinorama** component
 
-# 0.4.20
+## 0.4.20
 - Modify the **SpinoramaNext** and **SpinoramaPrev** components, which can now accept custom buttons
 
-# 0.4.19
+## 0.4.19
 - Added `forwardRef` to the components
 - Added `use client` directive to enable debugging in **Next.js** apps
 
-# 0.4.18
+## 0.4.18
 - Implement the `findItemPosition` function, which is used to find the exact position of a specific item within a list of items
 
-# 0.4.17
+## 0.4.17
 - Reset `interval` after **button** components are clicked
 
-# 0.4.16
+## 0.4.16
 - Create a `useRef` array for the **SpinoramaThumbnail** components
 
-# 0.4.15
+## 0.4.15
 - Initialize the class `selected` for **SpinoramaItem** and **SpinoramaThumbnail** components
 
-# 0.4.14
+## 0.4.14
 - Fixed **bugs** in the `interval` function
 
-# 0.4.13
+## 0.4.13
 - Renamed **SpinoramaThumbnailDot** to **SpinoramaThumbnail** component
 
-# 0.4.12
+## 0.4.12
 - Create a click `event` function for **SpinoramaNext** and **SpinoramaPrev** button components
 
-# 0.4.11
+## 0.4.11
 - Fixed a bug related to the `interval` in the **Spinorama** component
 
-# 0.4.10
+## 0.4.10
 - Fixed a bug in passing `selected` in the **Spinorama** component
 
-# 0.4.9
+## 0.4.9
 - Passed `selected` as `useState` to child components from **Spinorama** component
 
-# 0.4.8
+## 0.4.8
 - Set the class `selected` to the item in the `nextItem` function of the **Spinorama** component
 
-# 0.4.7
+## 0.4.7
 - Added `animateDuration` and `ease` properties to the **Spinorama** component, enabling customization of the animation duration and easing function
 
-# 0.4.6
+## 0.4.6
 - Create `slide` animation with **gsap**
 
-# 0.4.5
+## 0.4.5
 - Install **GreenSock Animation Platform** (GSAP) and its React integration `(@gsap/react)` for controlling animations
 
-# 0.4.4
+## 0.4.4
 - Changed `active` to `selected` in the **ThumbnailDot** component
 
-# 0.4.3
+## 0.4.3
 - Added `margin-top` to **SpinoramaActions** component
 
-# 0.4.2
+## 0.4.2
 - Added the ability to `center` align items within the **SpinoramaActions** component
 - Set the `small` size for the **SpinoramaThumbnailDot** component
 - Create `Next` and `Prev` components to control the navigation of the slider
 
-# 0.4.1
+## 0.4.1
 - Created a `remove` script to remove unnecessary files and directories upon package publishing
 
-# 0.4.0
+## 0.4.0
 - Added `mdx-components` and `not-found` to the **documentation** project
 
-# 0.3.42
+## 0.3.42
 - Added `props` to components to enhance functionality and appearance
 
-# 0.3.41
+## 0.3.41
 - Create `nextItem` callback in **Spinorama** component to show the next Item
 
-# 0.3.40
+## 0.3.40
 - Added `color` to **SpinoramaThumbnailDot** component
 
-# 0.3.39
+## 0.3.39
 - Added `opacity` to **SpinoramaThumbnailDot** component
 
-# 0.3.38
+## 0.3.38
 - Create `SpinoramaThumbnailDot` component, enabling thumbnail navigation in the slider
 
-# 0.3.37
+## 0.3.37
 - Add `justify` and `reverse` props to the **SpinoramaThumbnails** component, which allows you to control how the thumbnails are aligned and displayed in reverse order
 
-# 0.3.36
+## 0.3.36
 - Create `SpinoramaThumbnails` and `SpinoramaActions` components
 
-# 0.3.35
+## 0.3.35
 - Remove `publish.yml` workflow
 
-# 0.3.34
+## 0.3.34
 - Update publishConfig url
 
-# 0.3.33
+## 0.3.33
 - Transferred the package to `regiti`
 
-# 0.3.32
+## 0.3.32
 - Renamed the package to `spinorama`
 
-# 0.3.31
+## 0.3.31
 - Ranamed `publish.yml` to `github.yml`
 
-# 0.3.30
+## 0.3.30
 - Changed configurations of `publish` workflow
 
-# 0.3.29
+## 0.3.29
 - Ranamed `npmjs.yml` to `publish.yml`
 
-# 0.3.28
+## 0.3.28
 - Update the `repository url` in the **package.json** file
 
-# 0.3.27
+## 0.3.27
 - Removed the `.npmrc` file
 
-# 0.3.26
+## 0.3.26
 - Update **.npmrc** to include `npm.pkg.github`
 
-# 0.3.25
+## 0.3.25
 - Created `.npmrc` file
 
-# 0.3.24
+## 0.3.24
 - Update publishConfig url
 
-# 0.3.23
+## 0.3.23
 - Update the `repository url` in the **package.json** file
 
-# 0.3.22
+## 0.3.22
 - Added `package-lock.json` files to the **project**
 
-# 0.3.21
+## 0.3.21
 - Run the `publish` workflow when pushing to the **main** branch
 
 ## 0.3.20
