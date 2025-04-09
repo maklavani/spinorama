@@ -29,7 +29,6 @@ const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 		<Grid
 			ref={ref}
 			className={`spinorama-btn spinorama-next${className ? ` ${className}` : ''}`}
-			item
 			flex="0 0 fit-content"
 			display="inline-flex"
 			justifyContent="center"

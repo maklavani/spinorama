@@ -29,7 +29,6 @@ const SpinoramaPrev: FC<SpinoramaPrevProps> = (props: SpinoramaPrevProps) => {
 		<Grid
 			ref={ref}
 			className={`spinorama-btn spinorama-prev${className ? ` ${className}` : ''}`}
-			item
 			flex="0 0 fit-content"
 			display="inline-flex"
 			justifyContent="center"

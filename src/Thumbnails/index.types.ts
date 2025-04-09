@@ -1,6 +1,5 @@
-import * as React from 'react'
-
 // Types
+import type { Ref } from 'react'
 import type { ResponsiveStyleValue, GridSpacing } from '@mui/system'
 import type { BoxProps } from '@mui/material'
 
@@ -8,7 +7,7 @@ export type SpinoramaThumbnailsProps = BoxProps & {
 	/**
 	 * A reference to the array of thumbnail button elements
 	 */
-	thumbnailsRef?: React.MutableRefObject<(HTMLButtonElement | null)[]>
+	thumbnailsRef?: Ref<(HTMLButtonElement | null)[]>
 
 	/**
 	 * Determines how the slides are aligned

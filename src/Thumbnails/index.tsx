@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC, Children, isValidElement, cloneElement } from 'react'
-import { Box, Grid2 as Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { ReactElement } from 'react'
@@ -26,7 +26,7 @@ const SpinoramaThumbnails: FC<SpinoramaThumbnailsProps> = (props: SpinoramaThumb
 				columns={12}
 				spacing={spacing ? 1 : 0}
 				minWidth={1}
-				height="100%"
+				height={1}
 			>
 				{Children.map(children, child => {
 					if (isValidElement(child)) {

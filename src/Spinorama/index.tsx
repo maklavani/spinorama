@@ -199,9 +199,11 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 		}
 	}, [containerRef, init])
 
+	console.log(Children, children)
+
 	return (
 		<Box ref={containerRef} className={`spinorama${className ? ` ${className}` : ''}`} width={1} position="relative" {...otherProps}>
-			{Children.map(children, child => {
+			{/* {Children.map(children, child => {
 				if (isValidElement(child)) {
 					// Type
 					const childType = child.type.toString()
@@ -238,7 +240,7 @@ const Spinorama: FC<SpinoramaProps> = (props: SpinoramaProps) => {
 						})
 					else return child
 				} else return child
-			})}
+			})} */}
 		</Box>
 	)
 }

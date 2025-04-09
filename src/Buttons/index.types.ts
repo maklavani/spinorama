@@ -1,14 +1,15 @@
 // Types
-import type { Grid2Props as GridProps } from '@mui/material'
+import type { Ref } from 'react'
+import type { GridProps } from '@mui/material'
 
 export type SpinoramaButtonsProps = GridProps & {
 	/**
 	 * A reference to the next button element
 	 */
-	nextRef?: React.Ref<HTMLButtonElement>
+	nextRef?: Ref<HTMLButtonElement>
 
 	/**
 	 * A reference to the prev button element
 	 */
-	prevRef?: React.Ref<HTMLButtonElement>
+	prevRef?: Ref<HTMLButtonElement>
 }

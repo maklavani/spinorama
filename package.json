@@ -66,31 +66,31 @@
 		"README.md"
 	],
 	"dependencies": {
-		"@emotion/react": "^11.13.0",
-		"@emotion/styled": "^11.13.0",
-		"@gsap/react": "^2.1.0",
-		"@mui/icons-material": "^6.0.0",
-		"@mui/material": "^6.0.0",
-		"@mui/system": "^6.0.0",
-		"gsap": "^3.12.0",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.0",
+		"@gsap/react": "^2.1.2",
+		"@mui/icons-material": "^7.0.1",
+		"@mui/material": "^7.0.1",
+		"@mui/system": "^7.0.1",
+		"gsap": "^3.12.7",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.3.4",
+		"@types/react": "^19.1.0",
 		"rimraf": "^6.0.1",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.5.4"
+		"typescript": "^5.8.3"
 	},
 	"peerDependencies": {
-		"@emotion/react": "^11.13.0",
-		"@emotion/styled": "^11.13.0",
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.0",
 		"@gsap/react": "^2.1.0",
-		"@mui/icons-material": "^6.0.0",
-		"@mui/material": "^6.0.0",
-		"@mui/system": "^6.0.0",
+		"@mui/icons-material": "^7.0.0",
+		"@mui/material": "^7.0.0",
+		"@mui/system": "^7.0.0",
 		"gsap": "^3.12.0",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
 	}
 }

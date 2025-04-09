@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FC } from 'react'
-import { Grid2 as Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaItemProps } from './index.types'

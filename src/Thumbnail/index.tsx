@@ -16,7 +16,6 @@ const SpinoramaThumbnail: FC<SpinoramaThumbnailProps> = (props: SpinoramaThumbna
 		<Grid
 			ref={ref}
 			className={`spinorama-thumbnail${className ? ` ${className}` : ''}`}
-			item
 			flex="0 0 fit-content"
 			display="inline-flex"
 			justifyContent="center"

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { lazy, FC, Children, isValidElement, cloneElement } from 'react'
-import { Box, Grid2 as Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 
 // Types
 import type { ReactElement } from 'react'
@@ -29,7 +29,7 @@ const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProp
 				columns={12}
 				spacing={spacing ? { xs: 1, md: 2 } : 0}
 				minWidth={1}
-				height="100%"
+				height={1}
 			>
 				{Children.map(children, (child, index) => {
 					if (isValidElement(child)) {
