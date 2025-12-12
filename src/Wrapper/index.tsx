@@ -1,13 +1,10 @@
 'use client'
 
-import React, { lazy, FC } from 'react'
+import React, { FC } from 'react'
 import { Box, Grid } from '@mui/material'
 
 // Types
 import type { SpinoramaWrapperProps } from './index.types'
-
-// Components
-const SpinoramaItem = lazy(() => import('../Item'))
 
 const SpinoramaWrapper: FC<SpinoramaWrapperProps> = (props: SpinoramaWrapperProps) => {
 	// Props

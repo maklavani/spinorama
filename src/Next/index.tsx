@@ -9,7 +9,7 @@ import { ArrowForwardIos as ArrowForwardIosIcon, ArrowBackIosNew as ArrowBackIos
 import type { SpinoramaNextProps } from './index.types'
 
 // Helpers
-import { GenerateLayout } from '../Helpers/generate-layout'
+import { GenerateLayout } from '../Helpers/generate-layout.tsx'
 
 const SpinoramaNext: FC<SpinoramaNextProps> = (props: SpinoramaNextProps) => {
 	// Props

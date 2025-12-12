@@ -1,6 +1,8 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+- Improved module resolution for Next.js by updating TypeScript settings and using `.jsx` extensions in imports
+
 ## 0.5.22
 - Upgraded the packages
 
