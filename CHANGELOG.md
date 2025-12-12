@@ -1,6 +1,7 @@
 # Release Notes
 All notable changes to this package will be documented in this file.
 
+## 0.5.22
 - Upgraded the packages
 
 ## 0.5.21
