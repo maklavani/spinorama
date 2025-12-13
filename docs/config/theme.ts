@@ -1,9 +1,48 @@
-// Types
-import type { ThemeProps } from '@/types/configs/theme'
+import { createTheme } from '@mui/material/styles'
 
-const ThemeConfig: ThemeProps = {
-	color: '#8191ff',
-	listWidth: 240
-}
+// Types
+import type { Direction } from '@mui/material/styles'
+
+// Fonts
+import RubikFont from '@/styles/fonts/rubik'
+import RobotoFont from '@/styles/fonts/roboto'
+
+const ThemeConfig = (dir: Direction) =>
+	createTheme({
+		direction: dir,
+		cssVariables: {
+			colorSchemeSelector: 'class'
+		},
+		colorSchemes: {
+			light: {
+				palette: {
+					mode: 'light',
+					primary: { light: '#b199f4', main: '#7d54ed', dark: '#511ae7', contrastText: '#fff' },
+					secondary: { light: '#e8b6e1', main: '#ba39a7', dark: '#912c82', contrastText: '#fff' }
+				}
+			},
+			dark: {
+				palette: {
+					mode: 'dark',
+					primary: { light: '#b199f4', main: '#7d54ed', dark: '#511ae7', contrastText: '#fff' },
+					secondary: { light: '#e8b6e1', main: '#ba39a7', dark: '#912c82', contrastText: '#fff' },
+					background: { default: '#0f132e', paper: '#252f72' }
+				}
+			}
+		},
+		shape: { borderRadius: 8 },
+		typography: {
+			fontFamily: `${RubikFont.style.fontFamily}, ${RobotoFont.style.fontFamily}`,
+			fontSize: 14
+		},
+		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					body: { scrollBehavior: 'smooth' },
+					a: { textDecoration: 'none' }
+				}
+			}
+		}
+	})
 
 export default ThemeConfig

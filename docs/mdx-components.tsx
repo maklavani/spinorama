@@ -1,11 +1,10 @@
-import dynamic from 'next/dynamic'
-import { Grid2 as Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import { Grid, Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
 // Types
 import type { MDXComponents } from 'mdx/types'
 
 // Components
-const CodeAtom = dynamic(() => import('@/components/atoms/code'), { ssr: false })
+import CodeAtom from '@/components/atoms/code'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {

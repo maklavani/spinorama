@@ -1,4 +1,4 @@
-export type ThemeProps = {
+export type ThemeStyleProps = {
 	color: string
 	listWidth: number
 }

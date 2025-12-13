@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { dir } from 'i18next'
 import { useColorScheme } from '@mui/material/styles'
-import { SwipeableDrawer, Grid2 as Grid, Toolbar, SvgIcon } from '@mui/material'
+import { SwipeableDrawer, Grid, Toolbar, SvgIcon } from '@mui/material'
 
 import {
 	Close as CloseIcon,
@@ -23,7 +23,6 @@ import {
 } from '@mui/icons-material'
 
 // Types
-import type { Mode } from '@mui/system/cssVars/useCurrentColorScheme'
 import type { DrawerProps } from '@/types/components/organisms/drawer'
 import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
@@ -118,7 +117,7 @@ const MobileDrawerOrganism = (props: DrawerProps) => {
 
 	// Callbacks
 	const changeMode = useCallback(
-		(mode: Mode) => {
+		(mode: 'light' | 'dark' | 'system') => {
 			setMode(mode)
 
 			if (pathname === `/${lng}`) window.location.reload()

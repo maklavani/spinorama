@@ -1,6 +1,6 @@
 'use client'
 
-import { SwipeableDrawer, Box, Grid2 as Grid } from '@mui/material'
+import { SwipeableDrawer, Box, Grid } from '@mui/material'
 
 // Types
 import type { Theme } from '@mui/material'

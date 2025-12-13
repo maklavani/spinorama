@@ -2,7 +2,7 @@
 import type { ReactNode } from 'react'
 import type { Direction } from '@mui/material'
 
-export type AppCacheProps = {
+export type MUIProviderProps = {
 	dir: Direction
 	children: ReactNode
 }

@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, AppBar, Container, Toolbar, Grid2 as Grid } from '@mui/material'
+import { useMediaQuery, AppBar, Container, Toolbar, Grid } from '@mui/material'
 import { Menu as MenuIcon } from '@mui/icons-material'
 
 // Types
@@ -11,7 +11,7 @@ import type { Theme } from '@mui/material'
 import type { AppbarProps } from '@/types/components/organisms/appbar'
 
 // Components
-const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
+const HideOnScrollTemplate = dynamic(() => import('@/components/templates/hide-on-scroll'))
 const TopMenuOrganism = dynamic(() => import('@/components/organisms/menu/top'))
 const MobileDrawerOrganism = dynamic(() => import('@/components/organisms/drawer/mobile'))
 const IconButtonAtom = dynamic(() => import('@/components/atoms/buttons/icons/icon'))
@@ -29,7 +29,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 	const greaterThanMedium = useMediaQuery(muiTheme.breakpoints.up('md'))
 
 	return (
-		<HideOnScroll onlyDesktop={true}>
+		<HideOnScrollTemplate onlyDesktop={true}>
 			<AppBar
 				ref={appBarRef}
 				position="fixed"
@@ -70,7 +70,7 @@ const AppbarOrganism = (props: AppbarProps) => {
 
 				{!greaterThanMedium && <MobileDrawerOrganism lng={lng} open={open} setOpen={setOpen} />}
 			</AppBar>
-		</HideOnScroll>
+		</HideOnScrollTemplate>
 	)
 }
 

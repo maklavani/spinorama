@@ -11,10 +11,10 @@ import LocaleConfig from '@/config/locale'
 acceptLanguage.languages(LocaleConfig.list)
 
 export const config = {
-	matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest|manifest.json|images/|_vercel/|icon.png).*)']
+	matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|manifest.webmanifest|robots.txt|sitemap.xml|images/|pdf/|_vercel/|icon.png).*)']
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	// Find default language
 	const pathname = request.nextUrl.pathname
 	let defaultLng: string | null = null

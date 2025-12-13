@@ -1,4 +1,4 @@
 export type TypographyProps = {
-	lng?: string
+	lng: string
 	text: string
 }

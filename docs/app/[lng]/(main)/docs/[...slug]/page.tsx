@@ -5,19 +5,15 @@ import { Container } from '@mui/material'
 // Types
 import type { DocsPageProps } from '@/types/app/pages/docs'
 
-// Configurations
-import LocaleConfig from '@/config/locale'
-
 // Components
 const InstallationTemplate = dynamic(() => import('@/components/templates/docs/installation'))
 
-const DocsPage = (props: DocsPageProps) => {
+const DocsPage = async (props: DocsPageProps) => {
 	// Props
 	const { params } = props
+	const { lng, slug } = await params
 
 	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
-	const slug = params?.slug ?? []
 	const slugPathname = `/${slug.join('/')}`
 
 	// Check if the path is valid

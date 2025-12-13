@@ -5,9 +5,6 @@ import { Box } from '@mui/material'
 import type { Metadata } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
 
-// Configurations
-import LocaleConfig from '@/config/locale'
-
 // Helpers
 import { useTranslation } from '@/helpers/i18n/server'
 
@@ -18,9 +15,7 @@ const AppbarOrganism = dynamic(() => import('@/components/organisms/appbar'))
 export const generateMetadata = async (props: LayoutProps): Promise<Metadata> => {
 	// Props
 	const { params } = props
-
-	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
+	const { lng } = await params
 
 	// Variables
 	// eslint-disable-next-line react-hooks/rules-of-hooks
@@ -31,12 +26,10 @@ export const generateMetadata = async (props: LayoutProps): Promise<Metadata> =>
 	return metadata
 }
 
-const MainLayout = (props: LayoutProps) => {
+const MainLayout = async (props: LayoutProps) => {
 	// Props
 	const { params, children } = props
-
-	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
+	const { lng } = await params
 
 	return (
 		<Box display="flex">

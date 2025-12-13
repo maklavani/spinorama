@@ -1,5 +1,5 @@
 // Types
-import type { ApplicationProps } from '@/types/configs'
+import type { ApplicationProps } from '@/types/config'
 
 const config: ApplicationProps = {
 	name: 'Spinorama',

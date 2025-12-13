@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { dir } from 'i18next'
 import { useColorScheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, Grid2 as Grid, Divider, SvgIcon } from '@mui/material'
+import { useMediaQuery, Grid, Divider, SvgIcon } from '@mui/material'
 
 import {
 	NorthEast as NorthEastIcon,

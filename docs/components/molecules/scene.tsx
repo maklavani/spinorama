@@ -6,8 +6,8 @@ import { Vector2, MathUtils } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 
 // Shaders
-import vertexShader from '@/shaders/vertex.glsl'
-import fragmentShader from '@/shaders/fragment.glsl'
+import vertexShader from '@/shaders/vertex'
+import fragmentShader from '@/shaders/fragment'
 
 // Types
 import type { Mesh, ShaderMaterial } from 'three'

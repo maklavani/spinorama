@@ -1,1 +1,1 @@
-export type LogoShapeProps = { lng?: string }
+export type LogoShapeProps = { lng: string }

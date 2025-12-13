@@ -2,7 +2,7 @@
 import type { ReactNode } from 'react'
 
 export type TextButtonProps = {
-	lng?: string
+	lng: string
 	title: string
 	startIcon?: ReactNode
 	endIcon?: ReactNode

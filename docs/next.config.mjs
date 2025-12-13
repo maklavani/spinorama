@@ -3,25 +3,25 @@ import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 	reactStrictMode: true,
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.(glsl|vs|fs)$/,
-			use: 'raw-loader'
+			type: 'asset/source'
 		})
 
 		return config
 	}
 }
 
+// MDX
 const withMDX = createMDX({
-	// Add markdown plugins here, as desired
+	extension: /\.(md|mdx)$/,
 	options: {
-		remarkPlugins: [remarkGfm],
+		remarkPlugins: ['remark-gfm'],
 		rehypePlugins: []
 	}
 })
 
-// Wrap MDX and Next.js config with each other
 export default withMDX(nextConfig)

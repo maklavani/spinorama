@@ -2,9 +2,9 @@
 import type { ReactNode } from 'react'
 
 export type DocsLayoutProps = Readonly<{
-	children: ReactNode
-	params?: {
+	params: Promise<{
 		lng: string
 		slug: string[]
-	}
+	}>
+	children: ReactNode
 }>

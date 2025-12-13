@@ -34,7 +34,7 @@ i18next
 	})
 
 export function useTranslation<Ns extends FlatNamespace | undefined = undefined, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(
-	lng?: string,
+	lng: string,
 	ns?: Ns,
 	options?: UseTranslationOptions<KPrefix>
 ) {

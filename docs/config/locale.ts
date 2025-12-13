@@ -1,5 +1,5 @@
 // Types
-import type { LocaleProps } from '@/types/configs/locale'
+import type { LocaleProps } from '@/types/config/locale'
 
 // Configurations
 import Config from '@/config'

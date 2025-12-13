@@ -4,18 +4,13 @@ import { Container } from '@mui/material'
 // Types
 import type { PageProps } from '@/types/app/pages'
 
-// Configurations
-import LocaleConfig from '@/config/locale'
-
 // Components
 const OverviewTemplate = dynamic(() => import('@/components/templates/docs/overview'))
 
-const HomePage = (props: PageProps) => {
+const HomePage = async (props: PageProps) => {
 	// Props
 	const { params } = props
-
-	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
+	const { lng } = await params
 
 	return (
 		<Container maxWidth="xl">

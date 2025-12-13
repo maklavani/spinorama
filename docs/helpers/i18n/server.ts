@@ -11,7 +11,7 @@ import LocaleConfig from '@/config/locale'
 // Helpers
 import { getOptions } from '@/helpers/i18n/settings'
 
-const initI18next = async (lng?: string, ns?: string | string[]) => {
+const initI18next = async (lng: string, ns?: string | string[]) => {
 	const i18nInstance = createInstance()
 
 	await i18nInstance
@@ -22,11 +22,7 @@ const initI18next = async (lng?: string, ns?: string | string[]) => {
 	return i18nInstance
 }
 
-export async function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(
-	lng?: string,
-	ns?: Ns,
-	options: { keyPrefix?: KPrefix } = {}
-) {
+export async function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(lng: string, ns?: Ns, options: { keyPrefix?: KPrefix } = {}) {
 	const i18nextInstance = await initI18next(lng, Array.isArray(ns) ? (ns as string[]) : (ns as string))
 
 	return {

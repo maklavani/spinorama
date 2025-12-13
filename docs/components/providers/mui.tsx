@@ -5,20 +5,22 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript'
 import CssBaseline from '@mui/material/CssBaseline'
 
 // Types
-import type { ThemeRegistryProps } from '@/types/components/theme/theme-registry'
+import type { MUIProviderProps } from '@/types/components/providers/mui'
 
 // Configurations
-import CreateThemeConfig from '@/config/create-theme'
+import ThemeConfig from '@/config/theme'
 
-export default function ThemeRegistry(props: ThemeRegistryProps) {
+const MUIProvider = (props: MUIProviderProps) => {
 	// Props
 	const { dir, children } = props
 
 	return (
-		<ThemeProvider theme={CreateThemeConfig(dir)}>
-			<InitColorSchemeScript attribute="class" />
+		<ThemeProvider theme={ThemeConfig(dir)}>
+			<InitColorSchemeScript />
 			<CssBaseline />
 			{children}
 		</ThemeProvider>
 	)
 }
+
+export default MUIProvider

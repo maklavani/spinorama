@@ -9,14 +9,15 @@ import type { PageProps } from '@/types/app/pages'
 // Configurations
 import Config from '@/config'
 import LocaleConfig from '@/config/locale'
-import ThemeConfig from '@/config/theme'
+import ThemeConfig from '@/config/theme-style'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/server'
 
 // Components
-import ThemeRegistry from '@/components/theme/theme-registry'
-import AppCache from '@/components/theme/cache'
+import CookieProvider from '@/components/providers/cookie'
+import NextjsProvider from '@/components/providers/nextjs'
+import MUIProvider from '@/components/providers/mui'
 
 // Metadata
 export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
@@ -75,9 +76,11 @@ const RootLayout = (props: LayoutProps) => {
 	return (
 		<html lang={lng} dir={lngDir} suppressHydrationWarning>
 			<body>
-				<AppCache dir={lngDir}>
-					<ThemeRegistry dir={lngDir}>{children}</ThemeRegistry>
-				</AppCache>
+				<CookieProvider>
+					<NextjsProvider dir={lngDir}>
+						<MUIProvider dir={lngDir}>{children}</MUIProvider>
+					</NextjsProvider>
+				</CookieProvider>
 
 				<Analytics mode="auto" />
 			</body>

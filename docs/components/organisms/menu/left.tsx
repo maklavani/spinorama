@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme, alpha } from '@mui/material/styles'
-import { useMediaQuery, Grid2 as Grid, Box } from '@mui/material'
+import { useMediaQuery, Grid, Box } from '@mui/material'
 import { GitHub as GitHubIcon, Favorite as FavoriteIcon, List as ListIcon } from '@mui/icons-material'
 
 // Types
@@ -12,10 +12,10 @@ import type { MenuProps } from '@/types/components/organisms/menu'
 import type { LinkItemProps } from '@/types/components/atoms/list-item'
 
 // Configurations
-import ThemeConfig from '@/config/theme'
+import ThemeConfig from '@/config/theme-style'
 
 // Components
-const HideOnScroll = dynamic(() => import('@/components/theme/hide-on-scroll'))
+const HideOnScroll = dynamic(() => import('@/components/templates/hide-on-scroll'))
 const EdgeDrawerOrganism = dynamic(() => import('@/components/organisms/drawer/edge'))
 const ListMolecule = dynamic(() => import('@/components/molecules/list'))
 const ListItemAtom = dynamic(() => import('@/components/atoms/list-item'))

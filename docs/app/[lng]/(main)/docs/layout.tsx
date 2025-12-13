@@ -1,12 +1,9 @@
 import dynamic from 'next/dynamic'
-import { Container, Toolbar, Grid2 as Grid } from '@mui/material'
+import { Container, Toolbar, Grid } from '@mui/material'
 
 // Types
 import type { Metadata } from 'next'
 import type { LayoutProps } from '@/types/app/layouts'
-
-// Configurations
-import LocaleConfig from '@/config/locale'
 
 // Helpers
 import { useTranslation } from '@/helpers/i18n/server'
@@ -18,9 +15,7 @@ const LeftMenuOrganism = dynamic(() => import('@/components/organisms/menu/left'
 export const generateMetadata = async (props: LayoutProps): Promise<Metadata> => {
 	// Props
 	const { params } = props
-
-	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
+	const { lng } = await params
 
 	// Variables
 	// eslint-disable-next-line react-hooks/rules-of-hooks
@@ -31,12 +26,10 @@ export const generateMetadata = async (props: LayoutProps): Promise<Metadata> =>
 	return metadata
 }
 
-const DocsLayout = (props: LayoutProps) => {
+const DocsLayout = async (props: LayoutProps) => {
 	// Props
 	const { params, children } = props
-
-	// Variables
-	const lng = params?.lng ?? LocaleConfig.default
+	const { lng } = await params
 
 	return (
 		<Container maxWidth="xl">
